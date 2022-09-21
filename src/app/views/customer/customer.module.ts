@@ -15,7 +15,6 @@ import { CustomerDialogDetailContentComponent } from './customer-dialog-detail-c
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerRequestingListComponent } from './customer-requesting-list/customer-requesting-list.component';
-import { CustomerDialogRequestingListComponent } from './customer-requesting-list/customer-dialog-requesting-list/customer-dialog-requesting-list.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 import { CustomerNewComponent } from './customer-new/customer-new.component';
@@ -27,7 +26,6 @@ import { CustomerUpdateComponent } from './customer-update/customer-update.compo
 		CustomerDialogDetailContentComponent,
 		CustomerListComponent,
 		CustomerRequestingListComponent,
-		CustomerDialogRequestingListComponent,
 		CustomerNewComponent,
 		ToMemberShipPipe,
 		CustomerUpdateComponent,

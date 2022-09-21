@@ -14,7 +14,6 @@
 					listLabel: campaignDetail.campaignTitle,
 					campaignId: campaignDetail.campaignId
 				}"
-				
 			></p-button>
 			<p-button
 				class="finish-button"
@@ -245,7 +244,7 @@
 									formControlName="txtAmountGiftChanged"
 									placeholder="Số Lượng Quà Đã Đổi"
 									[(ngModel)]="campaignDetail.campaignGiftCurrentTotal"
-									[attr.disabled]=true
+									[attr.disabled]="true"
 								/>
 								<div>
 									<common-validation-message
@@ -422,8 +421,6 @@
 						[value]="campaignRules"
 						styleClass="p-datatable-sm p-datatable-gridlines"
 						responsiveLayout="scroll"
-						[scrollable]="true"
-						[resizableColumns]="true"
 					>
 						<ng-template pTemplate="header">
 							<tr>
@@ -484,8 +481,6 @@
 						[value]="campaignMonthlyGift"
 						styleClass="p-datatable-sm p-datatable-gridlines"
 						responsiveLayout="scroll"
-						[scrollable]="true"
-						[resizableColumns]="true"
 					>
 						<ng-template pTemplate="header">
 							<tr>
@@ -518,24 +513,12 @@
 									></button>
 								</td>
 								<td class="column-2">
-									<img
-										src="{{ gift.giftIcon }}"
-										alt="icon"
-										class="img-update"
-									/>
+									<img alt="icon" class="img-update" />
 								</td>
-								<td class="column-3">
-									{{ gift.giftTitle }}
-								</td>
-								<td class="column-4">
-									{{ gift.giftRequiredPoint }}
-								</td>
-								<td class="column-5">
-									{{ gift.createdDate | date: "dd/MM/yyyy" }}
-								</td>
-								<td class="column-6">
-									{{ gift.giftEndDate | date: "dd/MM/yyyy" }}
-								</td>
+								<td class="column-3"></td>
+								<td class="column-4"></td>
+								<td class="column-5"></td>
+								<td class="column-6"></td>
 							</tr>
 						</ng-template>
 					</p-table>
@@ -546,8 +529,6 @@
 						[value]="campaignSessionGift"
 						styleClass="p-datatable-sm p-datatable-gridlines"
 						responsiveLayout="scroll"
-						[scrollable]="true"
-						[resizableColumns]="true"
 					>
 						<ng-template pTemplate="header">
 							<tr>
@@ -580,24 +561,12 @@
 									></button>
 								</td>
 								<td class="column-2">
-									<img
-										src="{{ gift.giftIcon }}"
-										alt="icon"
-										class="img-update"
-									/>
+									<img alt="icon" class="img-update" />
 								</td>
-								<td class="column-3">
-									{{ gift.giftTitle }}
-								</td>
-								<td class="column-4">
-									{{ gift.giftRequiredPoint }}
-								</td>
-								<td class="column-5">
-									{{ gift.createdDate | date: "dd/MM/yyyy" }}
-								</td>
-								<td class="column-6">
-									{{ gift.giftEndDate | date: "dd/MM/yyyy" }}
-								</td>
+								<td class="column-3"></td>
+								<td class="column-4"></td>
+								<td class="column-5"></td>
+								<td class="column-6"></td>
 							</tr>
 						</ng-template>
 					</p-table>
@@ -608,8 +577,6 @@
 						[value]="campaignEndGift"
 						styleClass="p-datatable-sm p-datatable-gridlines"
 						responsiveLayout="scroll"
-						[scrollable]="true"
-						[resizableColumns]="true"
 					>
 						<ng-template pTemplate="header">
 							<tr>
@@ -642,24 +609,12 @@
 									></button>
 								</td>
 								<td class="column-2">
-									<img
-										src="{{ gift.giftIcon }}"
-										alt="icon"
-										class="img-update"
-									/>
+									<img alt="icon" class="img-update" />
 								</td>
-								<td class="column-3">
-									{{ gift.giftTitle }}
-								</td>
-								<td class="column-4">
-									{{ gift.giftRequiredPoint }}
-								</td>
-								<td class="column-5">
-									{{ gift.createdDate | date: "dd/MM/yyyy" }}
-								</td>
-								<td class="column-6">
-									{{ gift.giftEndDate | date: "dd/MM/yyyy" }}
-								</td>
+								<td class="column-3"></td>
+								<td class="column-4"></td>
+								<td class="column-5"></td>
+								<td class="column-6"></td>
 							</tr>
 						</ng-template>
 					</p-table>

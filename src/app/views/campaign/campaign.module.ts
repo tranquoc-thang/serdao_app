@@ -26,15 +26,13 @@ import { PanelModule } from 'primeng/panel';
 import { BaseModule } from '../base.module';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DialogAddCampaignComponent } from './dialog-add-campaign/dialog-add-campaign.component';
-import { DialogEditCampaignV1Component } from './dialog-edit-campaign-v1/dialog-edit-campaign-v1.component'
+import { DialogEditCampaignV1Component } from './dialog-edit-campaign-v1/dialog-edit-campaign-v1.component';
 import { DialogEditCampaignComponent } from './dialog-edit-campaign/dialog-edit-campaign.component';
 import { DialogEditCampaign3Component } from './dialog-edit-campaign3/dialog-edit-campaign3.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
-import { DialogAddNormalOrSpecialGiftComponent } from './dialog-edit-campaign-v1/dialog-add-normal-or-special-gift/dialog-add-normal-or-special-gift.component';
-import { DialogEditNormalOrSpecialGiftComponent } from './dialog-edit-campaign-v1/dialog-edit-normal-or-special-gift/dialog-edit-normal-or-special-gift.component';
 import { QrcodeHistoryListComponent } from './qrcode-history-list/qrcode-history-list.component';
 import { AdvanceSearchHistoryListQrcodeComponent } from './advance-search-history-list-qrcode/advance-search-history-list-qrcode.component';
 import { ProvinceTabComponent } from './province-tab/province-tab.component';
@@ -52,14 +50,12 @@ import { ProvinceTabComponent } from './province-tab/province-tab.component';
 		CampaignEditComponent,
 		DialogAddCampaignComponent,
 		DialogEditCampaignV1Component,
-		DialogAddNormalOrSpecialGiftComponent,
-		DialogEditNormalOrSpecialGiftComponent,
 		DialogEditCampaign3Component,
 		DialogAddGift3Component,
 		DialogEditGift3Component,
 		QrcodeHistoryListComponent,
 		AdvanceSearchHistoryListQrcodeComponent,
- 		 ProvinceTabComponent,
+		ProvinceTabComponent,
 	],
 	imports: [
 		CommonModule,
@@ -84,4 +80,4 @@ import { ProvinceTabComponent } from './province-tab/province-tab.component';
 		DropdownModule,
 	],
 })
-export class CampaignModule { }
+export class CampaignModule {}

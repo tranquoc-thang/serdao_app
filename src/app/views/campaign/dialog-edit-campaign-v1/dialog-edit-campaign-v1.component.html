@@ -520,9 +520,7 @@
 						styleClass="p-datatable-sm p-datatable-gridlines"
 						responsiveLayout="scroll"
 						[showCurrentPageReport]="true"
-						[scrollable]="true"
 						scrollHeight="400px"
-						[resizableColumns]="true"
 					>
 						<ng-template pTemplate="header">
 							<tr>
@@ -571,27 +569,18 @@
 							class="finish-button ml-12"
 							label="Thêm Quà Tặng Đặc Biệt"
 							type="button"
-							(click)="
-								showModalDialogAddNormalOrSpecialGift(!isAddNormalGift)
-							"
 						></p-button>
 						<p-button
 							class="release-button"
 							label="Thêm Quà Tặng"
-							(click)="
-								showModalDialogAddNormalOrSpecialGift(isAddNormalGift)
-							"
 						></p-button>
 					</div>
 				</div>
 				<h4>Danh Sách Quà Tặng</h4>
-				<div class="app-table" *ngIf="campaignNormalGifts">
+				<div class="app-table">
 					<p-table
-						[value]="campaignNormalGifts"
 						styleClass="p-datatable-sm p-datatable-gridlines"
 						responsiveLayout="scroll"
-						[scrollable]="true"
-						[resizableColumns]="true"
 					>
 						<ng-template pTemplate="header">
 							<tr>
@@ -612,11 +601,6 @@
 										type="button"
 										label="Sửa"
 										class="p-button-success p-button-text mr-2"
-										(click)="
-											showModalDialogEditNormalOrSpecialGift(
-												isEditNormalGift
-											)
-										"
 									></button>
 									|
 									<button
@@ -628,36 +612,21 @@
 									></button>
 								</td>
 								<td class="column-2">
-									<img
-										src="{{ gift.giftIcon }}"
-										alt="icon"
-										class="img-update"
-									/>
+									<img alt="icon" class="img-update" />
 								</td>
-								<td class="column-3">
-									{{ gift.giftTitle }}
-								</td>
-								<td class="column-4">
-									{{ gift.giftRequiredPoint }}
-								</td>
-								<td class="column-5">
-									{{ gift.createdDate | date: "dd/mm/yyyy" }}
-								</td>
-								<td class="column-6">
-									{{ gift.giftEndDate | date: "dd/mm/yyyy" }}
-								</td>
+								<td class="column-3"></td>
+								<td class="column-4"></td>
+								<td class="column-5"></td>
+								<td class="column-6"></td>
 							</tr>
 						</ng-template>
 					</p-table>
 				</div>
 				<h4>Danh Sách Quà Tặng Đặc Biệt</h4>
-				<div class="app-table" *ngIf="campaignSpecialGifts">
+				<div class="app-table">
 					<p-table
-						[value]="campaignSpecialGifts"
 						styleClass="p-datatable-sm p-datatable-gridlines"
 						responsiveLayout="scroll"
-						[scrollable]="true"
-						[resizableColumns]="true"
 					>
 						<ng-template pTemplate="header">
 							<tr>
@@ -677,11 +646,6 @@
 										type="button"
 										label="Sửa"
 										class="p-button-success p-button-text mr-2"
-										(click)="
-											showModalDialogEditNormalOrSpecialGift(
-												!isEditNormalGift
-											)
-										"
 									></button>
 									|
 									<button
@@ -693,21 +657,11 @@
 									></button>
 								</td>
 								<td class="column-2">
-									<img
-										src="{{ gift.giftIcon }}"
-										alt="icon"
-										class="img-update"
-									/>
+									<img alt="icon" class="img-update" />
 								</td>
-								<td class="column-3">
-									{{ gift.giftTitle }}
-								</td>
-								<td class="column-5">
-									{{ gift.createdDate | date: "dd/mm/yyyy" }}
-								</td>
-								<td class="column-6">
-									{{ gift.giftEndDate | date: "dd/mm/yyyy" }}
-								</td>
+								<td class="column-3"></td>
+								<td class="column-5"></td>
+								<td class="column-6"></td>
 							</tr>
 						</ng-template>
 					</p-table>

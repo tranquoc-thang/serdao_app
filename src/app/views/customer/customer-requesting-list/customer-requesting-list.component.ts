@@ -5,7 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EToastType } from '@app/constants';
 import { ColumnsTableDto } from '@app/interfaces/dtos/columns-table.dto';
 import { CompanyDto, CompanyUpdateDto } from '@app/interfaces/dtos/company.dto';
-import { CustomerDto, CustomerSearch, CustomerUpdateDto } from '@app/interfaces/dtos/customer.dto';
+import {
+	CustomerDto,
+	CustomerSearch,
+	CustomerUpdateDto,
+} from '@app/interfaces/dtos/customer.dto';
 import { CommonService } from '@app/services/common/common.service';
 import { CustomerService } from '@app/services/customer/customer.service';
 import { ValidationUtil } from '@app/utilities/validation.util';
@@ -17,14 +21,13 @@ import { ConfirmationService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { forkJoin, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { CustomerDialogRequestingListComponent } from './customer-dialog-requesting-list/customer-dialog-requesting-list.component';
 import { CustomerDialogDetailContentComponent } from '../customer-dialog-detail-content/customer-dialog-detail-content.component';
 
 @Component({
 	selector: 'app-customer-requesting-list',
 	templateUrl: './customer-requesting-list.component.html',
 	styleUrls: ['./customer-requesting-list.component.scss'],
-	providers: [DialogService]
+	providers: [DialogService],
 })
 export class CustomerRequestingListComponent extends BaseComponent {
 	public customerInitialized: boolean = false;
@@ -80,7 +83,9 @@ export class CustomerRequestingListComponent extends BaseComponent {
 			_dialog
 		);
 		this._pageTitle.setTitle(
-			this._translateService.instant('pages.customer.labels.page-title-customer-require-info')
+			this._translateService.instant(
+				'pages.customer.labels.page-title-customer-require-info'
+			)
 		);
 	}
 
@@ -167,7 +172,8 @@ export class CustomerRequestingListComponent extends BaseComponent {
 					if (result.response.responseStatus === 200) {
 						this.customerInitialized = result.customerInitialized;
 
-						this.customerRequestingList = result.response.content.datas.datasList;
+						this.customerRequestingList =
+							result.response.content.datas.datasList;
 						//Total record
 						this.totalRecords = result.response.content.datas.totalDatas;
 
@@ -211,7 +217,11 @@ export class CustomerRequestingListComponent extends BaseComponent {
 			);
 	}
 
-	doApproveRequestingProfile(customerInfo: CustomerUpdateDto, customerNo: string, message?: string) {
+	doApproveRequestingProfile(
+		customerInfo: CustomerUpdateDto,
+		customerNo: string,
+		message?: string
+	) {
 		this._confirmationService.confirm({
 			message: message,
 			accept: () => {
@@ -222,8 +232,8 @@ export class CustomerRequestingListComponent extends BaseComponent {
 					customerBirthday,
 					provinceName,
 					provinceId,
-					companyName
-				} = customerInfo
+					companyName,
+				} = customerInfo;
 
 				const newCustomerInfo = {
 					customerName,
@@ -232,15 +242,16 @@ export class CustomerRequestingListComponent extends BaseComponent {
 					customerBirthday,
 					customerProvinceName: provinceName,
 					customerProvinceId: provinceId,
-					companyName
-				}
+					companyName,
+				};
 
-				console.log('doappro', newCustomerInfo)
+				console.log('doappro', newCustomerInfo);
 
-				this.customerService.approveRequestingProfile(newCustomerInfo, customerNo)
+				this.customerService
+					.approveRequestingProfile(newCustomerInfo, customerNo)
 					?.subscribe(
 						(result) => {
-							console.log(result)
+							console.log(result);
 							if (result.responseStatus === 200) {
 								this.presentToast(
 									EToastType.success,
@@ -280,43 +291,52 @@ export class CustomerRequestingListComponent extends BaseComponent {
 	}
 
 	deletionRequestingProfile(customerNo: string, message?: string) {
-		this._confirmationService.confirm(
-			{
-				message: message,
-				accept: () => {
-
-					this.customerService.deletionRequestingProfile(customerNo)?.subscribe(
+		this._confirmationService.confirm({
+			message: message,
+			accept: () => {
+				this.customerService
+					.deletionRequestingProfile(customerNo)
+					?.subscribe(
 						(result) => {
 							if (result.responseStatus === 200) {
 								this.presentToast(
 									EToastType.success,
-									this._translateService.instant(result.content.message)
-								)
+									this._translateService.instant(
+										result.content.message
+									)
+								);
 							} else if (result.responseStatus == 417) {
 								this.presentToast(
 									EToastType.warning,
-									this._translateService.instant(result.statusText as string)
-								)
+									this._translateService.instant(
+										result.statusText as string
+									)
+								);
 							} else {
 								this.presentToast(
 									EToastType.error,
-									this._translateService.instant(result.statusText as string)
-								)
+									this._translateService.instant(
+										result.statusText as string
+									)
+								);
 							}
 						},
 						(error) => {
 							this.presentToast(
 								EToastType.error,
 								this._translateService.instant(error)
-							)
+							);
 						}
-					)
-				}
-			}
-		)
+					);
+			},
+		});
 	}
 
-	saveRequestingProfile(customerInfo: CustomerUpdateDto, customerNo: string, message?: string) {
+	saveRequestingProfile(
+		customerInfo: CustomerUpdateDto,
+		customerNo: string,
+		message?: string
+	) {
 		const {
 			customerName,
 			customerIdentification,
@@ -324,8 +344,8 @@ export class CustomerRequestingListComponent extends BaseComponent {
 			customerBirthday,
 			provinceName,
 			provinceId,
-			companyName
-		} = customerInfo
+			companyName,
+		} = customerInfo;
 
 		const newCustomerInfo = {
 			customerName,
@@ -334,49 +354,51 @@ export class CustomerRequestingListComponent extends BaseComponent {
 			customerBirthday,
 			customerProvinceName: provinceName,
 			customerProvinceId: provinceId,
-			companyName
-		}
+			companyName,
+		};
 
-		console.log(newCustomerInfo)
+		console.log(newCustomerInfo);
 
 		this._confirmationService.confirm({
 			message: message,
 			accept: () => {
-				this.customerService.saveRequestingProfile(newCustomerInfo, customerNo)?.subscribe(
-					(result) => {
-						if (result.responseStatus === 200) {
-							this.presentToast(
-								EToastType.success,
-								this._translateService.instant(
-									result.content.message
-								)
-							)
-						} else if (result.responseStatus == 417) {
-							this.presentToast(
-								EToastType.warning,
-								this._translateService.instant(
-									result.content.message
-								)
-							)
-						} else {
+				this.customerService
+					.saveRequestingProfile(newCustomerInfo, customerNo)
+					?.subscribe(
+						(result) => {
+							if (result.responseStatus === 200) {
+								this.presentToast(
+									EToastType.success,
+									this._translateService.instant(
+										result.content.message
+									)
+								);
+							} else if (result.responseStatus == 417) {
+								this.presentToast(
+									EToastType.warning,
+									this._translateService.instant(
+										result.content.message
+									)
+								);
+							} else {
+								this.presentToast(
+									EToastType.error,
+									this._translateService.instant(
+										result.content.message
+									)
+								);
+							}
+						},
+						(error) => {
+							console.error(error);
 							this.presentToast(
 								EToastType.error,
-								this._translateService.instant(
-									result.content.message
-								)
-							)
+								this._translateService.instant(error)
+							);
 						}
-					},
-					(error) => {
-						console.error(error)
-						this.presentToast(
-							EToastType.error,
-							this._translateService.instant(error)
-						)
-					}
-				)
-			}
-		})
+					);
+			},
+		});
 	}
 
 	// doEdit(slug: string) {
@@ -451,10 +473,12 @@ export class CustomerRequestingListComponent extends BaseComponent {
 	// }
 
 	// Emit data customer requesting list
-	addCustomerRequestingUpdationList(newCustomerRequestingUpdationList: CustomerDto[]) {
-		console.log("Emit EVent", newCustomerRequestingUpdationList)
-		this.customerRequestingList = newCustomerRequestingUpdationList
-		console.log('new Customer', this.customerRequestingList)
+	addCustomerRequestingUpdationList(
+		newCustomerRequestingUpdationList: CustomerDto[]
+	) {
+		console.log('Emit EVent', newCustomerRequestingUpdationList);
+		this.customerRequestingList = newCustomerRequestingUpdationList;
+		console.log('new Customer', this.customerRequestingList);
 	}
 
 	public getCurrentPage($event: {
@@ -483,30 +507,15 @@ export class CustomerRequestingListComponent extends BaseComponent {
 		// ref.onClose.subscribe((_) => this.getCustomerList());
 	}
 
-	showModalDialog(dataCustomer: CustomerDto) {
-		const ref = this._dialog.open(CustomerDialogRequestingListComponent, {
-			data: {
-				dataCustomer: dataCustomer,
-				isCustomerUpdation: this.isCustomerUpdation,
-				approveRequestingProfile: this.doApproveRequestingProfile,
-				deletionRequestingProfile: this.deletionRequestingProfile,
-				saveRequestingProfile: this.saveRequestingProfile
-			},
-			header: this.changeHeaderDialog(dataCustomer.groupId),
-			width: '40vw',
-		});
-		ref.onClose.subscribe((_) => this.getCustomerRequestingList());
-	}
-
 	changeHeaderDialog(dataGroupId: number) {
 		if (dataGroupId === 1) {
 			return this._translateService.instant(
 				'pages.customer.labels.update-dialog-title-prime'
-			)
+			);
 		} else {
 			return this._translateService.instant(
 				'pages.customer.labels.update-dialog-title-second'
-			)
+			);
 		}
 	}
 }
