@@ -1,0 +1,166 @@
+<div
+	class="row"
+	[formGroup]="mainForm"
+	*ngIf="
+		mainForm.get(controllerName)?.dirty &&
+		mainForm.get(controllerName)?.touched
+	"
+>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="
+			mainForm.controls[controllerName].errors?.required &&
+			controllerType == 'textbox'
+		"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant(
+					"common.validation.message-required-input"
+				),
+				[controllerTitle]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="mainForm.controls[controllerName].errors?.pattern"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant("common.validation.message-pattern"),
+				[controllerTitle]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="
+			mainForm.controls[controllerName].errors?.minlength && !exactlyLength
+		"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant(
+					"common.validation.message-min-max-length"
+				),
+				[controllerTitle, minLength, maxLength]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="
+			mainForm.controls[controllerName].errors?.minlength && exactlyLength
+		"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant(
+					"common.validation.message-exactly-length"
+				),
+				[controllerTitle, exactlyLength]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="mainForm.controls[controllerName].errors?.maxlength"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant("common.validation.message-max-length"),
+				[controllerTitle, maxLength]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="mainForm.controls[controllerName].errors?.exist"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant("common.validation.message-exist"),
+				[controllerTitle, controllerTitle]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="mainForm.controls[controllerName].errors?.notexist"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant("common.validation.message-not-exist"),
+				[controllerTitle]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="
+			!mainForm.controls[controllerName].errors?.required &&
+			!mainForm.controls[controllerName].errors?.pattern &&
+			!mainForm.controls[controllerName].errors?.minlength &&
+			!mainForm.controls[controllerName].errors?.maxlength &&
+			!mainForm.controls[controllerName].errors?.unique &&
+			mainForm.controls[controllerName].errors?.match
+		"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant("common.validation.message-not-matched"),
+				[controllerTitle, controllerMatchTitle]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="
+			!mainForm.controls[controllerName].errors?.required &&
+			!mainForm.controls[controllerName].errors?.pattern &&
+			!mainForm.controls[controllerName].errors?.minlength &&
+			!mainForm.controls[controllerName].errors?.maxlength &&
+			!mainForm.controls[controllerName].errors?.unique &&
+			mainForm.controls[controllerName].errors?.matchWithOld
+		"
+	>
+		{{
+			_translateService.instant("common.validation.password-unchange-error")
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="
+			mainForm.controls[controllerName].invalid &&
+			mainForm.get(controllerName)?.touched &&
+			controllerType == 'selectbox'
+		"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant(
+					"common.validation.message-required-select-box"
+				),
+				[controllerTitle]
+			)
+		}}
+	</div>
+	<div
+		class="error-message col-lg-12"
+		*ngIf="
+			mainForm.controls[controllerName].invalid &&
+			mainForm.get(controllerName)?.touched &&
+			controllerType == 'multipleselectbox'
+		"
+	>
+		{{
+			stringUtil.languageReplace(
+				_translateService.instant(
+					"common.validation.message-required-multiple-select-box"
+				),
+				[controllerTitle]
+			)
+		}}
+	</div>
+</div>

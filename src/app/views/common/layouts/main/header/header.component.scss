@@ -1,0 +1,14 @@
+#navbarBlur {
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+	background-color: #fff !important;
+}
+
+.dropdown-menu {
+	padding: 0;
+	margin-top: 0;
+}
+
+.dropdown-menu[data-bs-popper] {
+	margin-top: none;
+	top: 80%;
+}

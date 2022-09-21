@@ -1,0 +1,40 @@
+.form {
+	width: 100%;
+	height: auto;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+	background-color: #fff !important;
+	margin-top: 2rem;
+	h5 {
+		padding: 1rem 0 0 1rem;
+	}
+	.input-field {
+		padding: 0 2rem 0 2rem;
+	}
+
+	.form-control:focus {
+		box-shadow: 0 0 0 0.2rem #a6d5fa;
+		border-color: #2196F3
+	}
+}
+
+:host ::ng-deep {
+	.p-dropdown {
+		border-radius: 8px;
+		width: 100%;
+	}
+	.p-button-text {
+		width: 120px;
+		background-color: #008cff;
+		color: #ffffff;
+		border-color: #0000;
+		text-align: center;
+	}
+}
+
+.btn-search {
+	float: right;
+	padding-bottom: 2%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}

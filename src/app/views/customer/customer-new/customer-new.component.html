@@ -1,0 +1,152 @@
+<app-main-layout>
+	<app-common-advanced-search
+		(searchEvent)="receiveSearch($event)"
+		[isCustomerList]="false"
+		[isCustomerNewList]="true"
+	></app-common-advanced-search>
+
+	<div class="app-table mt-5" *ngIf="customerList">
+		<p-table
+			[value]="customerList"
+			styleClass="p-datatable-sm p-datatable-gridlines"
+			responsiveLayout="scroll"
+			[paginator]="true"
+			[rows]="10"
+			[showCurrentPageReport]="true"
+			responsiveLayout="scroll"
+			currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+			[rowsPerPageOptions]="[5, 10, 15]"
+			[scrollable]="true"
+			scrollHeight="400px"
+			[resizableColumns]="true"
+		>
+			<ng-template pTemplate="caption">
+				<div class="flex table-caption">
+					<h5>
+						{{
+							_translateService.instant(
+								"pages.customer.labels.table-title"
+							)
+						}}
+					</h5>
+					<span> </span>
+				</div>
+			</ng-template>
+			<ng-template pTemplate="header">
+				<tr>
+					<th class="column-1">
+						{{
+							_translateService.instant("pages.customer.labels.action")
+						}}
+					</th>
+					<th class="column-2">Ngày Đăng Ký</th>
+					<th class="column-3">
+						{{
+							_translateService.instant(
+								"pages.customer.labels.customer-no"
+							)
+						}}
+					</th>
+					<th class="column-4">
+						{{
+							_translateService.instant(
+								"pages.customer.labels.customer-group-name"
+							)
+						}}
+					</th>
+					<th class="column-5">
+						{{
+							_translateService.instant(
+								"pages.customer.labels.customer-full-name"
+							)
+						}}
+					</th>
+					<th class="column-6">
+						{{
+							_translateService.instant(
+								"pages.customer.labels.customer-CMND-CCCD"
+							)
+						}}
+					</th>
+					<th class="column-7">
+						{{
+							_translateService.instant(
+								"pages.customer.labels.customer-phone-number"
+							)
+						}}
+					</th>
+					<th class="column-8">
+						{{
+							_translateService.instant(
+								"pages.customer.labels.customer-email"
+							)
+						}}
+					</th>
+					<th class="column-9">
+						{{
+							_translateService.instant(
+								"pages.customer.labels.customer-rank"
+							)
+						}}
+					</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-customer>
+				<tr>
+					<td class="app-table-action column-1">
+						<button
+							pButton
+							pRipple
+							type="button"
+							[label]="_translateService.instant('common.action.edit')"
+							class="p-button-warning p-button-text mr-2"
+							(click)="
+								showModalDialog(customer.customerNo, customer.groupId)
+							"
+						></button>
+						|
+						<button
+							pButton
+							pRipple
+							type="button"
+							[label]="
+								_translateService.instant('common.action.confirm')
+							"
+							class="p-button-success p-button-text mr-2"
+							(click)="
+								doVerificationCustomer(
+									customer.customerNo,
+									customer.status
+								)
+							"
+						></button>
+					</td>
+					<td class="column-2">
+						{{ customer.createdDate | date: "dd/MM/yyyy" }}
+					</td>
+					<td class="column-3">
+						{{ customer.customerNo }}
+					</td>
+					<td class="column-4">
+						{{ customer.groupName }}
+					</td>
+					<td class="column-5">
+						{{ customer.customerName }}
+					</td>
+					<td class="column-6">
+						{{ customer.customerIdentification }}
+					</td>
+					<td class="column-7">
+						{{ customer.customerPhone }}
+					</td>
+					<td class="column-8">
+						{{ customer.customerEmail }}
+					</td>
+					<td class="column-9">
+						{{ customer.membershipId }}
+					</td>
+				</tr>
+			</ng-template>
+		</p-table>
+	</div>
+</app-main-layout>

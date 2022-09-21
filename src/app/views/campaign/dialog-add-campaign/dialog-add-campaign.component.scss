@@ -1,0 +1,82 @@
+span {
+	color: #dc3545;
+}
+
+.badge {
+	height: 35px;
+	padding-top: 10px;
+	background-color: #d7edff;
+	border: 1px solid #51acf6;
+}
+// .form-control {
+// 	border-radius: 3px;
+// }
+.badge-secondary {
+	color: #008cff;
+}
+
+.row {
+	margin-top: 15px;
+}
+
+.group-button {
+	text-align: right;
+}
+
+.button-create {
+	padding: 1rem 0 0 0;
+}
+
+.label {
+	font-size: 13px;
+	width: 100%;
+}
+
+.w-full {
+	width: 100%;
+}
+
+.activation-email {
+	padding-top: 1.5rem;
+}
+
+:host ::ng-deep {
+	.p-inputmask {
+		width: 100%;
+		height: 40px;
+		border-radius: 8px;
+	}
+	.p-dropdown {
+		width: 100%;
+	}
+	
+	.p-calendar {
+		width: 100%;
+		height: 38px;
+		border-radius: 3px;
+	}
+
+	.p-button-text {
+		background-color: #008cff;
+		color: #ffffff;
+		border-color: #0000;
+	}
+
+	.p-datepicker td > span {
+		display: initial;
+		font-size: 15px;
+	}
+	.ui-datepicker .ui-widget {
+		font-size: 20px;
+	}
+	.p-datepicker {
+		z-index: 1003 !important;
+		transform-origin: center top !important;
+		left: -1px !important;
+		top: -90px !important;
+	}
+	.p-inputtextarea {
+		width: 100%;
+		border-radius: 3px;
+	}
+}

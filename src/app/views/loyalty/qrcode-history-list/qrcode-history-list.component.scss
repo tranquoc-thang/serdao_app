@@ -1,0 +1,56 @@
+.app-table {
+	width: 100%;
+	height: auto;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+	background-color: #fff !important;
+	margin-top: 2rem;
+	padding: 5px;
+	th,
+    td {
+        justify-content: center;
+    }
+    .column-1 {
+        min-width: 100px;
+    }
+    .column-2 {
+        min-width: 150px;
+    }
+    .column-3 {
+        min-width: 170px;
+    }
+    .column-4 {
+        min-width: 70px;
+    }
+    .column-5 {
+        min-width: 170px;
+    }
+    .column-6 {
+        min-width: 150px;
+    }
+    .column-7 {
+        min-width: 180px;
+    }
+    .column-8 {
+        min-width: 180;
+    }
+    .column-9 {
+        min-width: 190px;
+    }
+}
+.qrcode{
+	width: 50%;
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto;
+}
+.error{
+    color: red;
+    justify-content: center;
+    display: block;
+    text-align: center;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem #a6d5fa;
+    border-color: #2196F3
+}

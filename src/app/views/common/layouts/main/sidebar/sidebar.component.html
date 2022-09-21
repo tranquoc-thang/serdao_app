@@ -1,0 +1,524 @@
+<aside
+	class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-white"
+	id="sidenav-main"
+	data-color="info"
+>
+	<div class="sidenav-header">
+		<i
+			class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+			aria-hidden="true"
+			id="iconSidenav"
+		></i>
+		<span class="navbar-brand m-0" title="VGSI">
+			<img
+				src="assets/images/logo-banner.png"
+				class="navbar-brand-img h-100"
+				alt="VGSI"
+			/>
+		</span>
+	</div>
+	<div
+		class="collapse navbar-collapse w-auto h-auto"
+		id="sidenav-collapse-main"
+	>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<hr class="horizontal dark" />
+				<h6
+					class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6"
+				>
+					Menu Quản Trị Hệ Thống
+				</h6>
+			</li>
+
+			<li class="nav-item">
+				<a
+					class="nav-link"
+					[routerLink]="['/onboarding']"
+					[state]="{
+						rootLabel: _translateService.instant(
+							'common.breadcrumbs.onboarding.labels.root'
+						),
+						listLabel: _translateService.instant(
+							'common.breadcrumbs.onboarding.labels.list'
+						)
+					}"
+					[ngClass]="currentRoute == '/onboarding' ? 'active' : ''"
+				>
+					<div
+						class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+					>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span class="nav-link-text ms-1">{{
+						_translateService.instant("common.sidebar.labels.onboarding")
+					}}</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a
+					_ngcontent-snx-c248=""
+					data-bs-toggle="collapse"
+					aria-expanded="false"
+					href="#customertModule"
+					aria-controls="customertModule"
+					role="button"
+					class="nav-link collapsed"
+					ng-reflect-ng-class="collapsed"
+					[ngClass]="
+						currentRoute == '/customer' ||
+						currentRoute == '/customer/requesting' ||
+						currentRoute == '/customer/new'
+							? ''
+							: 'collapsed'
+					"
+				>
+					<div
+						_ngcontent-snx-c248=""
+						class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+					>
+						<i _ngcontent-snx-c248="" class="fas fa-users"></i>
+					</div>
+					<span _ngcontent-snx-c248="" class="nav-link-text ms-1"
+						>Khách Hàng</span
+					>
+				</a>
+
+				<div
+					class="collapse"
+					id="customertModule"
+					[ngClass]="
+						currentRoute == '/customer' ||
+						currentRoute == '/customer/requesting' ||
+						currentRoute == '/customer/new'
+							? 'show'
+							: ''
+					"
+				>
+					<ul class="nav ms-4 ps-2">
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/customer']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.recruitment.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.recruitment.labels.list'
+									)
+								}"
+								[ngClass]="currentRoute == '/customer' ? 'active' : ''"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-users"></i>
+								</div>
+								<span class="sidenav-normal">Danh Sách Khách Hàng</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/customer/requesting']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.applied-candidate.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.applied-candidate.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute == '/customer/requesting'
+										? 'active'
+										: ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-user"></i>
+								</div>
+								<span class="sidenav-normal"
+									>Danh Sách Yêu Cầu<br />Cập Nhật Thông Tin</span
+								>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/customer/new']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.applied-candidate.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.applied-candidate.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute == '/customer/new' ? 'active' : ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="far fa-address-card"></i>
+								</div>
+								<span class="sidenav-normal"
+									>Danh Sách Khách Hàng<br />Đợi Xác Nhận</span
+								>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				<a
+					_ngcontent-snx-c248=""
+					data-bs-toggle="collapse"
+					aria-expanded="false"
+					href="#packingtModule"
+					aria-controls="packingtModule"
+					role="button"
+					class="nav-link collapsed"
+					ng-reflect-ng-class="collapsed"
+					[ngClass]="
+						currentRoute == '/customer' || currentRoute == '/used-qr'
+							? ''
+							: 'collapsed'
+					"
+				>
+					<div
+						_ngcontent-snx-c248=""
+						class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+					>
+						<i _ngcontent-snx-c248="" class="fas fa-qrcode"></i>
+					</div>
+					<span _ngcontent-snx-c248="" class="nav-link-text ms-1"
+						>Mã QR</span
+					>
+				</a>
+
+				<div
+					class="collapse"
+					id="packingtModule"
+					[ngClass]="
+						currentRoute == '/packing-qr-list' ||
+						currentRoute == '/used-qr'
+							? 'show'
+							: ''
+					"
+				>
+					<ul class="nav ms-4 ps-2">
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/qrcode/packing-qr-list']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute == '/qrcode/packing-qr-list'
+										? 'active'
+										: ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-list"></i>
+								</div>
+								<span class="nav-link-text ms-1">Danh Sách Mã QR</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				<a
+					_ngcontent-snx-c248=""
+					data-bs-toggle="collapse"
+					aria-expanded="false"
+					href="#campaigntModule"
+					aria-controls="campaigntModule"
+					role="button"
+					class="nav-link collapsed"
+					ng-reflect-ng-class="collapsed"
+					[ngClass]="
+						currentRoute == '/campaigns' ||
+						currentRoute == '/giftList' ||
+						currentRoute == '/exchangeGiftList'
+							? ''
+							: 'collapsed'
+					"
+				>
+					<div
+						_ngcontent-snx-c248=""
+						class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+					>
+						<i class="fas fa-balance-scale"></i>
+					</div>
+					<span _ngcontent-snx-c248="" class="nav-link-text ms-1"
+						>Chiến Dịch Khuyến Mãi</span
+					>
+				</a>
+
+				<div
+					class="collapse"
+					id="campaigntModule"
+					[ngClass]="
+						currentRoute == '/campaigns' ||
+						currentRoute == '/giftList' ||
+						currentRoute == '/exchangeGiftList'
+							? 'show'
+							: ''
+					"
+				>
+					<ul class="nav ms-4 ps-2">
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/campaign/campaign-list']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute == '/campaign/campaign-list'
+										? 'active'
+										: ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-list"></i>
+								</div>
+								<span class="nav-link-text ms-1"
+									>Danh Sách Chiến Dịch</span
+								>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/giftList']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.list'
+									)
+								}"
+								[ngClass]="currentRoute == '/giftList' ? 'active' : ''"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-gifts"></i>
+								</div>
+								<span class="nav-link-text ms-1"
+									>Danh Sách Quà Loyaty</span
+								>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/exchangeGiftList']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute == '/exchangeGiftList' ? 'active' : ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-dolly"></i>
+								</div>
+								<span class="nav-link-text ms-1">Lịch Sử Đổi Quà</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				<a
+					_ngcontent-snx-c248=""
+					data-bs-toggle="collapse"
+					aria-expanded="false"
+					href="#loyaltyModule"
+					aria-controls="loyaltyModule"
+					role="button"
+					class="nav-link collapsed"
+					ng-reflect-ng-class="collapsed"
+					[ngClass]="
+						currentRoute == '/loyalty/loyalty-rule' ||
+						currentRoute == '/loyalty/loyalty-gift-list' ||
+						currentRoute == '/loyalty/qrcode-history-list'
+							? ''
+							: 'collapsed'
+					"
+				>
+					<div
+						_ngcontent-snx-c248=""
+						class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+					>
+						<i class="fas fa-award"></i>
+					</div>
+					<span _ngcontent-snx-c248="" class="nav-link-text ms-1"
+						>Chương Trình Loyalty</span
+					>
+				</a>
+
+				<div
+					class="collapse"
+					id="loyaltyModule"
+					[ngClass]="
+						currentRoute == '/loyalty/loyalty-rule' ||
+						currentRoute == '/loyalty/loyalty-gift-list' ||
+						currentRoute == '/loyalty/qrcode-history-list'
+							? 'show'
+							: ''
+					"
+				>
+					<ul class="nav ms-4 ps-2">
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/loyalty/loyalty-rule']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute == '/loyalty/loyalty-rule'
+										? 'active'
+										: ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-list"></i>
+								</div>
+								<span class="nav-link-text ms-1">Quy Luật</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/loyalty/loyalty-gift-list']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute == '/loyalty/loyalty-gift-list'
+										? 'active'
+										: ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-gifts"></i>
+								</div>
+								<span class="nav-link-text ms-1"
+									>Danh Sách Quà Tặng</span
+								>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="[
+									'/loyalty/loyalty-gift-exchange-manager'
+								]"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute ==
+									'/loyalty/loyalty-gift-exchange-manager'
+										? 'active'
+										: ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-gifts"></i>
+								</div>
+								<span class="nav-link-text ms-1">Quản Lý Đổi Quà</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								[routerLink]="['/loyalty/qrcode-history-list']"
+								[state]="{
+									rootLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.root'
+									),
+									listLabel: _translateService.instant(
+										'common.breadcrumbs.onboarding.labels.list'
+									)
+								}"
+								[ngClass]="
+									currentRoute == '/loyalty/qrcode-history-list'
+										? 'active'
+										: ''
+								"
+							>
+								<div
+									class="icon icon-shape icon-md shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+								>
+									<i class="fas fa-list"></i>
+								</div>
+								<span class="nav-link-text ms-1">Mã QR Đã Sử Dụng</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</aside>

@@ -1,0 +1,620 @@
+{
+    "common": {
+        "app-name": "Content Management System",
+        "app-title": "Inotek | Content Management System",
+        "owner-name": "Innovation Technology Solution",
+        "app-copyright": "Copyright © 2021 Innovation Technology Corp. All Rights Reserved.",
+        "info": {
+            "company-name": "株式会社 トレンタ",
+            "company-address": "〒541-0053大阪市中央区本町4-5-4 本町GTCビル5F",
+            "company-phone": "+81-06-6271-3223",
+            "company-fax": "+81-06-6271-3224"
+        },
+        "alert-component": {
+            "confirm-title": "確認",
+            "alert-action": "この$1を$0しますか。",
+            "cancel": "キャンセル",
+            "ok": "OK"
+        },
+        "action": {
+            "delete": "Delete",
+            "edit": "Edit",
+            "add": "Add",
+            "default": "Default configuration",
+            "active": "Active",
+            "deactive": "Inactive",
+            "save": "Save",
+            "search": "Search",
+            "add-new": "Add new $0",
+            "change": "Change",
+            "send": "Send Email",
+            "apply": "Apply"
+        },
+        "success-message": {
+            "action-success": "$1の$0に成功しました",
+            "update-success": "編集が完了しました。",
+            "delete-success": "削除が完了しました。",
+            "create-success": "$0が完了しました"
+        },
+        "success-messages": {
+            "got-data-successfully": "Got the data successfully!",
+            "delete-data-successfully": "Delete data successfully!"
+        },
+        "errors-message": {
+            "common-server-error": "An unexpected system error has occurred.",
+            "common-server-warning": "Inaccurate information. Please check again.",
+            "get-success": "An unexpected system error has occurred.",
+            "create-success": "An unexpected system error has occurred.",
+            "update-success": "An unexpected system error has occurred.",
+            "delete-success": "An unexpected system error has occurred.",
+            "get-warning": "An unexpected system error has occurred.",
+            "create-warning": "An unexpected system error has occurred.",
+            "update-warning": "An unexpected system error has occurred.",
+            "delete-warning": "An unexpected system error has occurred.",
+            "get-error": "An unexpected system error has occurred.",
+            "create-error": "An unexpected system error has occurred.",
+            "update-error": "An unexpected system error has occurred.",
+            "delete-error": "An unexpected system error has occurred.",
+            "wrong-password": "The old password is incorrect. Please check again.",
+            "login-wrong": "There is an error in the input."
+        },
+        "validation": {
+            "badge-required": "必須",
+            "badge-optional": "任意",
+            "message-required-input": "「$0」Please fill in the required fields.",
+            "message-required-select-box": "「$0」Select one value for.",
+            "message-required-multiple-select-box": "「$0」",
+            "message-pattern": "「$0」The format of is incorrect, please enter it again.",
+            "message-max-length": "「$0」Please enter for $1 or less.",
+            "message-min-max-length": "「$0」Enter from $1 digit to $2 digit.",
+            "message-exactly-length": "「$0」Enter in $1 digit.",
+            "message-end-before-start-date": "「$0」is a date before「$1」, so enter it again.",
+            "message-not-matched": "The values entered for「$0」and「$1 do not match, so enter them again.",
+            "message-exist": "This $0 has already been registered. Please re-enter for another $1.",
+            "message-not-exist": "「$0」Is incorrect, please enter it again.",
+            "password-unchange-error": "The new password must be different from the old password.",
+            "null-province": "Some field is required.",
+            "message": "Please fill all fields"
+        },
+        "buttons": {
+            "ok": "Yes",
+            "cancel": "Cancel",
+            "back": "Back"
+        },
+        "labels": {
+            "address-char": "〒",
+            "none": "なし",
+            "currency-symbol": "円",
+            "percent-symbol": "％"
+        },
+        "breadcrumbs": {
+            "candidate": {
+                "labels": {
+                    "list": "Candidate list",
+                    "root": "Candidate management"
+                }
+            },
+            "company": {
+                "labels": {
+                    "list": "Company list",
+                    "root": "Company management"
+                }
+            },
+            "applied-candidate": {
+                "labels": {
+                    "list": "Applied Candidate list",
+                    "root": "Applied Candidate management"
+                }
+            },
+            "recruitment": {
+                "labels": {
+                    "list": "Recruitment list",
+                    "root": "Recruitment management"
+                }
+            },
+            "onboarding": {
+                "labels": {
+                    "list": "Onboarding",
+                    "root": "Dashboard"
+                }
+            }
+        },
+        "table": {
+            "labels": {
+                "action": "Action",
+                "active": "Active",
+                "deactive": "Deactive",
+                "empty-data": "No data was found.",
+                "candidate-email": "Candidate Email",
+                "candidate-first-name": "Candidate Full Name",
+                "candidate-last-name": "Candidate Last Name"
+            },
+            "placeholder": {
+                "search": "Enter to Search"
+            }
+        },
+        "sidebar": {
+            "labels": {
+                "applied-candidate": "Applied Candidate",
+                "recruitment": "Recruitment",
+                "company": "Companies",
+                "candidate": "Candidate",
+                "system": "System Management",
+                "onboarding": "Dashboard",
+                "app": "Tokunabi"
+            }
+        },
+        "header": {
+            "labels": {
+                "japan": "Japanese",
+                "english": "English",
+                "sign-out": "Logout",
+                "profile": "Profile",
+                "language": "Languages"
+            }
+        },
+        "province": {
+            "labels": {
+                "area": "Area",
+                "province": "Province",
+                "city": "City",
+                "no-select": "No Selected"
+            },
+            "placeholders": {
+                "area": "Choose Your Area",
+                "province": "Choose Your Province",
+                "city": "Choose Your City"
+            }
+        },
+        "sex": {
+            "labels": {
+                "sex": "Sex"
+            },
+            "placeholders": {
+                "sex": "Choose your gender"
+            }
+        },
+        "major": {
+            "labels": {
+                "major": "Major"
+            },
+            "placeholders": {
+                "major": "Choose your major"
+            }
+        },
+        "type-of-business": {
+            "labels": {
+                "type-of-business": "Type Of Business"
+            },
+            "placeholders": {
+                "type-of-business": "Enter your type of business"
+            }
+        },
+        "calendar": {
+            "placeholders": {
+                "calendar": "Choose Date"
+            }
+        }
+    },
+    "pages": {
+        "admin-forgotten-password": {
+            "warning-messages": {
+                "account-has-been-wrong": "Incorrect email"
+            }
+        },
+        "not-support-device": {
+            "labels": {
+                "header-title": "Tokunabi CMS only supports computer."
+            }
+        },
+        "login": {
+            "labels": {
+                "page-title": "とくナビ管理システム",
+                "body-title": "ログイン",
+                "input-username-title": "ユーザー名",
+                "input-username-placeholder": "例： admin",
+                "input-password-title": "パスワード",
+                "input-password-placeholder": "半角英数字6文字以上",
+                "button-login-title": "ログイン",
+                "link-forgotpassword-title": "パスワードをお忘れですか?"
+            },
+            "success-messages": {
+                "logged-in-successfully": "Logged in successfully."
+            },
+            "warning-messages": {
+                "admin-account": {
+                    "required": "User account field is required a value.",
+                    "invalid-string": "User account field format was wrong.",
+                    "max-character-50": "The maximum number of characters for user account field is 50 characters."
+                },
+                "admin-password": {
+                    "required": "User password field is required a value.",
+                    "between-character-6-100": "The number of characters for password field is between 6 ~ 100 characters."
+                },
+                "admin-account-has-not-exist": "Admin user account has not been exist."
+            },
+            "error-messages": {}
+        },
+        "applied-candidate": {
+            "labels": {
+                "page-title": "Applied Candidate Page",
+                "table-title": "Applied Candidate List",
+                "dialog-title": "Applied Candidate Detail",
+                "career-name": "Career Name",
+                "career-description": "Career Description",
+                "province-name": "Province",
+                "city-name": "City",
+                "visibility": "Status",
+                "candidate-first-name": "First Name",
+                "candidate-last-name": "Last Name",
+                "candidate-first-kana-name": "First Kana Name",
+                "candidate-last-kana-name": "Last Kana Name",
+                "candidate-birthday": "Birthday",
+                "candidate-address": "Address",
+                "candidate-major": "Major",
+                "candidate-email": "Email",
+                "candidate-phone": "Phone Number",
+                "candidate-sex": "Gender",
+                "candidate-sex-male": "Male",
+                "candidate-sex-female": "Female",
+                "candidate-verified": "Verified",
+                "candidate-verified-true": "Verified",
+                "candidate-verified-false": "Not verified",
+                "page-report": "Showing {first} to {last} of {totalRecords} entries"
+            },
+            "error-messages": {},
+            "messages": {
+                "create": {
+                    "success": "applied-candidate created",
+                    "warning": "applied-candidate warning",
+                    "error": "applied-candidate error"
+                },
+                "update": {
+                    "success": "applied-candidate updated",
+                    "warning": "applied-candidate warning",
+                    "error": "applied-candidate error"
+                }
+            }
+        },
+        "recruitment": {
+            "labels": {
+                "page-title": "Recruitment Page",
+                "table-title": "Recruitment List",
+                "create-dialog-title": "Create Recruitment",
+                "detail-dialog-title": "Recruitment Detail",
+                "career-name": "Career Name",
+                "company-name": "Company",
+                "province-name": "Province",
+                "city-name": "City",
+                "career-description": "Career Description",
+                "visibility": "Status",
+                "company-email": "Company Email",
+                "company-profile-title": "Company Profile",
+                "company-industry": "Industry",
+                "company-number-of-employees": "Number Of Employees",
+                "company-established": "Established",
+                "company-characteristics": "Characteristics",
+                "job-number-of-applicants": "Job Number of Applicants",
+                "job-title": "Job Title",
+                "job-description": "Job Description",
+                "job-description-title": "Job Description Detail",
+                "job-position": "Position",
+                "job-employment-status": "Employment Status",
+                "job-employee-period": "Employment Period",
+                "job-content": "Content",
+                "job-recruitment-background": "Recruitment Background",
+                "job-working-location": "Working Location",
+                "job-required-age": "Required Age",
+                "job-required-languages-skill": "Required Languages Skill",
+                "job-selection-process": "Selection Process",
+                "job-working-hours": "Working Hours",
+                "job-holidays": "Holidays",
+                "job-working-overtime": "Working Overtime",
+                "job-salary": "Salary",
+                "job-insurance": "Insurance",
+                "job-walfare": "Walfare",
+                "page-report": "Showing {first} to {last} of {totalRecords} entries",
+                "send-email-title": "Send Email To Customer",
+                "send-email": "Send Email",
+                "email-subject": "Email Subject",
+                "email-content": "Email Content"
+            },
+            "error-messages": {},
+            "placeholders": {
+                "company-email": "Example: contact@tokunabi.com",
+                "company-industry": "Industry",
+                "company-number-of-employees": "4 people",
+                "company-established": "2005",
+                "company-characteristics": "We are engaged in mountain retaining work associated with infrastructure work. It has been 16 years since the establishment of the iron sheet pile placing work, pier erection work, parent pile placing work, and the employees are the same, and the teamwork and technology are outstanding.",
+                "job-number-of-applicants": "4 people",
+                "job-title": "High-rise building cleaning",
+                "job-description": "Name (name)",
+                "job-position": "Official staff",
+                "job-employment-status": "Full-time employees (2 people)",
+                "job-employee-period": "From Monday to Friday",
+                "job-content": "Crane work, slinging work, gas cutting, heavy equipment backhoe operator",
+                "job-recruitment-background": "5 years of experience at company xxx",
+                "job-working-location": "Kansai area centered on Osaka",
+                "job-required-age": "20 to 30 years old",
+                "job-required-languages-skill": "English\nJapanese\nVietnamese",
+                "job-selection-process": "Energetic and cherishing family and friends",
+                "job-working-hours": "8:00 am to 17 (break) a total of two hours\nat night work 21 6 o'clock 30 minutes from 5:00 pm set time from 6 pm ※\n travel time is not included in working hours.",
+                "job-holidays": "Holidays, Sundays, Obon holidays, Golden Week, year-end and New Year holidays, paid 10 days a year",
+                "job-working-overtime": "10 hours a month",
+                "job-salary": "Basic salary 200,000 yen\n+ 50,000 yen\n(Saturday commuting allowance)",
+                "job-insurance": "Workmen's accident compensation insurance, employment insurance, voluntary workmen's accident compensation insurance, social insurance",
+                "job-walfare": "Sports, recreation",
+                "email-subject": "Enter your email subject",
+                "email-content": "Enter your email content"
+            },
+            "messages": {
+                "create": {
+                    "success": "recruitment created",
+                    "warning": "recruitment warning",
+                    "error": "recruitment error"
+                },
+                "update": {
+                    "success": "recruitment updated",
+                    "warning": "recruitment warning",
+                    "error": "recruitment error"
+                }
+            }
+        },
+        "candidate": {
+            "labels": {
+                "page-title": "Candidate Page",
+                "table-title": "Candidate List",
+                "create-dialog-title": "Create Candidate",
+                "detail-dialog-title": "Candidate Detail",
+                "page-report": "Showing {first} to {last} of {totalRecords} entries",
+                "candidate-email": "Candidate Email",
+                "candidate-activation-email": "Activation Email",
+                "candidate-first-name": "Full Name",
+                "candidate-last-name": "Last Name",
+                "candidate-first-kana-name": "First Kana Name",
+                "candidate-last-kana-name": "Last Kana Name",
+                "candidate-date-of-birth": "Date of Birth",
+                "candidate-phone-number": "Phone Number",
+                "candidate-type-of-business": "Business Type",
+                "candidate-status": "Status",
+                "major": "Major"
+            },
+            "error-messages": {},
+            "placeholders": {
+                "candidate-first-name": "Enter your full name",
+                "candidate-last-name": "Enter your last lame",
+                "candidate-first-kana-name": "Enter your first kana name",
+                "candidate-last-kana-name": "Enter your last kana name",
+                "candidate-birthday": "Enter your birthday",
+                "candidate-address": "Enter your address",
+                "candidate-email": "Enter your email",
+                "candidate-phone": "Enter your phone number",
+                "candidate-sex": "Choose gender",
+                "candidate-sex-male": "Male",
+                "candidate-sex-female": "Female"
+            },
+            "messages": {
+                "create": {
+                    "success": "candidate created",
+                    "warning": "candidate warning",
+                    "error": "candidate error"
+                },
+                "update": {
+                    "success": "candidate updated",
+                    "warning": "candidate warning",
+                    "error": "candidate warning"
+                }
+            }
+        },
+        "company": {
+            "labels": {
+                "page-title": "Companies Page",
+                "table-title": "Companies List",
+                "company-information-title": "Company Information",
+                "company-owner-information-title": "Owner Information",
+                "create-dialog-title": "Create Company",
+                "detail-dialog-title": "Company Detail",
+                "page-report": "Showing {first} to {last} of {totalRecords} entries",
+                "status": "Status",
+                "company-email": "Company Email",
+                "company-name": "Company Name",
+                "company-number-of-employees": "Number Of Employees",
+                "company-founding-date": "Founding Date",
+                "company-owner-first-name": "Owner Full Name",
+                "company-owner-last-name": "Owner Last Name",
+                "company-first-name": "First Name",
+                "company-last-name": "Last Name",
+                "company-first-kana-name": "First Kana Full Name",
+                "company-last-kana-name": "Last Kana Name",
+                "company-date-of-birth": "Date Of Birth",
+                "company-phone-number": "Phone Number",
+                "company-activation-email": "Activation Email",
+                "company-postal-code": "Postal Code",
+                "company-address": "Company Address"
+            },
+            "error-messages": {},
+            "placeholders": {
+                "company-email": "Enter your company email",
+                "company-name": "Enter your company name",
+                "company-number-of-employees": "Enter your number of employees",
+                "company-founding-date": "Enter your founding date",
+                "company-owner-first-name": "Enter owner first name",
+                "company-owner-last-name": "Enter owner last name",
+                "company-first-name": "Enter your first name",
+                "company-last-name": "Enter your last name",
+                "company-first-kana-name": "Enter your first kana name",
+                "company-last-kana-name": "Enter your last kana name",
+                "company-date-of-birth": "Date of birth",
+                "company-phone-number": "Enter your phone number",
+                "company-activation-email": "Activation email",
+                "company-postal-code": "000-0000",
+                "company-address": "Enter your company address"
+            },
+            "messages": {
+                "create": {
+                    "success": "company created",
+                    "warning": "company warning",
+                    "error": "company error"
+                },
+                "update": {
+                    "success": "company updated",
+                    "warning": "company warning",
+                    "error": "company error"
+                }
+            }
+        },
+        "404": {
+            "page-title": "お探しのページは見つかりません",
+            "page-message-header": "お探しのページは見つかりません",
+            "page-message-description": "404: Not Found",
+            "page-button-title": "トップページに戻る"
+        },
+        "onboarding": {
+            "page-title": "Onboarding Page",
+            "page-message-header": "Tokunabi CMS",
+            "page-message-description": "Welcome To Content Management System",
+            "page-message-footer": ""
+        },
+        "candidates-list": {
+            "warning-messages": {
+                "candidate-has-not-exist": "Candidate has not exist",
+                "email-already-exist": "Email already exist",
+                "account-has-no-exist": "Account has no exist"
+            },
+            "success-messages": {
+                "deleted-candidate-successfully": "Deleted candidate successfully",
+                "deactived-candidate-successfully": "Deactived candidate successfully",
+                "created-candidate-successfully": "Created candidate successfully",
+                "updated-candidate-successfully": "Updated candidate successfully",
+                "resent-activation-email-successfully": "Resent activation email successfully"
+            }
+        },
+        "candidate-addition": {
+            "warning-messages": {
+                "email-already-exist": "Email already exist"
+            },
+            "success-messages": {
+                "created-candidate-successfully": "Created candidate successfully"
+            }
+        },
+        "candidate-updation": {
+            "warning-messages": {
+                "account-has-no-exist": "Account has no exist"
+            },
+            "success-messages": {
+                "updated-candidate-successfully": "Updated candidate successfully"
+            }
+        },
+        "candidate-resending-activation": {
+            "warning-messages": {
+                "account-has-no-exist": "Account has no exist"
+            },
+            "success-messages": {
+                "resent-activation-email-successfully": "Resent activation email successfully"
+            }
+        },
+        "companies-list": {
+            "warning-messages": {
+                "company-has-no-exist": "Company has no exist"
+            },
+            "success-messages": {
+                "deleted-company-successfully": "Deleted company successfully",
+                "deactived-company-successfully": "Deactived company successfully"
+            }
+        },
+        "company-addition": {
+            "warning-messages": {
+                "email-already-exist": "Email already exist"
+            },
+            "success-messages": {
+                "created-company-successfully": "Created company successfully"
+            }
+        },
+        "company-updation": {
+            "warning-messages": {
+                "account-has-no-exist": "Account has no exist"
+            },
+            "success-messages": {
+                "updated-company-successfully": "Updated company successfully"
+            }
+        },
+        "company-resending-activation": {
+            "warning-messages": {
+                "account-has-no-exist": "Account has no exist"
+            },
+            "success-messages": {
+                "resent-activation-email-successfully": "Resent activation email successfully"
+            }
+        },
+        "jobs-list": {
+            "warning-messages": {
+                "job-has-no-exists": "Job has no exists"
+            },
+            "success-messages": {
+                "deleted-job-successfully": "Deleted job successfully",
+                "deactived-job-successfully": "Deactived job successfully"
+            }
+        },
+        "job-addition": {
+            "warning-messages": {
+                "company-has-no-exist": "Company has no exist"
+            },
+            "success-messages": {
+                "created-job-successfully": "Created job successfully"
+            }
+        },
+        "job-updation": {
+            "warning-messages": {
+                "company-has-no-exist": "Company has no exist",
+                "job-has-no-exists": "Job has no exists"
+            },
+            "success-messages": {
+                "created-job-successfully": "Created job successfully",
+                "updated-job-successfully": "Updated job successfully"
+            }
+        }
+    },
+    "primeng": {
+        "dayNames": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        "monthNames": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
+        "monthNamesShort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        ],
+        "today": "Today",
+        "weekHeader": "Wk"
+    }
+}

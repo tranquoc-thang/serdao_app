@@ -1,0 +1,61 @@
+.group-button {
+	text-align: right;
+}
+
+.create-button {
+	background-color: #008cff;
+	color: #fff;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img-width {
+	max-width: 70px;
+	height: auto;
+	object-fit: cover;
+}
+
+.custom-plus {
+	padding: 3px;
+	font-weight: bold;
+	border: 2px solid white;
+	border-radius: 50%;
+	margin-right: 7px;
+}
+
+:host ::ng-deep {
+	.p-datatable-table {
+		min-width: 1800px;
+		
+		th, td {
+			justify-content: center;
+		}
+	}
+}
+
+.app-table {
+	width: 100%;
+	height: auto;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+	background-color: #fff !important;
+	margin-top: 2rem;
+	padding: 5px;
+}
+
+.table-caption {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.min-width-210 {
+	min-width: 210px;
+}
+
+.min-width-300 {
+	min-width: 300px;
+}

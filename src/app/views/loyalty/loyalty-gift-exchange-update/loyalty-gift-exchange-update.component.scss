@@ -1,0 +1,99 @@
+span {
+    color: #dc3545;
+}
+
+.badge {
+    height: 35px;
+    padding-top: 10px;
+    background-color: #d7edff;
+    border: 1px solid #51acf6;
+}
+
+.badge-secondary {
+    color: #008cff;
+}
+
+.row {
+    margin-top: 15px;
+}
+
+.group-button {
+    text-align: right;
+}
+
+.button-create {
+    padding: 1rem 0 0 0;
+}
+
+.activation-email {
+    padding-top: 1.5rem;
+}
+
+:host ::ng-deep {
+    .p-inputmask {
+        width: 100%;
+        height: 40px;
+        border-radius: 8px;
+    }
+    .p-dialog-mask {
+        background-color: #a9a99f;
+        pointer-events: unset !important;
+    }
+    .p-calendar-w-btn .p-inputtext {
+        border-radius: 8px 0 0 8px;
+    }
+    .p-calendar-w-btn .p-datepicker-trigger {
+        border-radius: 0 8px 8px 0;
+    }
+    .p-calendar {
+        width: 100%;
+        height: 38px;
+        border-radius: 8px;
+    }
+    .p-button-text {
+        background-color: #008cff;
+        color: #ffffff;
+        border-color: #0000;
+    }
+    .p-datepicker td>span {
+        display: initial;
+        font-size: 15px;
+    }
+    .ui-datepicker .ui-widget {
+        font-size: 20px;
+    }
+    .p-datepicker {
+        z-index: 1003 !important;
+        transform-origin: center top !important;
+        left: -1px !important;
+        top: -90px !important;
+    }
+    .p-button.btn-update,
+    .p-button.btn-update .p-button {
+        padding: 2px;
+    }
+    .pointer-unset {
+        pointer-events: unset !important;
+    }
+}
+
+.-size-img {
+    display: inline-block;
+    width: 50px;
+    height: inherit;
+    img {
+        width: 50px;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+textarea {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.text-area {
+    font-size: 13px;
+    font-weight: bold;
+}

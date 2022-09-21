@@ -1,0 +1,156 @@
+<app-main-layout>
+    <app-advance-search (searchEvent)="receiveSearch($event)">
+		
+	</app-advance-search>
+	<p-confirmDialog
+		header="Xác Nhận"
+		icon="pi pi-exclamation-triangle"
+	></p-confirmDialog>
+    <div class="app-table" *ngIf="listGift">
+		<p-table
+			[value]="listGift"
+			styleClass="p-datatable-sm p-datatable-gridlines"
+			responsiveLayout="scroll"
+			[paginator]="true"
+			[rows]="5"
+			[showCurrentPageReport]="true"
+			responsiveLayout="scroll"
+			currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+			[rowsPerPageOptions]="[5, 10, 15]"
+			[scrollable]="true"
+			scrollHeight="400px"
+			[resizableColumns]="true"
+		>
+			<ng-template pTemplate="caption">
+				<div class="flex table-caption">
+					<h5>{{
+						_translateService.instant(
+							"pages.loyalty.table.result-list"
+						)
+					}}</h5>
+					<span>
+						<p-button label="Thêm Quà Tặng"  icon="pi pi-plus" (click)="showModalDialogAdd()" ></p-button>
+					</span>
+				</div>
+			</ng-template>
+			<ng-template pTemplate="header">
+				<tr>
+					<th class="column">{{
+						_translateService.instant(
+							"pages.loyalty.table.activity"
+						)
+					}}</th>
+					<th class="column">{{
+						_translateService.instant(
+							"pages.loyalty.table.status"
+						)
+					}}</th>
+					<th class="column">{{
+						_translateService.instant(
+							"pages.loyalty.table.limit"
+						)
+					}}</th>
+                    <th class="column">{{
+						_translateService.instant(
+							"pages.loyalty.table.icon"
+						)
+					}}</th>
+                    <th class="column">{{
+						_translateService.instant(
+							"pages.loyalty.table.gift-name"
+						)
+					}}</th>
+					<th class="column">{{
+						_translateService.instant(
+							"pages.loyalty.table.gift-point-required"
+						)
+					}}</th>
+					<th class="column">{{
+						_translateService.instant(
+							"pages.loyalty.table.gift-start-date-exchange"
+						)
+					}}</th>
+                    <th class="column">{{
+						_translateService.instant(
+							"pages.loyalty.table.gift-end-date-exchange"
+						)
+					}}</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-gift>
+				<tr>
+					<td>
+						<button
+							pButton
+							pRipple
+							type="button"
+							label="Sửa"
+							(click)="showModalDialogUpdate(gift.giftId)"
+							class="p-button-success p-button-text "
+						></button>
+						|
+						<button
+							pButton
+							pRipple
+							type="button"
+							label="Xoá"
+							(click)="doDelete(gift.giftId,'Bạn có muốn xóa món quà này không?')"
+							class="p-button-danger p-button-text "
+						></button>
+					</td>
+					
+                    <td *ngIf="checkStatusOfGift(gift.giftEndDate,gift.giftStartDate)">
+						{{
+							_translateService.instant(
+								"pages.loyalty.table.activity"
+							)
+						}}
+                    </td>
+					<td *ngIf="!checkStatusOfGift(gift.giftEndDate,gift.giftStartDate)">
+						{{
+							_translateService.instant(
+								"pages.loyalty.table.non-activity"
+							)
+						}}
+					</td>
+
+					<td *ngIf="gift.giftLimit!==0">
+                        {{gift.giftCurrentLimit}}/{{gift.giftLimit}}
+                    </td>
+					<td *ngIf="gift.giftLimit===0">
+						{{
+							_translateService.instant(
+								"pages.loyalty.table.non-limit"
+							)
+						}}
+					</td>
+
+                    <td>
+						<img src={{gift.giftIcon}} class="icon">                       
+                    </td>
+
+                    <td>
+						{{gift.giftTitle}}
+                        
+                    </td>
+
+					<td>
+                        {{gift.giftRequiredPoint}}
+                    </td>
+					
+                    <td>
+                        <!-- {{parseStringToDate(gift.giftStartDate)}} -->
+						{{gift.giftStartDate | date: "dd/MM/yyyy"}}
+                    </td>
+                    <td>
+						{{gift.giftEndDate | date: "dd/MM/yyyy"}}
+                        <!-- {{parseStringToDate(gift.giftEndDate)}} -->
+                    </td>
+					
+                  
+                    
+				</tr>
+			</ng-template>
+		</p-table>
+	</div>
+</app-main-layout>

@@ -1,0 +1,282 @@
+.campaigns-edit-wrapper {
+	.campaigns-edit__tabs {
+		margin-top: 5px;
+
+		.text-center {
+			display: inline-block;
+			text-align: center;
+			white-space: nowrap;
+			min-width: 170px;
+		}
+
+		.mr-12 {
+			margin-right: 12px;
+		}
+
+		.ml-12 {
+			margin-left: 12px;
+		}
+
+		.mb-0 {
+			margin-bottom: 0;
+		}
+
+		.validate-center {
+			display: inline-block;
+			margin-left: 170px;
+			margin-bottom: 18px;
+		}
+
+		.validate-pointProduct {
+			display: inline-block;
+			margin-left: 127px;
+		}
+
+		.d-flex-center {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.justify-center {
+			justify-content: center;
+		}
+		
+		.d-flex {
+			display: flex;
+			align-items: center;
+		}
+
+		.d-flex-top {
+			display: flex;
+			align-items: flex-start;
+		}
+		
+		.w-full {
+			width: 100%;
+		}
+
+		.field-checkbox {
+			margin: 12px 0;
+		}
+
+		.btn-search {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 28px;
+		}
+
+		.text-left-min-width {
+			white-space: nowrap;
+			text-align: left;
+			min-width: 120px;
+		}
+	}
+}
+.app-table {
+	width: 100%;
+	height: auto;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+	background-color: #fff !important;
+	margin-bottom: 2rem;
+	padding: 5px;
+	th,
+    td {
+        justify-content: center;
+    }
+    .column-1 {
+        min-width: 190px;
+    }
+    .column-2 {
+        min-width: 150px;
+    }
+    .column-3 {
+        min-width: 220px;
+				text-align: center;
+				white-space: break-spaces;
+    }
+    .column-4 {
+        min-width: 90px;
+    }
+    .column-5 {
+        min-width: 170px;
+    }
+    .column-6 {
+        min-width: 170px;
+    }
+}
+span {
+	color: #dc3545;
+}
+
+.img-update{
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 50%;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.badge {
+	height: 35px;
+	padding-top: 10px;
+	background-color: #d7edff;
+	border: 1px solid #51acf6;
+}
+.img-icon{
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto;
+}
+
+.badge-secondary {
+	color: #008cff;
+}
+
+.row {
+	margin-top: 15px;
+}
+
+.group-button {
+	text-align: right;
+}
+
+.form-control {
+	border-radius: 3px;
+}
+
+.button-create {
+	padding: 1rem 0 0 0;
+}
+
+.d-flex-center {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.field-checkbox label {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.label {
+	font-size: 13px;
+}
+
+.w-full {
+	width: 100%;
+}
+
+.mr-20 {
+	margin-right: 20px;
+}
+
+.ml-12 {
+	margin-left: 12px;
+}
+
+.activation-email {
+	padding-top: 1.5rem;
+}
+
+:host ::ng-deep {
+	.p-inputmask {
+		width: 100%;
+		height: 40px;
+		border-radius: 8px;
+	}
+	.p-dropdown {
+		width: 100%;
+		border-radius: 3px;
+	}
+
+	.p-inputwrapper {
+		display: inline-block;
+		width: 100%;
+	}
+
+	.p-inputwrapper .p-inputnumber {
+		width: 100%;
+	}
+
+	.p-inputtext {
+		border-radius: 3px;
+	}
+	.p-calendar-w-btn .p-datepicker-trigger {
+		border-radius: 0 3px 3px 0;
+	}
+
+	.p-calendar-w-btn .p-inputtext {
+		border-radius: 3px 0 0 3px;
+	}
+	.p-calendar {
+		width: 100%;
+		height: 38px;
+		border-radius: 8px;
+	}
+
+	.save-button .p-button {
+		display: inline-block;
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	.group-button .p-button:first-child {
+		margin-right: 16px;
+	}
+
+	.save-button-gift .p-button {
+		display: inline-block;
+		padding-left: 60px;
+		padding-right: 60px;
+		float: left;
+	}
+
+	.p-button-text {
+		background-color: #008cff;
+		color: #ffffff;
+		border-color: #0000;
+	}
+	.p-datepicker td > span {
+		display: initial;
+		font-size: 15px;
+	}
+	.ui-datepicker .ui-widget {
+		font-size: 20px;
+	}
+	.p-datepicker {
+		z-index: 1003 !important;
+		transform-origin: center top !important;
+		left: -1px !important;
+		top: -90px !important;
+	}
+	.p-inputtextarea {
+		width: 100%;
+	}
+
+	.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+		border: 2px solid #dedede;
+		border-top-right-radius: 8px;
+		border-top-left-radius: 8px;
+	}
+
+	.p-tabview .p-tabview-panels {
+		border: 1px solid #ccc;
+	}
+}
+
+.-size-img {
+	display: inline-block;
+	width: 50px;
+	height: inherit;
+
+	img {
+		width: 50px;
+		height: auto;
+		object-fit: cover;
+	}
+}
+.form-label,
+label {
+	margin-bottom: 0;
+}

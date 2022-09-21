@@ -1,0 +1,203 @@
+<form [formGroup]="campaignAddForm">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="campaignType" class="form-control-label"
+					>Loại Chiến Dịch:</label
+				>
+				<p-dropdown
+					[options]="campaignsTypeList"
+					optionLabel="campaignType"
+					optionValue="campaignNo"
+					placeholder="Chọn loại chiến dịch"
+					class="common-dropdown p-inputtext-sm w-full"
+					(onChange)="getCampaignType($event)"
+				>
+				</p-dropdown>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<app-common-group
+					(currentGroup)="getGroup($event)"
+				></app-common-group>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="startDate" class="form-control-label"
+					>Ngày Bắt Đầu:</label
+				>
+				<input
+					type="date"
+					id="dateStart"
+					class="form-control"
+					formControlName="campaignStartDate"
+				/>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="endDate" class="form-control-label"
+					>Ngày Kết Thúc:</label
+				>
+				<input
+					type="date"
+					id="dateEnd"
+					class="form-control"
+					formControlName="campaignEndDate"
+				/>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="campaignRedemptionEndDate" class="form-control-label"
+					>Ngày Kết Thúc Đổi Thưởng:</label
+				>
+				<input
+					type="date"
+					id="dateEndExchange"
+					class="form-control"
+					formControlName="campaignRedemptionEndDate"
+				/>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="campaignTitle" class="form-control-label"
+					>Tiêu Đề Chiến Dịch:</label
+				>
+				<input
+					type="text"
+					id="campaignTitle"
+					class="form-control"
+					formControlName="campaignTitle"
+					placeholder="Tiêu Đề Chiến Dịch"
+				/>
+				<div>
+					<common-validation-message
+						[mainForm]="campaignAddForm"
+						controllerName="txtCampaignTitle"
+						controllerType="textbox"
+						controllerTitle="CampaignTitle"
+					>
+					</common-validation-message>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<h5 class="label">Mô Tả Chiến Dịch:</h5>
+				<textarea
+					rows="5"
+					cols="30"
+					pInputTextarea
+					[autoResize]="true"
+					id="campaignDescription"
+					formControlName="campaignDescription"
+				></textarea>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<h5 class="label">Quy Định Chung:</h5>
+				<textarea
+					rows="15"
+					cols="30"
+					pInputTextarea
+					[autoResize]="true"
+					id="campaignGeneralRulesDescription"
+					formControlName="campaignGeneralRulesDescription"
+				></textarea>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<span class="p-float-label">
+				<h5 class="label">Quy Định Trả Thưởng:</h5>
+				<textarea
+					rows="15"
+					cols="30"
+					pInputTextarea
+					[autoResize]="true"
+					id="campaignGiftRule"
+					class="form-control"
+					formControlName="campaignRedemptionMethodDescription"
+				></textarea>
+			</span>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="campaignMaxGift" class="form-control-label"
+					>Số Lượng Quà Tối Đa:</label
+				>
+				<input
+					type="text"
+					id="campaignMaxGift"
+					class="form-control"
+					formControlName="campaignGiftsLimit"
+					placeholder="Số Lượng Quà Tối Đa"
+				/>
+				<div>
+					<common-validation-message
+						[mainForm]="campaignAddForm"
+						controllerName="txtMaxGift"
+						controllerType="textbox"
+						controllerTitle="MaxGift"
+					>
+					</common-validation-message>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerIdentificationFront" class="form-control-label"
+					>Thumbnail:</label
+				>
+				<p-fileUpload
+					name="docs[]"
+					[multiple]="false"
+					accept="image/*"
+					[maxFileSize]="2000000"
+					(customUpload)="onSelectEvent($event)"
+					(onSelect)="onSelectThumbnail($event)"
+					(onRemove)="onRemoveThumbnail($event)"
+					chooseLabel="Chọn ảnh"
+					uploadLabel="Tải lên"
+					cancelLabel="Hủy"
+					invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+					invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+				>
+				</p-fileUpload>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerIdentificationFront" class="form-control-label"
+					>Banner:</label
+				>
+				<p-fileUpload
+					name="docs[]"
+					[multiple]="false"
+					accept="image/*"
+					[maxFileSize]="2000000"
+					(customUpload)="onSelectEvent($event)"
+					(onSelect)="onSelectBanner($event)"
+					(onRemove)="onRemoveBanner($event)"
+					chooseLabel="Chọn ảnh"
+					uploadLabel="Tải lên"
+					cancelLabel="Hủy"
+					invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+					invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+				>
+				</p-fileUpload>
+			</div>
+		</div>
+		<div class="p-dialog-footer button-create col-md-12">
+			<p-button
+				label="Thêm Chiến Dịch"
+				styleClass="p-button-text p-button-primary"
+				(click)="onCreateNewCampaign()"
+			></p-button>
+		</div>
+	</div>
+</form>

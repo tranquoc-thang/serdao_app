@@ -1,0 +1,196 @@
+<form [formGroup]="addGift3Form" class="form add-gift3-dialog">
+	<div class="campaigns-edit-wrapper">
+		<div class="gift-monthly-edit">
+			<div class="row input-field">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="txtPointExchange" class="form-control-label"
+								>Điểm quy đổi:
+							</label>
+							<!-- <input
+								type="number"
+								id="txtPointExchange"
+								class="form-control"
+								formControlName="txtPointExchange"
+							/> -->
+							<p-inputNumber
+								formControlName="txtPointExchange"
+								placeholder="Điểm quy đổi"
+								mode="decimal"
+								[min]="0"
+								[max]="100000000"
+								class="row mt-0"
+							>
+							</p-inputNumber>
+							<common-validation-message
+								[mainForm]="addGift3Form"
+								controllerName="txtPointExchange"
+								controllerType="textbox"
+								[controllerTitle]="
+									_translateService.instant(
+										'pages.campaign.labels.campaign-point-exchange'
+									)
+								"
+							>
+							</common-validation-message>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="txtGiftExchange" class="form-control-label"
+								>Tên quà:
+							</label>
+							<!-- <input
+								type="text"
+								id="txtGiftExchange"
+								class="form-control"
+								formControlName="txtGiftExchange"
+							/> -->
+							<input
+								pInputText
+								id="txtGiftExchange"
+								class="form-control"
+								formControlName="txtGiftExchange"
+								placeholder="Tên quà"
+							/>
+							<common-validation-message
+								[mainForm]="addGift3Form"
+								controllerName="txtGiftExchange"
+								controllerType="textbox"
+								maxLength="100"
+								[controllerTitle]="
+									_translateService.instant(
+										'pages.campaign.labels.campaign-gift-exchange'
+									)
+								"
+							>
+							</common-validation-message>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="quantityExchangeMonthly" class="form-control-label"
+							>Số lượng quy đổi:
+						</label>
+						<input
+							type="text"
+							id="quantityExchangeMonthly"
+							class="form-control"
+							formControlName="quantityExchangeMonthly"
+						/>
+					</div>
+				</div>
+			</div> -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="txtDescription" class="form-control-label"
+								>Mô tả:
+							</label>
+							<textarea
+								rows="5"
+								cols="30"
+								pInputTextarea
+								[autoResize]="true"
+								id="txtDescription"
+								formControlName="txtDescription"
+							></textarea>
+							<common-validation-message
+								[mainForm]="addGift3Form"
+								controllerName="txtDescription"
+								controllerType="textbox"
+								maxLength="500"
+								[controllerTitle]="
+									_translateService.instant(
+										'pages.campaign.labels.campaign-description'
+									)
+								"
+							>
+							</common-validation-message>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label
+								for="customerIdentificationFront"
+								class="form-control-label"
+								>Thumbnail:</label
+							>
+							<p-fileUpload
+								name="docs[]"
+								[multiple]="true"
+								accept="image/*"
+								[maxFileSize]="2000000"
+								class="w-full"
+								(customUpload)="onSelectEvent($event)"
+								[showUploadButton]="false"
+								[showCancelButton]="false"
+								chooseLabel="Chọn ảnh"
+							>
+							</p-fileUpload>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label
+								for="customerIdentificationFront"
+								class="form-control-label"
+								>Icon:</label
+							>
+							<p-fileUpload
+								name="docs[]"
+								[multiple]="true"
+								accept="image/*"
+								[maxFileSize]="2000000"
+								class="w-full"
+								(customUpload)="onSelectEvent($event)"
+								[showUploadButton]="false"
+								[showCancelButton]="false"
+								chooseLabel="Chọn ảnh"
+							>
+							</p-fileUpload>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label
+								for="customerIdentificationFront"
+								class="form-control-label"
+								>Banner:</label
+							>
+							<p-fileUpload
+								name="docs[]"
+								[multiple]="true"
+								accept="image/*"
+								[maxFileSize]="2000000"
+								class="w-full"
+								(customUpload)="onSelectEvent($event)"
+								[showUploadButton]="false"
+								[showCancelButton]="false"
+								chooseLabel="Chọn ảnh"
+							>
+							</p-fileUpload>
+						</div>
+					</div>
+				</div>
+				<div class="group-button">
+					<p-button
+						class="save-button"
+						label="Cập Nhật Quà Tặng"
+					></p-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

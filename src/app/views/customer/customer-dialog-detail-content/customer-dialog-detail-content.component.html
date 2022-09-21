@@ -1,0 +1,281 @@
+<form [formGroup]="companyEditForm">
+	<div class="row">
+		<div class="col-md-12">
+			<label for="email" class="form-control-label"
+				>{{
+					_translateService.instant("pages.company.labels.company-email")
+				}}
+				<span>*</span>
+			</label>
+			<input
+				type="email"
+				[placeholder]="
+					_translateService.instant(
+						'pages.company.placeholders.company-email'
+					)
+				"
+				formControlName="txtEmail"
+				tabindex="3"
+				maxlength="150"
+				spellcheck="false"
+				autocorrect="false"
+				autocomplete="false"
+				autofocus="false"
+				class="form-control"
+				readonly
+			/>
+			<div>
+				<common-validation-message
+					[mainForm]="companyEditForm"
+					controllerName="txtEmail"
+					controllerType="textbox"
+					controllerTitle="メールアドレス"
+					maxLength="150"
+				>
+				</common-validation-message>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="companyName" class="form-control-label"
+					>{{
+						_translateService.instant("pages.company.labels.company-name")
+					}}
+					<span>*</span></label
+				>
+				<input
+					type="text"
+					id="companyName"
+					class="form-control"
+					[placeholder]="
+						_translateService.instant(
+							'pages.company.placeholders.company-name'
+						)
+					"
+					formControlName="txtCompanyName"
+				/>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="txtFirstName" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.company.labels.company-owner-first-name"
+						)
+					}}
+					<span>*</span></label
+				>
+				<input
+					type="text"
+					class="form-control"
+					[placeholder]="
+						_translateService.instant(
+							'pages.company.placeholders.company-owner-first-name'
+						)
+					"
+					formControlName="txtFirstName"
+					maxlength="50"
+					tabindex="1"
+					autofocus="true"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+				/>
+				<div>
+					<common-validation-message
+						[mainForm]="companyEditForm"
+						controllerName="txtFirstName"
+						controllerType="textbox"
+						controllerTitle="お名前（苗字）"
+						maxLength="50"
+						minLength=""
+					>
+					</common-validation-message>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="col-md-6">
+              <div class="form-group">
+                  <label for="txtLastName" class="form-control-label">{{
+            _translateService.instant(
+    'pages.company.labels.company-last-name'
+      )}} <span>*</span></label>
+                  <input type="text" class="form-control" [placeholder]="_translateService.instant(
+          'pages.company.placeholders.company-last-name'
+        )" formControlName="txtLastName" maxlength="50" tabindex="2" autofocus="true" spellcheck="false" autocorrect="false" autocomplete="false" />
+                  <div>
+                      <common-validation-message [mainForm]="companyCreateForm" controllerName="txtLastName" controllerType="textbox" controllerTitle="お名前（苗字）" maxLength="50" minLength="">
+                      </common-validation-message>
+                  </div>
+              </div>
+          </div> -->
+
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="txtKanjiFirstName" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.company.labels.company-first-kana-name"
+						)
+					}}
+				</label>
+				<input
+					type="text"
+					class="form-control"
+					[placeholder]="
+						_translateService.instant(
+							'pages.company.placeholders.company-first-kana-name'
+						)
+					"
+					formControlName="txtKanjiFirstName"
+					maxlength="50"
+					tabindex="1"
+					autofocus="true"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+				/>
+				<div>
+					<common-validation-message
+						[mainForm]="companyEditForm"
+						controllerName="txtKanjiFirstName"
+						controllerType="textbox"
+						controllerTitle="お名前（苗字）"
+						maxLength="50"
+						minLength=""
+					>
+					</common-validation-message>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="col-md-6">
+              <div class="form-group">
+                  <label for="txtKanjiLastName" class="form-control-label">{{
+            _translateService.instant(
+    'pages.company.labels.company-last-kana-name'
+      )}} <span>*</span></label>
+                  <input type="text" class="form-control" [placeholder]="_translateService.instant(
+          'pages.company.placeholders.company-last-kana-name'
+        )" formControlName="txtKanjiLastName" maxlength="50" tabindex="2" autofocus="true" spellcheck="false" autocorrect="false" autocomplete="false" />
+                  <div>
+                      <common-validation-message [mainForm]="companyCreateForm" controllerName="txtKanjiLastName" controllerType="textbox" controllerTitle="お名前（名前）" maxLength="50" minLength="">
+                      </common-validation-message>
+                  </div>
+              </div>
+          </div> -->
+
+		<!-- <div class="col-md-6">
+          <div class="form-group">
+              <label for="txtNumberOfEmployee" class="form-control-label">{{
+                      _translateService.instant(
+                      "pages.company.labels.company-number-of-employees"
+                      )
+                      }}</label>
+              <input type="text" class="form-control" [placeholder]="
+            _translateService.instant(
+              'pages.company.placeholders.company-number-of-employees'
+            )
+          " formControlName="txtNumberOfEmployee" />
+          </div>
+      </div> -->
+		<!-- <div class="col-md-6">
+              <div class="form-group">
+                  <label for="birthday" class="form-control-label">{{
+            _translateService.instant(
+    'pages.company.labels.company-date-of-birth'
+      }}</label>
+                  <input type="date" formControlName="txtBirthday" id="birthday" name="birthday" class="form-control" (input)="getDate($event.target)" />
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <app-common-sex (currentSex)="getSex($event)"></app-common-sex>
+              </div>
+          </div> -->
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="phoneNumber" class="form-control-label">{{
+					_translateService.instant(
+						"pages.company.labels.company-phone-number"
+					)
+				}}</label>
+				<input
+					type="text"
+					id="phoneNumber"
+					class="form-control"
+					formControlName="txtPhoneNumber"
+					[placeholder]="
+						_translateService.instant(
+							'pages.company.placeholders.company-phone-number'
+						)
+					"
+				/>
+			</div>
+		</div>
+
+		<!-- <div class="col-md-6">
+          <div class="form-group">
+              <label for="foundingdate" class="form-control-label">{{
+                      _translateService.instant(
+                      "pages.company.labels.company-founding-date"
+                      )
+                      }}</label>
+              <p-calendar dateFormat="yy年mm月dd日" (onSelect)="getDate($event)" formControlName="txtFoundingDate" inputId="foundingdate" [placeholder]="_translateService.instant(
+            'common.calendar.placeholders.calendar'
+          )" [showIcon]="true"></p-calendar>
+          </div>
+      </div> -->
+
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="companyPostalCode" class="form-control-label">{{
+					_translateService.instant(
+						"pages.company.labels.company-postal-code"
+					)
+				}}</label>
+				<p-inputMask
+					mask="999-9999"
+					formControlName="txtPostalCode"
+					[placeholder]="
+						_translateService.instant(
+							'pages.company.placeholders.company-postal-code'
+						)
+					"
+				>
+				</p-inputMask>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="companyAddress" class="form-control-label">{{
+					_translateService.instant("pages.company.labels.company-address")
+				}}</label>
+				<input
+					type="text"
+					id="companyAddress"
+					class="form-control"
+					formControlName="txtAddress"
+					[placeholder]="
+						_translateService.instant(
+							'pages.company.placeholders.company-address'
+						)
+					"
+				/>
+			</div>
+		</div>
+		<!-- <div class="group-button">
+            <p-button (click)="sendActivateEmail()" [label]="
+              _translateService.instant(
+      'common.action.send'
+    )
+          " styleClass="p-button-text p-button-primary btn-update"></p-button>
+            <p-button (onClick)="updateCompany()" [label]="
+         _translateService.instant(
+          'common.action.save'
+        )
+        " styleClass="p-button-text p-button-primary" icon="pi pi-check" [disabled]="!isDisable()"></p-button>
+
+        </div> -->
+	</div>
+</form>

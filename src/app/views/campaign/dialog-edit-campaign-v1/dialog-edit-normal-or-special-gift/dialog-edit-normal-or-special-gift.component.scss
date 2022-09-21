@@ -1,0 +1,187 @@
+.campaigns-edit-wrapper {
+	.gift-monthly-edit {
+		margin-top: 10px;
+
+		.text-center {
+			display: inline-block;
+			text-align: center;
+			white-space: nowrap;
+			min-width: 170px;
+		}
+
+		.mr-12 {
+			margin-right: 12px;
+		}
+
+		.ml-12 {
+			margin-left: 12px;
+		}
+
+		.mb-0 {
+			margin-bottom: 0;
+		}
+
+		.d-flex-center {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.justify-center {
+			justify-content: center;
+		}
+		
+		.d-flex {
+			display: flex;
+			align-items: center;
+		}
+
+		.d-flex-top {
+			display: flex;
+			align-items: flex-start;
+		}
+		
+		.w-full {
+			width: 100%;
+		}
+
+		.field-checkbox {
+			margin: 12px 0;
+		}
+
+		.btn-search {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 28px;
+		}
+
+		.text-left-min-width {
+			white-space: nowrap;
+			text-align: left;
+			min-width: 120px;
+		}
+
+		.form-control {
+			border-radius: 3px;
+		}
+	}
+}
+
+span {
+	color: #dc3545;
+}
+
+.badge {
+	height: 35px;
+	padding-top: 10px;
+	background-color: #d7edff;
+	border: 1px solid #51acf6;
+}
+.img-icon{
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto;
+}
+
+.badge-secondary {
+	color: #008cff;
+}
+
+.row {
+	margin-top: 15px;
+}
+
+.group-button {
+	text-align: right;
+}
+
+.button-create {
+	padding: 1rem 0 0 0;
+}
+
+.d-flex-center {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.field-checkbox label {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.label {
+	font-size: 13px;
+}
+
+.w-full {
+	width: 100%;
+}
+
+.mr-20 {
+	margin-right: 20px;
+}
+
+.activation-email {
+	padding-top: 1.5rem;
+}
+
+:host ::ng-deep {
+	.p-inputmask {
+		width: 100%;
+		height: 40px;
+		border-radius: 8px;
+	}
+	.p-dropdown {
+		width: 100%;
+	}
+	.p-calendar-w-btn .p-inputtext {
+		border-radius: 8px 0 0 8px;
+	}
+	.p-calendar-w-btn .p-datepicker-trigger {
+		border-radius: 0 8px 8px 0;
+	}
+	.p-calendar {
+		width: 100%;
+		height: 38px;
+		border-radius: 8px;
+	}
+
+	.p-inputtext {
+		border-radius: 3px;
+	}
+
+	.save-button .p-button {
+		display: inline-block;
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	.p-button-text {
+		background-color: #008cff;
+		color: #ffffff;
+		border-color: #0000;
+	}
+	.p-datepicker td > span {
+		display: initial;
+		font-size: 15px;
+	}
+	.ui-datepicker .ui-widget {
+		font-size: 20px;
+	}
+	.p-datepicker {
+		z-index: 1003 !important;
+		transform-origin: center top !important;
+		left: -1px !important;
+		top: -90px !important;
+	}
+	.p-inputtextarea {
+		width: 100%;
+	}
+
+	.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+		border: 2px solid #dedede;
+		border-top-right-radius: 8px;
+		border-top-left-radius: 8px;
+	}
+}

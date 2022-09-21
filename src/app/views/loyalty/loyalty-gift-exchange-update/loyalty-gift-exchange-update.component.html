@@ -1,0 +1,49 @@
+<form>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="phoneNumber" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-phone-number"
+					)
+				}}</label>
+                <input type="text" id="phoneNumber" class="form-control" formControlName="txtPhoneNumber" [placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-phone-number'
+						)
+					" spellcheck="false" autocorrect="false" autocomplete="false" autofocus="false" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="customerAddress" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-address"
+					)
+				}}</label>
+                <input type="text" id="customerAddress" class="form-control" formControlName="txtAddress" [placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-address'
+						)
+					" spellcheck="false" autocorrect="false" autocomplete="false" autofocus="false" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <!-- <app-common-citis [isCustomerUpdation]="isCustomerUpdation" (currentProvince)="getProvince($event)" (currentSelectedProvince)="getProvinced($event)" [selectedProvince]="customer.provinceId"></app-common-citis> -->
+                <app-common-citis></app-common-citis>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <p class="text-area">Ghi Chú</p>
+                <textarea rows="3" cols="30" pInputTextarea placeholder="Ghi chú thông tin nhận quà"></textarea>
+            </div>
+        </div>
+        <div class="group-button">
+            <p-button [label]="_translateService.instant('common.action.save')" styleClass="p-button-text p-button-primary" class="float-end ms-2">
+                <!-- [disabled]="!isDisable()" -->
+            </p-button>
+        </div>
+    </div>
+</form>

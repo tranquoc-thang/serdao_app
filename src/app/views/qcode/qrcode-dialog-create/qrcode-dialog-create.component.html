@@ -1,0 +1,82 @@
+<form [formGroup]="qrcodeFormCreate">
+	<div class="row">
+		<div class="form-group">
+			<label for="chooseProduct" class="form-control-label">
+				{{
+					_translateService.instant(
+						"pages.qrcode.placeholders.choose-product"
+					)
+				}}
+			</label>
+			<p-dropdown
+				[options]="productList"
+				optionLabel="productName"
+				optionValue="productId"
+				[placeholder]="
+					_translateService.instant(
+						'pages.qrcode.placeholders.choose-product'
+					)
+				"
+				(onChange)="onChangeProductAtSelected($event)"
+			>
+			</p-dropdown>
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group">
+			<label for="phoneNumber" class="form-control-label">
+				{{
+					_translateService.instant(
+						"pages.qrcode.labels.input-number-product"
+					)
+				}}
+			</label>
+
+			<input
+				type="number"
+				id="qrcodeCreateNumberOfProduct"
+				class="form-control"
+				[placeholder]="
+					_translateService.instant(
+						'pages.qrcode.placeholders.input-number-product'
+					)
+				"
+				value="1"
+				formControlName="qrcodeCreateNumberOfProduct"
+			/>
+			<div>
+				<common-validation-message
+					[mainForm]="qrcodeFormCreate"
+					controllerName="qrcodeCreateNumberOfProduct"
+					controllerType="textbox"
+					controllerTitle="Number"
+				>
+				</common-validation-message>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group">
+			<label for="phoneNumber" class="form-control-label">
+				{{
+					_translateService.instant(
+						"pages.qrcode.labels.input-date-production"
+					)
+				}}
+			</label>
+			<input
+				class="form-control"
+				type="date"
+				id="qrcodeCreateProductionDate"
+				formControlName="qrcodeCreateProductionDate"
+			/>
+		</div>
+	</div>
+
+	<p-button
+		[label]="_translateService.instant('pages.qrcode.labels.create-qr')"
+		icon="pi pi-plus"
+		(click)="onCreateNewQrcode()"
+		[disabled]="!isDisable()"
+	></p-button>
+</form>

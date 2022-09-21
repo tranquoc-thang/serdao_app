@@ -1,0 +1,90 @@
+<div class="group-button">
+	<p-button
+		class="save-button"
+		label="Lưu"
+		(click)="handleUpdateProvinces(campaignId)"
+	></p-button>
+</div>
+<h4>Chọn vùng miền áp dụng chiến dịch</h4>
+<div class="row input-field">
+	<div class="form-group d-flex">
+		<h6 class="mb-0">Miền Nam:</h6>
+
+		<p-checkbox
+			name="grS"
+			inputId="grS"
+			[(ngModel)]="isCheckSouth"
+			[binary]="true"
+			(onChange)="selectAllSouth()"
+		></p-checkbox>
+		<label class="d-flex justify-content-center align-items-center" for="grS"
+			>Chọn tất cả</label
+		>
+	</div>
+	<div *ngFor="let province of provinceListS; index as i" class="col-md-3">
+		<div class="form-group d-flex">
+			<p-checkbox
+				name="group1"
+				value="{{ province.provinceId }}"
+				inputId="ny"
+				[(ngModel)]="isCheckS[i]"
+				[binary]="true"
+			></p-checkbox>
+			<label class="">{{ province.provinceName }}</label>
+		</div>
+	</div>
+</div>
+<div class="row input-field">
+	<div class="form-group d-flex">
+		<h6 class="mb-0">Miền Trung:</h6>
+		<p-checkbox
+			name="grC"
+			inputId="grC"
+			[binary]="true"
+			[(ngModel)]="isCheckCenter"
+			(onChange)="selectAllCenter()"
+		></p-checkbox>
+		<label class="d-flex justify-content-center align-items-center" for="grC"
+			>Chọn tất cả</label
+		>
+	</div>
+	<div *ngFor="let province of provinceListC; index as i" class="col-md-3">
+		<div class="form-group d-flex">
+			<p-checkbox
+				name="group2"
+				value="{{ province.provinceId }}"
+				inputId="ny"
+				[(ngModel)]="isCheckC[i]"
+				[binary]="true"
+			></p-checkbox>
+			<label class="">{{ province.provinceName }}</label>
+		</div>
+	</div>
+</div>
+<div class="row input-field">
+	<div class="form-group d-flex">
+		<h6 class="mb-0">Miền Bắc:</h6>
+		<p-checkbox
+			name="grN"
+			inputId="grN"
+			[binary]="true"
+			[(ngModel)]="isCheckNorth"
+			(onChange)="selectAllNorth()"
+		></p-checkbox>
+		<label class="d-flex justify-content-center align-items-center" for="grN"
+			>Chọn tất cả</label
+		>
+	</div>
+	<div *ngFor="let province of provinceListN; index as i" class="col-md-3">
+		<div class="form-group d-flex">
+			<p-checkbox
+				name="group3"
+				value="{{ province.provinceId }}"
+				inputId="ny"
+				[(ngModel)]="isCheckN[i]"
+				[binary]="true"
+			></p-checkbox>
+			<label class="">{{ province.provinceName }}</label>
+		</div>
+	</div>
+</div>

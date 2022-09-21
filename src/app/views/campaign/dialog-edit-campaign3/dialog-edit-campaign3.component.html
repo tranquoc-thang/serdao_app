@@ -1,0 +1,631 @@
+<div class="campaigns-edit-wrapper">
+	<!-- <p-confirmDialog
+		header="Xác Nhận"
+		icon="pi pi-exclamation-triangle"
+	></p-confirmDialog> -->
+	<div class="group-buttons">
+		<div class="group-button">
+			<p-button
+				class="finish-button mr-20"
+				label="Lịch Sử QRs"
+				[routerLink]="['/campaign/packing-qr-history-list']"
+				[state]="{
+					rootLabel: campaignDetail.campaignTitle,
+					listLabel: campaignDetail.campaignTitle,
+					campaignId: campaignDetail.campaignId
+				}"
+			></p-button>
+			<p-button
+				class="finish-button mr-20"
+				label="Kết Thúc Chiến Dịch"
+				(click)="
+					doDeactiveCampaign(
+						campaignDetail.campaignId,
+						-1,
+						'Kết Thúc Chiến Dịch'
+					)
+				"
+			></p-button>
+			<p-button
+				class="release-button"
+				label="Kích Hoạt Chiến Dịch"
+				(click)="
+					doActiveCampaign(
+						campaignDetail.campaignId,
+						1,
+						'Kích Hoạt Chiến Dịch'
+					)
+				"
+			></p-button>
+		</div>
+	</div>
+	<div class="campaigns-edit__tabs">
+		<p-tabView>
+			<p-tabPanel header="Thông Tin Chiến Dịch">
+				<form [formGroup]="campaignEditTabForm">
+					<div class="group-button">
+						<p-button
+							class="save-button"
+							label="Lưu"
+							(click)="doUpdateCampaignInfo()"
+							[disabled]="!isDisable()"
+						></p-button>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group d-flex">
+								<label
+									for="txtCampaignType"
+									class="form-control-label text-center mb-0"
+									>Loại Chiến Dịch:</label
+								>
+								<!-- <p-dropdown
+									[options]="campaignTypeList"
+									optionLabel="campaignTypeName"
+									optionValue="campaignTypeId"
+									placeholder="Loại Chiến Dịch"
+									class="common-dropdown p-inputtext-sm w-full"
+									formControlName="txtCampaignType"
+									[(ngModel)]="campaignDetail.campaignType"
+								>
+								</p-dropdown> -->
+								<h4>Chiến Dịch {{ campaignDetail.campaignType }}</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group d-flex">
+								<label
+									for="phoneNumber"
+									class="form-control-label text-center mb-0"
+									>Đối Tượng Áp Dụng:</label
+								>
+								<p-dropdown
+									[options]="groupList"
+									optionLabel="groupName"
+									optionValue="groupId"
+									placeholder="Đại Lý | Thầu Thợ"
+									class="common-dropdown p-inputtext-sm w-full"
+									formControlName="txtCampaignGroupId"
+									[(ngModel)]="campaignDetail.campaignGroupId"
+								>
+								</p-dropdown>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group d-flex">
+								<label
+									for="startDate"
+									class="form-control-label text-center mb-0"
+									>Ngày Bắt Đầu:</label
+								>
+								<!-- <input
+									type="date"
+									id="txtStartDate"
+									class="form-control"
+									formControlName="txtStartDate"
+									[(ngModel)]="campaignStartDate"
+								/> -->
+								<p-calendar
+									(onSelect)="getStartDate($event)"
+									formControlName="txtStartDate"
+									inputId="txtStartDate"
+									[showIcon]="true"
+									[(ngModel)]="campaignStartDate"
+									dateFormat="dd/mm/yy"
+								></p-calendar>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group d-flex">
+								<label
+									for="endDate"
+									class="form-control-label text-center mb-0"
+									>Ngày Kết Thúc:</label
+								>
+								<!-- <input
+									type="date"
+									id="txtEndDate"
+									class="form-control"
+									formControlName="txtEndDate"
+									[(ngModel)]="campaignEndDate"
+								/> -->
+								<p-calendar
+									(onSelect)="getEndDate($event)"
+									formControlName="txtEndDate"
+									inputId="txtEndDate"
+									[showIcon]="true"
+									[(ngModel)]="campaignEndDate"
+									dateFormat="dd/mm/yy"
+								></p-calendar>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group d-flex">
+								<label
+									for="endDateGift"
+									class="form-control-label text-center mb-0"
+									>Ngày Kết Thúc Đổi Thưởng:</label
+								>
+								<!-- <input
+									type="date"
+									id="txtEndDateGift"
+									class="form-control"
+									formControlName="txtEndDateGift"
+									[(ngModel)]="campaignRedemptionEndDate"
+								/> -->
+								<p-calendar
+									(onSelect)="getRedemptionEndDate($event)"
+									formControlName="txtEndDateGift"
+									inputId="txtEndDateGift"
+									[showIcon]="true"
+									[(ngModel)]="campaignRedemptionEndDate"
+									dateFormat="dd/mm/yy"
+								></p-calendar>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group d-flex">
+								<label
+									for="txtCampaignTitle"
+									class="form-control-label text-center mb-0"
+									>Tiêu Đề Chiến Dịch:</label
+								>
+								<input
+									pInputText
+									id="txtCampaignTitle"
+									class="form-control"
+									formControlName="txtCampaignTitle"
+									placeholder="Tiêu Đề Chiến Dịch"
+									[(ngModel)]="campaignDetail.campaignTitle"
+								/>
+							</div>
+						</div>
+						<common-validation-message
+							class="ml-170 mb-3"
+							[mainForm]="campaignEditTabForm"
+							controllerName="txtCampaignTitle"
+							controllerType="textbox"
+							controllerTitle="Tiêu Đề Chiến Dịch"
+							maxLength="150"
+						>
+						</common-validation-message>
+						<div class="col-md-12">
+							<div class="form-group d-flex-top">
+								<h5 class="text-center label">Mô Tả Chiến Dịch:</h5>
+								<textarea
+									rows="5"
+									cols="30"
+									pInputTextarea
+									[autoResize]="true"
+									id="txtCampaignDescription"
+									formControlName="txtCampaignDescription"
+									[(ngModel)]="campaignDetail.campaignDescription"
+								></textarea>
+							</div>
+						</div>
+						<common-validation-message
+							class="ml-170 mb-3"
+							[mainForm]="campaignEditTabForm"
+							controllerName="txtCampaignDescription"
+							controllerType="textbox"
+							controllerTitle="Mô Tả Chiến Dịch"
+							maxLength="2000"
+						>
+						</common-validation-message>
+						<div class="col-md-12">
+							<div class="form-group d-flex-top">
+								<h5 class="text-center label">Quy Định Chung:</h5>
+								<textarea
+									rows="10"
+									cols="30"
+									pInputTextarea
+									[autoResize]="true"
+									formControlName="txtCampaignGeneralRulesDescription"
+									id="campaignCommonRule"
+									[(ngModel)]="
+										campaignDetail.campaignGeneralRulesDescription
+									"
+								></textarea>
+							</div>
+						</div>
+						<common-validation-message
+							class="ml-170 mb-3"
+							[mainForm]="campaignEditTabForm"
+							controllerName="txtCampaignGeneralRulesDescription"
+							controllerType="textbox"
+							maxLength="2000"
+							controllerTitle="Quy Định Chung"
+						>
+						</common-validation-message>
+						<div class="col-md-12">
+							<div class="form-group d-flex-top">
+								<h5 class="text-center label">Quy Định Trả Thưởng:</h5>
+								<textarea
+									rows="10"
+									cols="30"
+									pInputTextarea
+									[autoResize]="true"
+									id="campaignGiftRule"
+									formControlName="txtCampaignRedemptionMethodDescription"
+									[(ngModel)]="
+										campaignDetail.campaignRedemptionMethodDescription
+									"
+								></textarea>
+							</div>
+						</div>
+						<common-validation-message
+							class="ml-170 mb-3"
+							[mainForm]="campaignEditTabForm"
+							controllerName="txtCampaignRedemptionMethodDescription"
+							controllerType="textbox"
+							maxLength="2000"
+							controllerTitle="Quy Định Trả Thưởng"
+						>
+						</common-validation-message>
+						<div class="col-md-12">
+							<div class="form-group d-flex">
+								<label
+									for="txtCampaignGiftsLimit"
+									class="form-control-label text-center mb-0"
+									>Số Lượng Quà Tối Đa:</label
+								>
+								<!-- <input
+									type="nubmer"
+									id="txtCampaignGiftsLimit"
+									class="form-control"
+									formControlName="txtCampaignGiftsLimit"
+									placeholder="Số Lượng Quà Tối Đa"
+									[(ngModel)]="campaignDetail.campaignGiftsLimit"
+								/>
+								<div class="">
+									<label for="minmax">Min-Max Boundaries</label> -->
+								<p-inputNumber
+									[(ngModel)]="campaignDetail.campaignGiftsLimit"
+									formControlName="txtCampaignGiftsLimit"
+									placeholder="Số Lượng Quà Tối Đa"
+									mode="decimal"
+									[min]="0"
+									[max]="100000000"
+									class="w-full"
+								>
+								</p-inputNumber>
+								<!-- </div> -->
+							</div>
+						</div>
+						<common-validation-message
+							class="ml-170 mb-3"
+							[mainForm]="campaignEditTabForm"
+							controllerName="txtCampaignGiftsLimit"
+							controllerType="textbox"
+							controllerTitle="Số Lượng Quà Tối Đa"
+						>
+						</common-validation-message>
+						<div class="col-md-12">
+							<div class="form-group d-flex">
+								<label
+									for="txtCampaignGiftCurrentTotal"
+									class="form-control-label text-center mb-0"
+									>Số Lượng Quà Đã Đổi:</label
+								>
+								<!-- <input
+									type="nubmer"
+									id="txtCampaignGiftCurrentTotal"
+									class="form-control"
+									formControlName="txtCampaignGiftCurrentTotal"
+									placeholder="Số Lượng Quà Đã Đổi"
+									[disabled]="disabled"
+									[(ngModel)]="campaignDetail.campaignGiftCurrentTotal"
+								/> -->
+								<p-inputNumber
+									[(ngModel)]="campaignDetail.campaignGiftCurrentTotal"
+									formControlName="txtCampaignGiftCurrentTotal"
+									placeholder="Số Lượng Quà Đã Đổi"
+									mode="decimal"
+									[min]="0"
+									[max]="100000000"
+									[disabled]="true"
+								>
+								</p-inputNumber>
+							</div>
+						</div>
+						<common-validation-message
+							class="ml-170 mb-3"
+							[mainForm]="campaignEditTabForm"
+							controllerName="txtCampaignGiftCurrentTotal"
+							controllerType="textbox"
+							controllerTitle="Số Lượng Quà Đã Đổi"
+						>
+						</common-validation-message>
+						<div class="col-md-12">
+							<div class="form-group d-flex">
+								<label class="form-control-label text-center mb-0"
+									>Thumbnail:</label
+								>
+								<p-fileUpload
+									name="docs[]"
+									[multiple]="false"
+									accept="image/*"
+									[maxFileSize]="5000000"
+									[showUploadButton]="false"
+									[showCancelButton]="false"
+									chooseLabel="Chọn ảnh"
+									class="w-full"
+									(customUpload)="onSelectEvent($event)"
+									invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+									invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+									(onSelect)="onSelectThumbnail($event)"
+								>
+									<ng-template pTemplate="content" let-files>
+										<div
+											class="p-fileupload-files"
+											*ngIf="!currentFileThumbnail"
+										>
+											<div class="p-fileupload-row">
+												<div class="-size-img">
+													<img
+														[src]="
+															campaignDetail.campaignThumbnail
+														"
+														alt="Image"
+													/>
+												</div>
+												<div>
+													<button
+														pButton
+														type="button"
+														icon="pi pi-times"
+														class="p-button-text"
+														(click)="handleShowThumbnail($event)"
+													></button>
+												</div>
+											</div>
+										</div>
+									</ng-template>
+								</p-fileUpload>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group d-flex">
+								<label class="form-control-label text-center mb-0"
+									>Banner:</label
+								>
+								<p-fileUpload
+									name="docs[]"
+									[multiple]="false"
+									accept="image/*"
+									[maxFileSize]="5000000"
+									class="w-full"
+									(customUpload)="onSelectEvent($event)"
+									invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+									invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+									[showUploadButton]="false"
+									[showCancelButton]="false"
+									chooseLabel="Chọn ảnh"
+									(onSelect)="onSelectBanner($event)"
+									(onRemove)="onRemoveBanner($event)"
+								>
+									<ng-template pTemplate="content" let-files>
+										<div
+											class="p-fileupload-files"
+											*ngIf="!currentFileBanner"
+										>
+											<div class="p-fileupload-row">
+												<div class="-size-img">
+													<img
+														[src]="campaignDetail.campaignBanner"
+														alt="Image"
+													/>
+												</div>
+												<div>
+													<button
+														pButton
+														type="button"
+														icon="pi pi-times"
+														class="p-button-text"
+														(click)="handleShowBanner($event)"
+													></button>
+												</div>
+											</div>
+										</div>
+									</ng-template>
+								</p-fileUpload>
+							</div>
+						</div>
+					</div>
+				</form>
+			</p-tabPanel>
+			<p-tabPanel header="Vùng Miền">
+				<app-province-tab
+					[currentProvinces]="campaignProvinces"
+				></app-province-tab>
+			</p-tabPanel>
+			<p-tabPanel header="Luật Tích Điểm">
+				<div class="group-button">
+					<p-button class="save-button" label="Lưu"></p-button>
+				</div>
+				<h4>Luật Tích Điểm:</h4>
+				<form action="" class="form" [formGroup]="accumulatePointsRuleForm">
+					<div class="row input-field">
+						<div class="col-md-6">
+							<div class="form-group d-flex-center">
+								<label
+									for="chooseProduct"
+									class="form-control-label text-left-min-width mr-12 mb-0"
+									>{{
+										_translateService.instant(
+											"pages.qrcode.placeholders.choose-product"
+										)
+									}}</label
+								>
+								<p-dropdown
+									[options]="productList"
+									optionLabel="productName"
+									optionValue="productId"
+									id="chooseProduct"
+									[placeholder]="
+										_translateService.instant(
+											'pages.qrcode.placeholders.choose-product'
+										)
+									"
+									class="common-dropdown p-inputtext-sm w-full"
+									[(ngModel)]="productId"
+									formControlName="txtChooseProduct"
+								>
+								</p-dropdown>
+								<common-validation-message
+									[mainForm]="accumulatePointsRuleForm"
+									controllerName="txtChooseProduct"
+									controllerType="selectbox"
+									controllerTitle="Chọn Sản Phẩm"
+								>
+								</common-validation-message>
+							</div>
+							<div class="flex btn-search">
+								<button
+									pButton
+									type="button"
+									label="Thêm Luật"
+									(click)="
+										doAddRuleCampaign(campaignDetail.campaignId)
+									"
+								></button>
+							</div>
+						</div>
+					</div>
+				</form>
+
+				<h4>Danh Sách Luật</h4>
+				<div class="app-table" *ngIf="campaignRules">
+					<p-table
+						[value]="campaignRules"
+						styleClass="p-datatable-sm p-datatable-gridlines"
+						responsiveLayout="scroll"
+						[rows]="10"
+						[showCurrentPageReport]="true"
+						responsiveLayout="scroll"
+						currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+						[rowsPerPageOptions]="[5, 10, 15]"
+						[scrollable]="true"
+						scrollHeight="400px"
+						[resizableColumns]="true"
+					>
+						<ng-template pTemplate="header">
+							<tr>
+								<th>Hành động</th>
+								<th>Mã Sản Phẩm</th>
+								<th>Tên Sản Phẩm</th>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="body" let-rule>
+							<tr>
+								<td class="justify-center">
+									<button
+										pButton
+										pRipples
+										type="button"
+										label="Xoá"
+										class="p-button-danger p-button-text mr-2"
+										(click)="
+											doDeleteCampaignRule(
+												rule.campaignId,
+												rule.productId,
+												'Bạn muốn xóa Luật tích điểm này?'
+											)
+										"
+									></button>
+								</td>
+								<td>
+									{{ rule.productId }}
+								</td>
+								<td>
+									{{ rule.productName }}
+								</td>
+							</tr>
+						</ng-template>
+					</p-table>
+				</div>
+			</p-tabPanel>
+			<p-tabPanel header="Quà Tặng">
+				<div class="group-buttons mt-2 mb-3">
+					<div class="group-button">
+						<p-button class="save-button-gift" label="Lưu"></p-button>
+						<p-button
+							class="finish-button mr-20"
+							label="Thêm quà tặng"
+							type="button"
+							(click)="showModalDialogAddGift3()"
+						></p-button>
+					</div>
+				</div>
+				<h4>Danh Sách Quà Tặng</h4>
+				<div class="app-table" *ngIf="campaignNormalGifts">
+					<p-table
+						[value]="campaignNormalGifts"
+						styleClass="p-datatable-sm p-datatable-gridlines"
+						responsiveLayout="scroll"
+						[rows]="10"
+						[showCurrentPageReport]="true"
+						responsiveLayout="scroll"
+						currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+						[rowsPerPageOptions]="[5, 10, 15]"
+						[scrollable]="true"
+						scrollHeight="400px"
+						[resizableColumns]="true"
+					>
+						<ng-template pTemplate="header">
+							<tr>
+								<th class="column-1">Hành động</th>
+								<th class="column-2">Icon</th>
+								<th class="column-3">Tên quà</th>
+								<th class="column-4">Điểm quy đổi</th>
+								<th class="column-5">Ngày bắt đầu đổi quà</th>
+								<th class="column-6">Ngày kết thúc đổi quà</th>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="body" let-gift>
+							<tr>
+								<td class="justify-center column-1">
+									<button
+										pButton
+										pRipple
+										type="button"
+										label="Cập Nhật"
+										class="p-button-success p-button-text mr-2"
+										(click)="showModalDialogEditGift3()"
+									></button>
+									|
+									<button
+										pButton
+										pRipple
+										type="button"
+										label="Xoá"
+										class="p-button-danger p-button-text mr-2"
+									></button>
+								</td>
+								<td class="column-2">
+									<img
+										src="{{ gift.giftIcon }}"
+										alt="icon"
+										class="img-update"
+									/>
+								</td>
+								<td class="column-3">
+									{{ gift.giftTitle }}
+								</td>
+								<td class="column-4">
+									{{ gift.giftRequiredPoint }}
+								</td>
+								<td class="column-5">
+									{{ gift.createdDate | date: "dd/mm/yyyy" }}
+								</td>
+								<td class="column-6">
+									{{ gift.giftEndDate | date: "dd/mm/yyyy" }}
+								</td>
+							</tr>
+						</ng-template>
+					</p-table>
+				</div>
+			</p-tabPanel>
+		</p-tabView>
+	</div>
+</div>

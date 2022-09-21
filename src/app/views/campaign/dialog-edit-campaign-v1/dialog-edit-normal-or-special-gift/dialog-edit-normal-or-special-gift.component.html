@@ -1,0 +1,131 @@
+<form class="campaigns-edit-wrapper" [formGroup]="editNormalOrSpecialForm">
+	<div class="gift-monthly-edit">
+		<div class="row input-field">
+			<div class="row" *ngIf="isEditNormalGift">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="pointExchange" class="form-control-label"
+							>Điểm Quy Đổi:
+						</label>
+						<input
+							type="text"
+							id="pointExchange"
+							class="form-control"
+							placeholder="Điểm Quy Đổi"
+							formControlName="txtPointExchange"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="giftName" class="form-control-label"
+							>Tên Quà:
+						</label>
+						<input
+							type="text"
+							id="giftName"
+							class="form-control"
+							placeholder="Tên Quà"
+							formControlName="txtGiftName"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="quantityExchange" class="form-control-label"
+							>Số lượng quy đổi:
+						</label>
+						<input
+							type="text"
+							id="quantityExchange"
+							class="form-control"
+							placeholder="Số Lượng Quy Đổi"
+							formControlName="txtQuantityExchange"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="description" class="form-control-label"
+							>Mô tả:
+						</label>
+						<textarea
+							rows="5"
+							cols="30"
+							pInputTextarea
+							id="description"
+							placeholder="Mô Tả Quà Tặng"
+						></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="giftThumbnail" class="form-control-label"
+							>Thumbnail:</label
+						>
+						<p-fileUpload
+							name="docs[]"
+							[multiple]="true"
+							accept="image/*"
+							id="giftThumbnail"
+							[maxFileSize]="2000000"
+							[showUploadButton]="true"
+							class="w-full"
+							(customUpload)="onSelectEvent($event)"
+						>
+						</p-fileUpload>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="giftIcon" class="form-control-label">Icon:</label>
+						<p-fileUpload
+							name="docs[]"
+							[multiple]="true"
+							accept="image/*"
+							id="giftIcon"
+							[maxFileSize]="2000000"
+							[showUploadButton]="true"
+							class="w-full"
+							(customUpload)="onSelectEvent($event)"
+						>
+						</p-fileUpload>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="giftBanner" class="form-control-label"
+							>Banner:</label
+						>
+						<p-fileUpload
+							name="docs[]"
+							id="giftBanner"
+							[multiple]="true"
+							accept="image/*"
+							[maxFileSize]="2000000"
+							[showUploadButton]="true"
+							class="w-full"
+							(customUpload)="onSelectEvent($event)"
+						>
+						</p-fileUpload>
+					</div>
+				</div>
+			</div>
+			<div class="group-button">
+				<p-button class="save-button" label="Thêm Quà Tặng"></p-button>
+			</div>
+		</div>
+	</div>
+</form>

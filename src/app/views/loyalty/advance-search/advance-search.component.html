@@ -1,0 +1,86 @@
+<form action="" class="form" [formGroup]="loyaltyMembershipGiftSearchForm">
+	<h5>{{
+		_translateService.instant(
+			"pages.loyalty.advance-search"
+		)
+	}}</h5>
+	<hr />
+
+	<div class="row input-field">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.loyalty.labels.gift-name"
+						)
+					}}
+				</label>
+				<input
+					type="text"
+					id="giftTitle"
+					class="form-control"
+					formControlName="giftTitle"
+					[placeholder]="
+					_translateService.instant(
+						'pages.loyalty.labels.gift-name'
+					)
+				"
+				/>
+			</div>
+		</div>
+		
+		
+		<div class="col-md-6">
+			<div class="form-group">
+				<label  class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.loyalty.labels.gift-start-date-exchange"
+						)
+					}}</label
+				>
+				<input
+					type="date"
+					id="giftStartDate"
+					class="form-control"
+					formControlName="giftStartDate"
+				/>
+			</div>
+		</div>
+	</div>
+	<div class="row input-field">
+
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.loyalty.labels.gift-end-date-exchange"
+						)
+					}}</label
+				>
+				<input
+					type="date"
+					id="giftEndDate"
+					class="form-control"
+					formControlName="giftEndDate"
+				/>
+			</div>
+		</div>
+	</div>
+	<div class="row input-field">
+		<div class="flex btn-search">
+			<button
+				pButton
+				type="button"
+				[label]="
+				_translateService.instant(
+					'pages.loyalty.labels.search'
+				)
+			"
+				(click)="searchLoyaltyMembershipGift()"
+			></button>
+		</div>
+	</div>
+</form>

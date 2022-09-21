@@ -1,0 +1,627 @@
+{
+	"common": {
+		"app-name": "Content Management System",
+		"app-title": "Inotek | Content Management System",
+		"owner-name": "Innovation Technology Solution",
+		"app-copyright": "Copyright © 2021 Innovation Technology Corp. All Rights Reserved.",
+		"info": {
+			"company-name": "株式会社 トレンタ",
+			"company-address": "〒541-0053大阪市中央区本町4-5-4 本町GTCビル5F",
+			"company-phone": "+81-06-6271-3223",
+			"company-fax": "+81-06-6271-3224"
+		},
+		"alert-component": {
+			"confirm-title": "確認",
+			"alert-action": "この$1を$0しますか。",
+			"cancel": "キャンセル",
+			"ok": "OK"
+		},
+		"action": {
+			"delete": "Xóa",
+			"edit": "Sửa",
+			"add": "Thêm Đại Lý",
+			"accept-update": "Đồng Ý Cập Nhật",
+			"default": "Default configuration",
+			"active": "Active",
+			"deactive": "Inactive",
+			"save": "Save",
+			"save-cache": "Lưu Tạm",
+			"search": "Search",
+			"searchVI": "Tìm Kiếm",
+			"add-new": "Add new $0",
+			"change": "Change",
+			"send": "Send Email",
+			"apply": "Apply",
+			"confirm": "Xác nhận",
+			"update": "Cập nhật",
+			"activation-confirm": "Xác Nhận Kích Hoạt",
+			"temporary-save": "Lưu Tạm"
+		},
+		"success-message": {
+			"action-success": "$1の$0に成功しました",
+			"update-success": "編集が完了しました。",
+			"delete-success": "削除が完了しました。",
+			"get-data-success": "Lấy dữ liệu thành công!",
+			"create-success": "$0が完了しました"
+		},
+		"success-messages": {
+			"got-data-successfully": "Lấy dữ liệu thành công!",
+			"delete-data-successfully": "Delete data successfully!"
+		},
+		"errors-message": {
+			"get-data-fail": "Không có dữ liệu!",
+			"common-server-error": "Đã xảy ra lỗi hệ thống không mong muốn.",
+			"common-server-warning": "Inaccurate information. Please check again.",
+			"get-success": "An unexpected system error has occurred.",
+			"create-success": "An unexpected system error has occurred.",
+			"update-success": "An unexpected system error has occurred.",
+			"delete-success": "An unexpected system error has occurred.",
+			"get-warning": "An unexpected system error has occurred.",
+			"create-warning": "An unexpected system error has occurred.",
+			"update-warning": "An unexpected system error has occurred.",
+			"delete-warning": "An unexpected system error has occurred.",
+			"get-error": "An unexpected system error has occurred.",
+			"create-error": "An unexpected system error has occurred.",
+			"update-error": "An unexpected system error has occurred.",
+			"delete-error": "An unexpected system error has occurred.",
+			"wrong-password": "The old password is incorrect. Please check again.",
+			"login-wrong": "There is an error in the input."
+		},
+		"validation": {
+			"badge-required": "必須",
+			"badge-optional": "任意",
+			"message-required-input": "「$0」Vui lòng điền vào phần được yêu cầu.",
+			"message-required-select-box": "「$0」Chọn một giá trị.",
+			"message-required-multiple-select-box": "「$0」",
+			"message-end-before-start-date": "「$0」là một ngày trước「$1」, vui lòng nhập lại lần nữa.",
+			"message-not-matched": "Những giá trị được nhập cho「$0」và「$1 không khớp, vui lòng nhập lại chúng lần nữa.",
+			"message-exist": "$0 này đã được đăng ký. Vui lòng nhập lại với $1 khác.",
+			"message-not-exist": "「$0」Là không chính xác, xin vui lòng nhập lại.",
+			"password-unchange-error": "Vui lòng điền mật khẩu mới phải khác với mật khẩu cũ.",
+			"null-province": "Một số trường này là bắt buộc.",
+			"message": "Vui lòng điền vào tất cả các trường",
+			"message-pattern": "「$0」Định dạng không chính xác, vui lòng nhập lại.",
+			"message-max-length": "「$0」Nhập $1 ký tự hoặc ít hơn.",
+			"message-min-max-length": "「$0」Nhập từ $1 ký tự đến $2 ký tự.",
+			"message-exactly-length": "「$0」Nhập $1 ký tự."
+		},
+		"buttons": {
+			"ok": "Yes",
+			"cancel": "Cancel",
+			"back": "Back"
+		},
+		"form": {
+			"title": {
+				"advanced-search": "Tìm Kiếm Nâng Cao"
+			}
+		},
+		"labels": {
+			"address-char": "〒",
+			"none": "なし",
+			"currency-symbol": "円",
+			"percent-symbol": "％"
+		},
+		"breadcrumbs": {
+			"candidate": {
+				"labels": {
+					"list": "Candidate list",
+					"root": "Candidate management"
+				}
+			},
+			"company": {
+				"labels": {
+					"list": "Company list",
+					"root": "Company management"
+				}
+			},
+			"applied-candidate": {
+				"labels": {
+					"list": "Applied Candidate list",
+					"root": "Applied Candidate management"
+				}
+			},
+			"recruitment": {
+				"labels": {
+					"list": "Recruitment list",
+					"root": "Recruitment management"
+				}
+			},
+			"onboarding": {
+				"labels": {
+					"list": "Onboarding",
+					"root": "Dashboard"
+				}
+			}
+		},
+		"table": {
+			"labels": {
+				"action": "Action",
+				"active": "Active",
+				"deactive": "Deactive",
+				"empty-data": "No data was found.",
+				"candidate-email": "Candidate Email",
+				"candidate-first-name": "Candidate Full Name",
+				"candidate-last-name": "Candidate Last Name"
+			},
+			"placeholder": {
+				"search": "Enter to Search"
+			}
+		},
+		"sidebar": {
+			"labels": {
+				"applied-candidate": "Applied Candidate",
+				"recruitment": "Recruitment",
+				"company": "Companies",
+				"candidate": "Candidate",
+				"system": "System Management",
+				"onboarding": "Dashboard",
+				"app": "Tokunabi"
+			}
+		},
+		"header": {
+			"labels": {
+				"japan": "Japanese",
+				"english": "English",
+				"sign-out": "Logout",
+				"profile": "Profile",
+				"language": "Languages"
+			}
+		},
+		"province": {
+			"labels": {
+				"area": "Area",
+				"province": "Province",
+				"city": "City",
+				"no-select": "No Selected"
+			},
+			"placeholders": {
+				"area": "Choose Your Area",
+				"province": "Choose Your Province",
+				"city": "Choose Your City"
+			}
+		},
+		"sex": {
+			"labels": {
+				"sex": "Sex"
+			},
+			"placeholders": {
+				"sex": "Choose your gender"
+			}
+		},
+		"customer-group": {
+			"labels": {
+				"type-group": "Loại tài khoản"
+			},
+			"placeholders": {
+				"type-group": "Đại Lý | Thầu Thợ"
+			}
+		},
+		"major": {
+			"labels": {
+				"major": "Major"
+			},
+			"placeholders": {
+				"major": "Choose your major"
+			}
+		},
+		"city": {
+			"labels": {
+				"city": "Tỉnh Thành Phố"
+			},
+			"placeholders": {
+				"city": "Chọn tỉnh thành"
+			}
+		},
+		"rank": {
+			"labels": {
+				"rank": "Hạng Thành Viên"
+			},
+			"placeholders": {
+				"rank": "Chọn hạng thành viên"
+			}
+		},
+		"calendar": {
+			"placeholders": {
+				"calendar": "Choose Date"
+			}
+		}
+	},
+	"pages": {
+		"admin-forgotten-password": {
+			"warning-messages": {
+				"account-has-been-wrong": "Incorrect email"
+			}
+		},
+		"not-support-device": {
+			"labels": {
+				"header-title": "Tokunabi CMS only supports computer."
+			}
+		},
+		"login": {
+			"labels": {
+				"page-title": "とくナビ管理システム",
+				"body-title": "Đăng Nhập",
+				"input-username-title": "Tài khoản",
+				"input-email-title": "Địa chỉ Email",
+				"input-username-placeholder": "例： admin",
+				"input-password-title": "Mật khẩu",
+				"input-password-placeholder": "半角英数字6文字以上",
+				"button-login-title": "ログイン",
+				"link-forgotpassword-title": "パスワードをお忘れですか?"
+			},
+			"success-messages": {
+				"logged-in-successfully": "Logged in successfully."
+			},
+			"warning-messages": {
+				"admin-account": {
+					"required": "User account field is required a value.",
+					"invalid-string": "User account field format was wrong.",
+					"max-character-50": "The maximum number of characters for user account field is 50 characters."
+				},
+				"admin-password": {
+					"required": "User password field is required a value.",
+					"between-character-6-100": "The number of characters for password field is between 6 ~ 100 characters."
+				},
+				"admin-account-has-no-exist": "Tài khoản quản trị viên không tồn tại"
+			},
+			"error-messages": {}
+		},
+		"loyalty": {
+			"pages": {
+				"rule": {
+					"member-rank": "Hạng Thành Viên",
+					"point-up-rank": "Điểm Thăng Hạng",
+					"description": "Mô Tả",
+					"retailer": "Đại Lý",
+					"installer": "Thầu Thợ"
+				}
+			},
+			"advance-search": "Tìm kiếm nâng cao",
+			"table": {
+				"result-list": "Danh sách kết quả",
+				"activity": "Hoạt Động",
+				"non-activity": "Ngưng Hoạt Động",
+				"status": "Trạng Thái",
+				"limit": "Giới Hạn",
+				"non-limit": "Không Giới Hạn",
+				"icon": "Icon",
+				"gift-name": "Tên Quà",
+				"gift-point-required": "Điểm Quy Đổi",
+				"gift-start-date-exchange": "Ngày Bắt Đầu Đổi Quà",
+				"gift-end-date-exchange": "Ngày Kết Thúc Đổi Quà"
+			},
+			"labels": {
+				"search": "Tìm Kiếm",
+				"add-gift": "Thêm Quà Tặng",
+				"update-gift": "Sửa Quà Tặng",
+				"gift-name": "Tên Quà",
+				"gift-start-date-exchange": "Ngày Bắt Đầu Đổi Quà",
+				"gift-end-date-exchange": "Ngày Kết Thúc Đổi Quà",
+				"gift-limit": "Giới Hạn Phần Quà",
+				"gift-point-required": "Điểm Quy Đổi",
+				"gift-description": "Mô Tả",
+				"gift-thumbnail": "Thumbnail",
+				"gift-icon": "Icon",
+				"gift-banner": "Banner"
+			},
+			"placeholders": {
+				"gift-name": "RNABCD012345",
+				"gift-start-date-exchange": "Ngày Bắt Đầu Đổi Quà",
+				"gift-end-date-exchange": "Ngày Kết Thúc Đổi Quà",
+				"gift-limit": "Giới Hạn Phần Quà",
+				"gift-point-required": "Điểm Quy Đổi",
+				"gift-description": "Mô Tả",
+				"gift-thumbnail": "Thumbnail",
+				"gift-icon": "Icon",
+				"gift-banner": "Banner"
+			}
+		},
+		"qrcode": {
+			"table": {
+				"result-list": "Danh Sách Kết Quả",
+				"activity": "Hoạt Động",
+				"packing-number": "Mã Đóng Gói",
+				"create-date": "Ngày Tạo",
+				"product": "Sản Phẩm",
+				"product-date": "Ngày Sản Xuất"
+			},
+			"labels": {
+				"page-title": "Danh Sách Mã QR",
+				"result-list": "Danh sách kết quả",
+				"qrcode": "Mã QR",
+				"qr-date-of-create": "Ngày sản xuất",
+				"qr-date-of-use": "Ngày sử dụng",
+				"qr-name-of-user": "Người sử dụng",
+				"reatiler-text": "Đại Lý",
+				"installer-text": "Thầu Thợ",
+				"qr-status-text": "Trạng Thái: ",
+				"qr-status-active-text": "Hoạt Động",
+				"qr-status-non-active-text": "Ngưng Hoạt Động",
+				"qr-used-text": "Sử Dụng: ",
+				"qr-used-active-text": "Đã Sử Dụng",
+				"qr-used-non-active-text": "Chưa Sử Dụng",
+				"create-qr": "Tạo QRs",
+				"detail-dialog-title": "Chi Tiết QRs",
+				"create-dialog-title": "Tạo Mã QRs",
+				"choose-product": "Chọn Sản Phẩm",
+				"input-number-product": "Nhập Số Lượng",
+				"input-date-production": "Nhập Ngày Sản Xuất",
+				"qr-type": "Loại",
+				"total-score": "Tổng điểm",
+				"customer-code": "Mã khách hàng",
+				"customer-name": "Tên khách hàng"
+			},
+			"placeholders": {
+				"choose-product": "Chọn Sản Phẩm",
+				"input-number-product": "Nhập Số Lượng",
+				"qr-name-of-user": "Người sử dụng",
+				"example-packing-code": "RNABCD012345"
+			},
+			"advance-search": {
+				"advance-search": "Tìm kiếm nâng cao",
+				"packing-code": "Mã đóng gói",
+				"product": "Sản phẩm",
+				"date-of-create": "Ngày tạo",
+				"date-of-use": "Ngày sử dụng",
+				"customer-code": "Mã khách hàng"
+			}
+		},
+		"campaign": {
+			"labels": {
+				"status": "Trạng Thái",
+				"campaign-group": "Đối Tượng Áp Dụng",
+				"campaign-point-exchange": "Điểm Quy Đổi",
+				"campaign-gift-exchange": "Sản Phẩm Quy Đổi",
+				"campaign-description": "Mô tả"
+			}
+		},
+		"campaign-screen": {
+			"success-messages": {
+				"add-campaign-successfully": "Thêm Chiến Dịch Thành Công",
+				"add-campaign-rule-successfully": "Thêm Luật Quà Tặng Thành Công",
+				"add-campaign-provinces-successfully": "Thêm Tỉnh/Thành Phố Thành Công",
+				"deactive-campaign-status-successfully": "Ngưng Hoạt Động Chiến Dịch Thành Công",
+				"active-campaign-status-successfully": "Kích Hoạt Chiến Dịch Thành Công",
+				"delete-campaign-rule-successfully": "Xóa Luật Thành Công",
+				"delete-campaign-successfully": "Xoá Chiến Dịch Thành Công"
+			},
+			"warning-messages": {
+				"campaign-title-required": "Yêu Cầu Nhập Tiêu Đề Chiến Dịch",
+				"campaign-has-no-exist": "Chiến Dịch Không Tồn Tại",
+				"campaign-rule-has-exist": "Luật Đã Tồn Tại",
+				"group-has-no-exist": "Đối Tượng Áp Dụng Không Tồn Tại"
+			}
+		},
+		"customer": {
+			"labels": {
+				"page-title": "Danh Sách Khách Hàng",
+				"page-title-customer-require-info": "Danh Sách Yêu Cầu Cập Nhật Thông Tin",
+				"update-dialog-title-prime": "Thông Tin Đại Lý",
+				"update-dialog-title-second": "Thông Tin Thầu Thợ",
+				"page-title-new-customer": "Danh Sách Khách Hàng Mới",
+				"table-title": "Danh Sách Kết Quả",
+				"customer-information-title": "Thông Tin Công Ty",
+				"customer-owner-information-title": "Thông Tin Của Chủ Sở Hữu",
+				"create-dialog-title": "Thêm Đại Lý",
+				"update-dialog-title": "Cập Nhật Đại Lý",
+				"detail-dialog-title": "Chi Tiết Công Ty",
+				"page-report": "Hiển thị từ {first} đến {last} trong {totalRecords}",
+				"status": "Trạng Thái",
+				"action": "Hành động",
+				"avatar": "Avatar",
+				"customer-date-require": "Ngày Yêu Cầu",
+				"customer-email": "Email",
+				"customer-full-name": "Họ và Tên",
+				"customer-number-of-employees": "Số Lượng Nhân Viên",
+				"customer-CMND-CCCD": "CMND/CCCD",
+				"customer-date-of-birth": "Ngày Sinh",
+				"customer-phone-number": "Số Điện Thoại",
+				"customer-activation-email": "Email Kích Hoạt",
+				"customer-authorized-dealer": "Tên Đại Lý",
+				"customer-address": "Địa Chỉ",
+				"customer-no": "Mã Khách Hàng",
+				"customer-group-name": "Loại tài khoản",
+				"customer-password": "Mật Khẩu",
+				"customer-company-name": "Tên Công Ty",
+				"customer-rank": "Hạng Thành Viên"
+			},
+			"error-messages": {},
+			"placeholders": {
+				"customer-email": "admin@admin.com",
+				"customer-full-name": "Nguyễn Văn A",
+				"customer-number-of-employees": "RNABCD012345",
+				"customer-founding-date": "Enter your founding date",
+				"customer-CMND-CCCD": "0123456789",
+				"customer-date-of-birth": "Điền ngày tháng năm sinh",
+				"customer-phone-number": "0123456789",
+				"customer-activation-email": "Activation email",
+				"customer-authorized-dealer": "Điền tên Đại Lý",
+				"customer-address": "Hồ Chí Minh",
+				"customer-password": "Điền mật khẩu",
+				"customer-company-name": "Zeit Gypsum"
+			},
+			"messages": {
+				"create": {
+					"success": "Đã tạo đại lý",
+					"warning": "Cảnh báo khi tạo đại lý",
+					"error": "Lỗi khi tạo đại lý"
+				},
+				"update": {
+					"success": "Đã cập nhật đại lý",
+					"warning": "Cảnh báo khi cập nhật đại lý",
+					"error": "Lỗi khi cập nhật đại lý"
+				}
+			}
+		},
+		"customer-updation": {
+			"success-messages": {
+				"updated-customer-successfully": "Cập nhật thông tin khách hàng thành công."
+			}
+		},
+		"customers-profile": {
+			"success-messages": {
+				"deleted-customer-successfully": "Xóa thông tin khách hàng thành công."
+			}
+		},
+		"404": {
+			"page-title": "お探しのページは見つかりません",
+			"page-message-header": "お探しのページは見つかりません",
+			"page-message-description": "404: Not Found",
+			"page-button-title": "トップページに戻る"
+		},
+		"onboarding": {
+			"page-title": "Onboarding Page",
+			"page-message-header": "VIET NAM GYPSUM INDUSTRY",
+			"page-message-description": "KOREAN QUALITY GYPSUM. TAILORED FOR YOUR NEED. ",
+			"page-message-footer": ""
+		},
+		"candidates-list": {
+			"warning-messages": {
+				"candidate-has-not-exist": "Candidate has not exist",
+				"email-already-exist": "Email already exist",
+				"account-has-no-exist": "Account has no exist"
+			},
+			"success-messages": {
+				"deleted-candidate-successfully": "Deleted candidate successfully",
+				"deactived-candidate-successfully": "Deactived candidate successfully",
+				"created-candidate-successfully": "Created candidate successfully",
+				"updated-candidate-successfully": "Updated candidate successfully",
+				"resent-activation-email-successfully": "Resent activation email successfully"
+			}
+		},
+		"candidate-addition": {
+			"warning-messages": {
+				"email-already-exist": "Email already exist"
+			},
+			"success-messages": {
+				"created-candidate-successfully": "Created candidate successfully"
+			}
+		},
+		"candidate-updation": {
+			"warning-messages": {
+				"account-has-no-exist": "Account has no exist"
+			},
+			"success-messages": {
+				"updated-candidate-successfully": "Updated candidate successfully"
+			}
+		},
+		"candidate-resending-activation": {
+			"warning-messages": {
+				"account-has-no-exist": "Account has no exist"
+			},
+			"success-messages": {
+				"resent-activation-email-successfully": "Resent activation email successfully"
+			}
+		},
+		"companies-list": {
+			"warning-messages": {
+				"company-has-no-exist": "Company has no exist"
+			},
+			"success-messages": {
+				"deleted-company-successfully": "Deleted company successfully",
+				"deactived-company-successfully": "Deactived company successfully"
+			}
+		},
+		"company-addition": {
+			"warning-messages": {
+				"email-already-exist": "Email already exist"
+			},
+			"success-messages": {
+				"created-company-successfully": "Created company successfully"
+			}
+		},
+		"company-updation": {
+			"warning-messages": {
+				"account-has-no-exist": "Account has no exist"
+			},
+			"success-messages": {
+				"updated-company-successfully": "Updated company successfully"
+			}
+		},
+		"company-resending-activation": {
+			"warning-messages": {
+				"account-has-no-exist": "Account has no exist"
+			},
+			"success-messages": {
+				"resent-activation-email-successfully": "Resent activation email successfully"
+			}
+		},
+		"jobs-list": {
+			"warning-messages": {
+				"job-has-no-exists": "Job has no exists"
+			},
+			"success-messages": {
+				"deleted-job-successfully": "Deleted job successfully",
+				"deactived-job-successfully": "Deactived job successfully"
+			}
+		},
+		"job-addition": {
+			"warning-messages": {
+				"company-has-no-exist": "Company has no exist"
+			},
+			"success-messages": {
+				"created-job-successfully": "Created job successfully"
+			}
+		},
+		"job-updation": {
+			"warning-messages": {
+				"company-has-no-exist": "Company has no exist",
+				"job-has-no-exists": "Job has no exists"
+			},
+			"success-messages": {
+				"created-job-successfully": "Created job successfully",
+				"updated-job-successfully": "Updated job successfully"
+			}
+		}
+	},
+	"app": {
+		"campaign-screen": {
+			"warning-messages": {
+				"campaign-title-required": "Yêu Cầu Nhập Tiêu Đề Chiến Dịch"
+			}
+		}
+	},
+	"primeng": {
+		"dayNames": [
+			"Sunday",
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday"
+		],
+		"dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+		"dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+		"monthNames": [
+			"January",
+			"February",
+			"March",
+			"April",
+			"May",
+			"June",
+			"July",
+			"August",
+			"September",
+			"October",
+			"November",
+			"December"
+		],
+		"monthNamesShort": [
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"May",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Oct",
+			"Nov",
+			"Dec"
+		],
+		"today": "Today",
+		"weekHeader": "Wk"
+	}
+}

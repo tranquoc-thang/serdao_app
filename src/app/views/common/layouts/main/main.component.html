@@ -1,0 +1,14 @@
+<app-main-sidebar-layout></app-main-sidebar-layout>
+<main class="main-content mt-1 border-radius-lg " *ngIf="checkDeviceIsSupported()">
+
+	<app-main-header-layout></app-main-header-layout>
+
+	<div class="container-fluid py-4">
+		<ng-content></ng-content>
+	</div>
+
+
+</main>
+
+<app-main-footer-layout></app-main-footer-layout>
+<app-not-support-device *ngIf="!checkDeviceIsSupported()"></app-not-support-device>

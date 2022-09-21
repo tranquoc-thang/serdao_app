@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "16.0"
+branches:
+  only:
+    - develop
+before_script:
+  - cd app/
+  - npm install -g @angular/cli
+script:
+  - npm install
+  - npm run app:start:prod

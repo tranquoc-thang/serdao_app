@@ -1,0 +1,108 @@
+<form action="" class="form" [formGroup]="qrcodeForm">
+	<h5>
+		{{
+			_translateService.instant("pages.qrcode.advance-search.advance-search")
+		}}
+	</h5>
+	<hr />
+
+	<div class="row input-field">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="qrcodePackingNumber" class="form-control-label"
+						>{{
+							_translateService.instant(
+								"pages.qrcode.advance-search.customer-code"
+							)
+						}}:
+					</label>
+					<input
+						type="text"
+						id="qrcodePackingNumber"
+						class="form-control"
+						formControlName="txtCustomerNo"
+					/>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="qrcodeProduct" class="form-control-label"
+						>{{
+							_translateService.instant(
+								"pages.qrcode.advance-search.product"
+							)
+						}}:</label
+					>
+					<p-dropdown
+						[options]="productList"
+						optionLabel="productName"
+						optionValue="productId"
+						[placeholder]="
+							_translateService.instant(
+								'pages.qrcode.placeholders.choose-product'
+							)
+						"
+						class="common-dropdown p-inputtext-sm"
+						(onChange)="getProductId($event)"
+					>
+					</p-dropdown>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<app-common-group
+					(currentGroup)="getGroup($event)"
+						(currentGroups)="getGroups($event)">
+					</app-common-group>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="qrcodeDateUsed" class="form-control-label"
+						>{{
+							_translateService.instant(
+								"pages.qrcode.advance-search.date-of-use"
+							)
+						}}:</label
+					>
+					<input
+						type="date"
+						id="qrcodeProduct"
+						class="form-control"
+						formControlName="txtQrUsedDate"
+						dateFormat="dd/MM/yyyy"
+					/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="qrcodePackingNumber" class="form-control-label"
+						>{{
+							_translateService.instant("pages.qrcode.labels.qrcode")
+						}}:
+					</label>
+					<input
+						type="text"
+						id="qrcodePackingNumber"
+						class="form-control"
+						formControlName="txtQrCode"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12 flex btn-search">
+			<button
+				pButton
+				type="button"
+				label="Tìm Kiếm"
+				(click)="findPacking()"
+			></button>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,402 @@
+<p-table
+	#dt
+	[value]="lists"
+	[dataKey]="dataKey"
+	styleClass="p-datatable-sm"
+	[rowHover]="rowHover"
+	[rows]="rows"
+	[showCurrentPageReport]="showCurrentPageReport"
+	[rowsPerPageOptions]="rowsPerPageOptions"
+	[loading]="loading"
+	[selectionMode]="'single'"
+	[reorderableColumns]="false"
+	[resizableColumns]="true"
+	[paginator]="false"
+	[currentPageReportTemplate]="currentPageReportTemplate"
+	[(selection)]="selection"
+	[style]="{ width: '100%', height: '100%' }"
+	[scrollHeight]="'50vh'"
+	[scrollable]="scrollable"
+	[filterDelay]="0"
+	[pageLinks]="pageLinks"
+	[globalFilterFields]="globalFilterFields"
+	(onRowSelect)="onRowSelectEmit($event)"
+	[totalRecords]="totalRecords"
+	[alwaysShowPaginator]="true"
+	[showPageLinks]="true"
+>
+	<!--Golbal Search-->
+	<ng-template pTemplate="caption">
+		<div class="table-header">
+			{{ title }}
+			<span class="p-input-icon-left">
+				<i class="pi pi-search"></i>
+				<input
+					pInputText
+					type="text"
+					(input)="filterData($event)"
+					[placeholder]="
+						_translateService.instant('common.table.placeholder.search')
+					"
+				/>
+			</span>
+		</div>
+	</ng-template>
+
+	<!-- Header Table -->
+	<ng-template pTemplate="header">
+		<tr class="d-flex">
+			<th style="width: 3rem" *ngIf="expand"></th>
+			<th
+				*ngFor="let col of columns"
+				pSortableColumn="{{ col.field }}"
+				[ngClass]="showRevertAction ? 'order-2' : 'order-1'"
+				class="responsive"
+			>
+				<div class="p-d-flex p-jc-between p-ai-center text-center">
+					{{ col.header }}
+					<p-sortIcon field="{{ col.field }}"></p-sortIcon>
+				</div>
+			</th>
+			<th
+				[ngClass]="showRevertAction ? 'order-1' : 'order-2'"
+				class="responsive"
+				*ngIf="lists[0] && !lists[0].appliedCandidatesList"
+			>
+				<div class="p-d-flex p-jc-between p-ai-center text-center">
+					{{ _translateService.instant("common.table.labels.action") }}
+				</div>
+			</th>
+		</tr>
+	</ng-template>
+
+	<!--Content Table-->
+	<ng-template pTemplate="body" let-list let-expanded="expanded">
+		<tr>
+			<td style="width: 3rem" *ngIf="expand">
+				<button
+					type="button"
+					pButton
+					pRipple
+					[pRowToggler]="list"
+					class="p-button-text p-button-rounded p-button-plain"
+					[icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+				></button>
+			</td>
+			<td
+				*ngFor="let col of columns"
+				class="responsive"
+				[ngClass]="showRevertAction ? 'order-2' : 'order-1'"
+			>
+				<div *ngIf="col.type == 'string'" class="text-center">
+					{{ list[col.field] }}
+				</div>
+				<div *ngIf="col.type == 'email'" class="text-center flex-center">
+					<!-- <img *ngIf="col.avatar" src={{list[col.avatar]}} alt="Avatar" class="avatar"
+					(onerror)="handleAvatarError($event.target)"> -->
+					<p-avatar
+						*ngIf="col.avatar"
+						image="{{ list[col.avatar] }}"
+						shape="circle"
+						size="large"
+						(onerror)="handleAvatarError($event.target)"
+					></p-avatar>
+					<p class="ml-5">{{ list[col.field] }}</p>
+				</div>
+				<div *ngIf="col.type == 'status'" class="text-center">
+					<button
+						pButton
+						type="button"
+						[label]="
+							_translateService.instant('common.table.labels.active')
+						"
+						class="p-button-success"
+						*ngIf="list[col.field] == 1"
+					></button>
+					<button
+						pButton
+						type="button"
+						[label]="
+							_translateService.instant('common.table.labels.deactive')
+						"
+						class="p-button-danger"
+						*ngIf="list[col.field] == -1 || list[col.field] == 0"
+					></button>
+				</div>
+			</td>
+			<td
+				*ngIf="
+					list['status'] &&
+						list['visibility'] == null &&
+						!list.appliedCandidatesList &&
+						showRevertAction;
+					else elseBlock
+				"
+				[ngClass]="showRevertAction ? 'order-1' : 'order-2'"
+				class="text-center responsive"
+			>
+				<span
+					pRipple
+					class="width-full text-center cursor-pointer btn-outline-success"
+					(click)="openDialog()"
+					>Edit</span
+				>
+			</td>
+			<!--Action Button-->
+			<ng-template #elseBlock>
+				<td
+					*ngIf="
+						list['status'] &&
+						list['visibility'] == null &&
+						!list.appliedCandidatesList
+					"
+					[ngClass]="showRevertAction ? 'order-1' : 'order-2'"
+					class="text-center responsive"
+				>
+					<button
+						pButton
+						pRipple
+						type="button"
+						class="p-button-sm p-button-primary"
+						icon="pi pi-pencil"
+						pTooltip="Edit"
+						(click)="doEditCallback(list[dataKey])"
+					></button>
+					<button
+						pButton
+						pRipple
+						type="button"
+						class="p-button-sm p-button-warning"
+						icon="pi pi-eye-slash"
+						pTooltip="Deactive"
+						*ngIf="list['status'] == 1"
+						(click)="
+							doDeactiveCallback(
+								list[dataKey],
+								-1,
+								'本当にこのアイテムを非アクティブにしますか？'
+							)
+						"
+					></button>
+					<button
+						pButton
+						pRipple
+						type="button"
+						class="p-button-sm p-button-warning"
+						icon="pi pi-eye"
+						pTooltip="Inactive"
+						*ngIf="list['status'] == -1"
+						(click)="
+							doDeactiveCallback(
+								list[dataKey],
+								1,
+								'本当にこのアイテムをアクティブにしますか？'
+							)
+						"
+					></button>
+					<button
+						pButton
+						pRipple
+						type="button"
+						class="p-button-sm p-button-danger"
+						icon="pi pi-trash"
+						pTooltip="Delete"
+						(click)="
+							doDeleteCallback(
+								list[dataKey],
+								'本当にこのアイテムを削除しますか？'
+							)
+						"
+					></button>
+				</td>
+			</ng-template>
+
+			<td
+				*ngIf="
+					list['status'] &&
+					list['visibility'] != null &&
+					!list.appliedCandidatesList
+				"
+				class="text-center responsive"
+			>
+				<button
+					pButton
+					pRipple
+					type="button"
+					class="p-button-sm p-button-primary"
+					icon="pi pi-pencil"
+					pTooltip="Edit"
+					(click)="doEditCallback(list[dataKey])"
+				></button>
+				<button
+					pButton
+					pRipple
+					type="button"
+					class="p-button-sm p-button-warning"
+					icon="pi pi-eye-slash"
+					pTooltip="Deactive"
+					*ngIf="list['visibility'] == 1"
+					(click)="
+						doDeactiveCallback(
+							list[dataKey],
+							-1,
+							'本当にこのアイテムを非アクティブにしますか？'
+						)
+					"
+				></button>
+				<button
+					pButton
+					pRipple
+					type="button"
+					class="p-button-sm p-button-warning"
+					icon="pi pi-eye"
+					pTooltip="Inactive"
+					*ngIf="list['visibility'] == -1 || list['visibility'] == 0"
+					(click)="
+						doDeactiveCallback(
+							list[dataKey],
+							1,
+							'本当にこのアイテムをアクティブにしますか？'
+						)
+					"
+				></button>
+				<button
+					pButton
+					pRipple
+					type="button"
+					class="p-button-sm p-button-danger"
+					icon="pi pi-trash"
+					pTooltip="Delete"
+					(click)="
+						doDeleteCallback(
+							list[dataKey],
+							'本当にこのアイテムを削除しますか？'
+						)
+					"
+				></button>
+			</td>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="emptymessage">
+		<tr>
+			<td colspan="6">
+				{{ _translateService.instant("common.table.labels.empty-data") }}
+			</td>
+		</tr>
+	</ng-template>
+
+	<!--Paging-->
+	<ng-template pTemplate="footer">
+		<p-paginator
+			[rows]="rows"
+			class="d-flex-justify-center bg-white"
+			[totalRecords]="totalRecords"
+			[rowsPerPageOptions]="rowsPerPageOptions"
+			[currentPageReportTemplate]="currentPageReportTemplate"
+			[showCurrentPageReport]="showCurrentPageReport"
+			(onPageChange)="onPageEmit($event)"
+		>
+		</p-paginator>
+	</ng-template>
+
+	<!-- For only applied candidate -->
+	<ng-template pTemplate="rowexpansion" let-list *ngIf="lists">
+		<tr *ngIf="list.appliedCandidatesList">
+			<td colspan="5" style="display: block">
+				<div class="p-p-3">
+					<p-table
+						[value]="list.appliedCandidatesList"
+						[dataKey]="dataKey"
+						[style]="{ width: '100%' }"
+					>
+						<ng-template pTemplate="header">
+							<tr>
+								<th pSortableColumn="candidateEmail">
+									{{
+										_translateService.instant(
+											"common.table.labels.candidate-email"
+										)
+									}}
+									<p-sortIcon field="candidateEmail"></p-sortIcon>
+								</th>
+								<th pSortableColumn="candidateFirstName">
+									{{
+										_translateService.instant(
+											"common.table.labels.candidate-first-name"
+										)
+									}}
+									<p-sortIcon field="candidateFirstName"></p-sortIcon>
+								</th>
+								<!-- <th pSortableColumn="candidateLastName">
+				{{_translateService.instant('common.table.labels.candidate-last-name')}}
+				<p-sortIcon field="candidateLastName"></p-sortIcon>
+			</th> -->
+								<th>
+									<div class="p-d-flex p-jc-between p-ai-center">
+										{{
+											_translateService.instant(
+												"common.table.labels.action"
+											)
+										}}
+									</div>
+								</th>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="body" let-candidate>
+							<tr>
+								<td>
+									<div class="flex-center">
+										<!-- <img src={{candidate.candidateAvatar}} alt="Avatar" class="avatar" (onerror)="handleAvatarError($event)"> -->
+										<p-avatar
+											image="{{ candidate.candidateAvatar }}"
+											shape="circle"
+											size="large"
+											(onerror)="handleAvatarError($event.target)"
+										>
+										</p-avatar>
+										<p class="ml-5">{{ candidate.candidateEmail }}</p>
+									</div>
+								</td>
+								<td>{{ candidate.candidateFirstName }}</td>
+								<!-- <td>{{candidate.candidateLastName}}</td> -->
+
+								<!--Action Button-->
+								<td class="flex-row">
+									<button
+										pButton
+										pRipple
+										type="button"
+										class="p-button-sm p-button-warning"
+										icon="pi pi-eye"
+										pTooltip="View"
+										(click)="doEditCallback(candidate.candidateId)"
+									></button>
+								</td>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="emptymessage">
+							<tr>
+								<td colspan="5">
+									{{
+										_translateService.instant(
+											"common.table.labels.empty-data"
+										)
+									}}
+								</td>
+							</tr>
+						</ng-template>
+					</p-table>
+				</div>
+			</td>
+		</tr>
+	</ng-template>
+</p-table>
+
+<!--Confirm Dialog-->
+<p-confirmDialog
+	[breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+	[style]="{ width: '25vw' }"
+	[acceptLabel]="confirmLabel"
+	[rejectLabel]="cancelLabel"
+>
+</p-confirmDialog>

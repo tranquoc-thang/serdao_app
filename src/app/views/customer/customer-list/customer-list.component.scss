@@ -1,0 +1,117 @@
+.group-button {
+    text-align: right;
+}
+
+.create-button {
+    background-color: #008cff;
+    color: #fff;
+}
+
+.custom-plus {
+    padding: 3px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.form {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    margin-top: 2rem;
+    h5 {
+        padding: 1rem 0 0 1rem;
+    }
+    .input-field {
+        justify-content: center;
+        padding: 0 2rem 0 2rem;
+    }
+}
+
+:host ::ng-deep {
+    .p-button-text {
+        width: 120px;
+        background-color: #008cff;
+        color: #ffffff;
+        border-color: #0000;
+        text-align: center;
+    }
+}
+
+.input-cate-account {
+    margin-right: auto;
+}
+
+.app-table {
+    width: 100%;
+    height: auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+    background-color: #fff !important;
+    margin-top: 2rem;
+    padding: 5px;
+    th,
+    td {
+        justify-content: center;
+    }
+    .column-1 {
+        min-width: 260px;
+    }
+    .column-2 {
+        min-width: 150px;
+    }
+    .column-3 {
+        min-width: 220px;
+    }
+    .column-4 {
+        min-width: 120px;
+    }
+    .column-5 {
+        min-width: 170px;
+    }
+    .column-6 {
+        min-width: 170px;
+    }
+    .column-7 {
+        min-width: 170px;
+    }
+    .column-8 {
+        min-width: 280px;
+    }
+    .column-9 {
+        min-width: 150px;
+    }
+}
+
+.table-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.customer-no {
+    text-decoration: underline;
+    color: #008cff;
+}
+
+.active {
+    color: green;
+    margin: auto;
+}
+
+.inactive {
+    color: red;
+    margin: auto;
+}
+
+.avatar {
+    border-radius: 50%;
+}

@@ -1,0 +1,18 @@
+footer {
+	.container-fluid{
+		text-align: center;
+		position: fixed;
+		bottom: 0;
+		.footer-text {
+			color: darkgrey;
+			position: relative;
+			bottom: -14px;
+			font-size: 11px;
+			background: #f8f9fa;
+			span {
+				font-weight: 500;
+    			color: #000;
+			}
+		}
+	}
+}

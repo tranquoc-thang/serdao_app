@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-12">
+        <label class="form-control-label">{{ _translateService.instant("common.rank.labels.rank") }}:</label
+		>
+		<p-dropdown
+			#member
+			[options]="memberList"
+			optionLabel="membershipClass"
+			optionValue="membershipId"
+			[placeholder]="
+				_translateService.instant('common.rank.placeholders.rank')
+			"
+			class="common-dropdown p-inputtext-sm"
+			(onChange)="getGroups($event)"
+			(onChange)="getGroup($event, member)"
+			[(ngModel)]="selectedMember"
+		>
+		</p-dropdown>
+	</div>
+</div>

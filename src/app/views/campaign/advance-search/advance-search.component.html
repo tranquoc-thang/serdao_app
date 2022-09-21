@@ -1,0 +1,97 @@
+<form class="form" [formGroup]="campaignSearchForm">
+	<h5>Tìm kiếm nâng cao</h5>
+	<hr />
+
+	<div class="row input-field">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="qrcodeProduct" class="form-control-label"
+						>Loại Chiến Dịch:</label
+					>
+					<p-dropdown
+						[options]="campaignsTypeList"
+						optionLabel="campaignType"
+						optionValue="campaignNo"
+						placeholder="Chọn chiến dịch"
+						class="common-dropdown p-inputtext-sm"
+						formControlName="txtCampaignType"
+					>
+					</p-dropdown>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<app-common-group
+						(currentGroup)="getGroup($event)"
+						(currentGroups)="getGroups($event)"
+					></app-common-group>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label
+						for="qrcodePackingNumber"
+						class="form-control-label text-center mr-12 mb-0"
+						>Tiêu Đề:
+					</label>
+					<input
+						type="text"
+						id="qrcodePackingNumber"
+						class="form-control"
+						formControlName="txtCampaignTitle"
+						placeholder="Chiến Dịch ABC"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<!-- <div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<h6>Trạng Thái:</h6>
+					<div class="row d-flex justify-content-start align-items-center">
+						<div class="field-checkbox col-3 flex-row">
+							<p-checkbox
+								name="active"
+								inputId="active"
+								[binary]="true"
+								[(ngModel)]="activeCheck"
+								(onChange)="changeActive()"
+							></p-checkbox>
+							<label
+								class="d-flex justify-content-center align-items-center"
+								for="active"
+								>Đang hoạt động</label
+							>
+						</div>
+						<div class="field-checkbox col-3 flex-row">
+							<p-checkbox
+								name="unactive"
+								inputId="unactive"
+								[binary]="true"
+								[(ngModel)]="unactiveCheck"
+								(onChange)="changeActive()"
+							></p-checkbox>
+							<label
+								class="d-flex justify-content-center align-items-center"
+								for="unactive"
+								>Ngưng hoạt động</label
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div class="flex btn-search">
+			<button
+				pButton
+				type="button"
+				label="Lọc Danh Sách"
+				(click)="searchCampaign()"
+			></button>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,82 @@
+<app-main-layout>
+    <app-common-advanced-search [isCustomerList]="false" [isCustomerUpdation]="isCustomerUpdation" (newCustomerRequestingListEvent)="
+			addCustomerRequestingUpdationList($event)
+		"></app-common-advanced-search>
+
+    <p-confirmDialog header="Xác nhận thông tin khách hàng" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+    <div class="app-table">
+        <p-table [value]="customerRequestingList" styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[5, 10, 15]" [scrollable]="true" scrollHeight="400px" [resizableColumns]="true">
+            <ng-template pTemplate="caption">
+                <div class="flex table-caption">
+                    <h5>
+                        {{ _translateService.instant( "pages.customer.labels.table-title" ) }}
+                    </h5>
+                    <span> </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th class="min-width-210">
+                        {{ _translateService.instant("pages.customer.labels.action") }}
+                    </th>
+                    <th>
+                        {{ _translateService.instant( "pages.customer.labels.customer-date-require" ) }}
+                    </th>
+                    <th>
+                        {{ _translateService.instant("pages.customer.labels.avatar") }}
+                    </th>
+                    <th class="min-width-210">
+                        {{ _translateService.instant( "pages.customer.labels.customer-no" ) }}
+                    </th>
+                    <th>
+                        {{ _translateService.instant( "pages.customer.labels.customer-group-name" ) }}
+                    </th>
+                    <th class="min-width-210">
+                        {{ _translateService.instant( "pages.customer.labels.customer-full-name" ) }}
+                    </th>
+                    <th>
+                        {{ _translateService.instant( "pages.customer.labels.customer-CMND-CCCD" ) }}
+                    </th>
+                    <th>
+                        {{ _translateService.instant( "pages.customer.labels.customer-phone-number" ) }}
+                    </th>
+                    <th class="min-width-300">
+                        {{ _translateService.instant( "pages.customer.labels.customer-email" ) }}
+                    </th>
+                    <th>
+                        {{ _translateService.instant( "pages.customer.labels.customer-rank" ) }}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-customer>
+                <tr>
+                    <td class="flex-center min-width-210">
+                        <button pButton pRipple type="button" [label]="_translateService.instant('common.action.edit')" class="p-button-warning p-button-text mr-2" (click)="showModalDialog(customer)"></button> |
+                        <button pButton pRipple type="button" [label]="
+								_translateService.instant('common.action.confirm')
+							" class="p-button-success p-button-text mr-2" (click)="
+								doApproveRequestingProfile(
+									customer,
+									customer.customerNo,
+									'Bạn muốn xác nhận người này?'
+								)
+							"></button>
+                    </td>
+                    <td>{{ customer.createdDate | date: "dd/MM/yyyy" }}</td>
+                    <td>
+                        <img [src]="customer.customerAvatar" [alt]="customer.customerName" class="img-width" />
+                    </td>
+                    <td class="min-width-210">{{ customer.customerNo }}</td>
+                    <td>{{ customer.groupName }}</td>
+                    <td class="min-width-210">{{ customer.customerName }}</td>
+                    <td>{{ customer.customerIdentification }}</td>
+                    <td>{{ customer.customerPhone }}</td>
+                    <td class="min-width-300">{{ customer.customerEmail }}</td>
+                    <td>{{ customer.status }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</app-main-layout>

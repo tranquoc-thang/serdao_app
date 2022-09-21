@@ -1,0 +1,87 @@
+<form action="" class="form" [formGroup]="qrcodeForm">
+	<h5>Tìm kiếm nâng cao</h5>
+	<hr />
+
+	<div class="row input-field">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="qrcodePackingNumber" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.qrcode.advance-search.packing-code"
+						)
+					}}
+				</label>
+				<input
+					type="text"
+					pInputText
+					id="qrcodePackingNumber"
+					class="form-control"
+					formControlName="qrcodePackingNumber"
+					[placeholder]="
+						_translateService.instant(
+							'pages.qrcode.placeholders.example-packing-code'
+						)
+					"
+				/>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="qrcodeProduct" class="form-control-label">{{
+					_translateService.instant("pages.qrcode.advance-search.product")
+				}}</label>
+				<p-dropdown
+					[options]="productList"
+					optionLabel="productName"
+					optionValue="productId"
+					[placeholder]="
+						_translateService.instant(
+							'pages.qrcode.placeholders.choose-product'
+						)
+					"
+					class="common-dropdown p-inputtext-sm"
+					(onChange)="onChangeProductAtSelected($event)"
+				>
+				</p-dropdown>
+			</div>
+		</div>
+	</div>
+	<div class="row input-field">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="qrcodeDateCreate" class="form-control-label">{{
+					_translateService.instant(
+						"pages.qrcode.labels.qr-date-of-create"
+					)
+				}}</label>
+				<!-- <input
+					type="date"
+					id="qrcodeProduct"
+					class="form-control"
+					formControlName="qrcodeDateCreate"
+				/> -->
+				<p-calendar
+					(onSelect)="getQrDate($event)"
+					formControlName="qrcodeDateCreate"
+					inputId="qrcodeDateCreate"
+					placeholder="dd/mm/yyyy"
+					[showIcon]="true"
+					[(ngModel)]="qrDate"
+					dateFormat="dd/mm/yy"
+				></p-calendar>
+			</div>
+		</div>
+	</div>
+
+	<div class="row input-field">
+		<div class="flex btn-search">
+			<button
+				pButton
+				type="button"
+				label="Tìm Kiếm"
+				(click)="findPacking(qrcodeForm.value)"
+			></button>
+		</div>
+	</div>
+</form>

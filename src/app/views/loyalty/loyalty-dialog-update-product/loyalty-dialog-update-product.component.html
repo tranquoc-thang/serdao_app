@@ -1,0 +1,309 @@
+<form [formGroup]="giftFormUpdate"  *ngIf="membershipGift">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.loyalty.labels.gift-start-date-exchange"
+						)
+					}}</label
+				>
+				<input
+					type="date"
+					class="form-control"
+					id="loyaltyGiftExchangeDateStart"
+                    formControlName="loyaltyGiftExchangeDateStart"
+					[ngModel]="giftStartDate | date:'yyyy-MM-dd'"
+					[placeholder]="
+					_translateService.instant(
+						'pages.loyalty.placeholders.gift-start-date-exchange'
+					)
+				"
+				/>
+			</div>
+		</div>
+	
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="qrcodeDateCreate" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.loyalty.labels.gift-end-date-exchange"
+						)
+					}}</label
+				>
+				<input
+					type="date"
+					class="form-control"
+					id="loyaltyGiftExchangeDateEnd"
+                    formControlName="loyaltyGiftExchangeDateEnd"
+					[ngModel]="giftEndDate | date:'yyyy-MM-dd'"
+					[placeholder]="
+					_translateService.instant(
+						'pages.loyalty.placeholders.gift-end-date-exchange'
+					)
+				"
+				/>
+			</div>
+		</div>
+	</div>
+
+	<div >
+		<div class="form-group">
+			<label for="qrcodePackingNumber" class="form-control-label"
+				>{{
+					_translateService.instant(
+						"pages.loyalty.labels.gift-limit"
+					)
+				}}
+			</label>
+			<input
+				type="number"
+				
+				class="form-control"
+				id="loyaltyGiftLimitQuantity"
+				formControlName="loyaltyGiftLimitQuantity"
+				[(ngModel)]="membershipGift.giftLimit"
+				[placeholder]="
+					_translateService.instant(
+						'pages.loyalty.placeholders.gift-limit'
+					)
+				"
+			/>
+		</div>
+	</div>
+
+	<div >
+		<div class="form-group">
+			<label for="qrcodePackingNumber" class="form-control-label"
+				>{{
+					_translateService.instant(
+						"pages.loyalty.labels.gift-point-required"
+					)
+				}}
+			</label>
+			<input
+				type="number"
+				id="loyaltyGiftRequirePoint"
+				class="form-control"
+				formControlName="loyaltyGiftRequirePoint"
+				[(ngModel)]="membershipGift.giftRequiredPoint"
+				[placeholder]="
+					_translateService.instant(
+						'pages.loyalty.placeholders.gift-point-required'
+					)
+				"
+			/>
+		</div>
+	</div>
+
+	<div >
+		<div class="form-group">
+			<label for="qrcodePackingNumber" class="form-control-label"
+				>{{
+					_translateService.instant(
+						"pages.loyalty.labels.gift-name"
+					)
+				}}
+			</label>
+			<input
+				type="text"
+				id="loyaltyGiftName"
+				class="form-control"
+				formControlName="loyaltyGiftName"
+				[(ngModel)]="membershipGift.giftTitle"
+				[placeholder]="
+				_translateService.instant(
+					'pages.loyalty.placeholders.gift-name'
+				)
+			"
+			/>
+		</div>
+	</div>
+
+	<div >
+		<div class="form-group">
+			<label for="qrcodePackingNumber" class="form-control-label"
+				>{{
+					_translateService.instant(
+						"pages.loyalty.labels.gift-description"
+					)
+				}}
+			</label>
+			<textarea  rows="5" cols="30" class="form-control" placeholder="Description Product" pInputTextarea [autoResize]="autoResize"
+				id="loyaltyGiftDescription"
+				formControlName="loyaltyGiftDescription"
+				[(ngModel)]="membershipGift.giftDescription"
+				[placeholder]="
+					_translateService.instant(
+						'pages.loyalty.placeholders.gift-description'
+					)
+				"
+			></textarea>
+
+		</div>
+	</div>
+	
+
+	<div>
+			<div class="form-group">
+				<label for="customerIdentificationFront" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.loyalty.labels.gift-thumbnail"
+						)
+					}}</label
+				>
+				
+				<p-fileUpload
+					name="docs[]"
+					[multiple]="false"
+					accept="image/*"
+					[maxFileSize]="5000000"
+					[showUploadButton]="false"
+					[showCancelButton]="false"
+					invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+					invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+					chooseLabel="Cập nhật ảnh"
+					uploadLabel="Tải lên"
+					cancelLabel="Hủy"
+					(onSelect)="onSelectThumbnail($event)"
+					(onRemove)="onRemoveThumbnail($event)"
+				>
+					<ng-template pTemplate="content" let-files>
+						<div class="p-fileupload-files" *ngIf="!currentThumbnailFile">
+							<div class="p-fileupload-row">
+								<div class="-size-img">
+									<img
+										[src]="membershipGift.giftThumbnail"
+										alt="Image"
+									/>
+								</div>
+								<div class="p-fileupload-filename"></div>
+								<div class="p-fileupload-filesize"></div>
+								<div>
+									<button
+										pButton
+										type="button"
+										icon="pi pi-times"
+										class="p-button-text"
+										(click)="handleShowThumbnail($event)"
+									></button>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</p-fileUpload>
+			</div>
+	</div>
+	<div >
+			<div class="form-group">
+				<label for="customerIdentificationFront" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.loyalty.labels.gift-icon"
+						)
+					}}</label
+				>
+				<p-fileUpload
+					name="docs[]"
+					[multiple]="false"
+					accept="image/*"
+					[maxFileSize]="5000000"
+					[showUploadButton]="false"
+					[showCancelButton]="false"
+					invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+					invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+					chooseLabel="Cập nhật ảnh"
+					uploadLabel="Tải lên"
+					cancelLabel="Hủy"
+					(onSelect)="onSelectIcon($event)"
+					(onRemove)="onRemoveIcon($event)"
+				>
+					<ng-template pTemplate="content" let-files>
+						<div class="p-fileupload-files" *ngIf="!currentIconFile">
+							<div class="p-fileupload-row">
+								<div class="-size-img">
+									<img
+										[src]="membershipGift.giftIcon"
+										alt="Image"
+									/>
+								</div>
+								<div class="p-fileupload-filename"></div>
+								<div class="p-fileupload-filesize"></div>
+								<div>
+									<button
+										pButton
+										type="button"
+										icon="pi pi-times"
+										class="p-button-text"
+										(click)="handleShowIcon($event)"
+									></button>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</p-fileUpload>
+			</div>
+	</div>
+	<div >
+			<div class="form-group">
+				<label for="customerIdentificationFront" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.loyalty.labels.gift-banner"
+						)
+					}}</label
+				>
+				<p-fileUpload
+					name="docs[]"
+					[multiple]="false"
+					accept="image/*"
+					[maxFileSize]="5000000"
+					[showUploadButton]="false"
+					[showCancelButton]="false"
+					invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+					invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+					chooseLabel="Cập nhật ảnh"
+					uploadLabel="Tải lên"
+					cancelLabel="Hủy"
+					(onSelect)="onSelectBanner($event)"
+					(onRemove)="onRemoveBanner($event)"
+				>
+					<ng-template pTemplate="content" let-files>
+						<div class="p-fileupload-files" *ngIf="!currentBannerFile">
+							<div class="p-fileupload-row">
+								<div class="-size-img">
+									<img
+										[src]="membershipGift.giftBanner"
+										alt="Image"
+									/>
+								</div>
+								<div class="p-fileupload-filename"></div>
+								<div class="p-fileupload-filesize"></div>
+								<div>
+									<button
+										pButton
+										type="button"
+										icon="pi pi-times"
+										class="p-button-text"
+										(click)="handleShowBanner($event)"
+									></button>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</p-fileUpload>
+				<!-- <p-fileUpload></p-fileUpload> -->
+			</div>
+	</div>
+	<div class="div-contain-update-button">
+		<p-button [label]="
+		_translateService.instant(
+			'pages.loyalty.labels.update-gift'
+		)
+	" styleClass="button-update" (click)="onUpdateMembershipGift()" icon="pi pi-plus"  ></p-button>
+	</div>
+	
+</form>

@@ -1,0 +1,366 @@
+<form [formGroup]="customerCreateForm" *ngIf="customer">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="phoneNumber" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-phone-number"
+					)
+				}}</label>
+				<input
+					type="text"
+					id="phoneNumber"
+					class="form-control"
+					formControlName="txtPhoneNumber"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-phone-number'
+						)
+					"
+					[(ngModel)]="customer.customerPhone"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+					autofocus="false"
+				/>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="email" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.customer.labels.customer-email"
+						)
+					}}
+				</label>
+				<input
+					type="email"
+					class="form-control"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-email'
+						)
+					"
+					formControlName="txtEmail"
+					[(ngModel)]="customer.customerEmail"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+					autofocus="false"
+				/>
+				<!-- tabindex="3"
+					maxlength="150"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+					autofocus="false" -->
+				<div>
+					<common-validation-message
+						[mainForm]="customerCreateForm"
+						controllerName="txtEmail"
+						controllerType="textbox"
+						controllerTitle="メールアドレス"
+						maxLength="150"
+					>
+					</common-validation-message>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerName" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.customer.labels.customer-full-name"
+						)
+					}}
+				</label>
+				<input
+					type="text"
+					id="customerName"
+					class="form-control"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-full-name'
+						)
+					"
+					formControlName="txtName"
+					[(ngModel)]="customer.customerName"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+					autofocus="false"
+				/>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerBirthday" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-date-of-birth"
+					)
+				}}</label>
+				<p-calendar
+					(onSelect)="getDate($event)"
+					formControlName="txtBirthday"
+					inputId="customerBirthday"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-date-of-birth'
+						)
+					"
+					[showIcon]="true"
+					[(ngModel)]="customerBirthday"
+					dateFormat="dd/mm/yy"
+				></p-calendar>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerIdentification" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-CMND-CCCD"
+					)
+				}}</label>
+				<input
+					type="text"
+					id="customerIdentification"
+					class="form-control"
+					formControlName="txtIdentification"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-CMND-CCCD'
+						)
+					"
+					[(ngModel)]="customer.customerIdentification"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+					autofocus="false"
+				/>
+			</div>
+		</div>
+		<!-- <div class="col-md-12">
+			<div class="form-group">
+				<label for="companyName" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.customer.labels.customer-company-name"
+						)
+					}}
+				</label>
+				<input
+					type="text"
+					id="companyName"
+					class="form-control"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-company-name'
+						)
+					"
+					formControlName="txtCompanyName"
+				/>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<app-common-group
+					(currentGroup)="getGroup($event)"
+				></app-common-group>
+			</div>
+		</div> -->
+		<div class="col-md-12" *ngIf="dataGroupId === 1">
+			<div class="form-group">
+				<label for="customerAuthorizedDealer" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-authorized-dealer"
+					)
+				}}</label>
+				<input
+					type="text"
+					id="customerAuthorizedDealer"
+					class="form-control"
+					formControlName="txtAuthorizedDealer"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-authorized-dealer'
+						)
+					"
+					[(ngModel)]="customer.companyName"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+					autofocus="false"
+				/>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerAddress" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-address"
+					)
+				}}</label>
+				<input
+					type="text"
+					id="customerAddress"
+					class="form-control"
+					formControlName="txtAddress"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-address'
+						)
+					"
+					[(ngModel)]="customer.customerAddress"
+					spellcheck="false"
+					autocorrect="false"
+					autocomplete="false"
+					autofocus="false"
+				/>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="form-group">
+				<app-common-citis
+					[isCustomerUpdation]="isCustomerUpdation"
+					(currentProvince)="getProvince($event)"
+					(currentSelectedProvince)="getProvinced($event)"
+					[selectedProvince]="customer.provinceId"
+				></app-common-citis>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerIdentificationFront" class="form-control-label"
+					>CMND/CCCD Mặt Trước</label
+				>
+				<p-fileUpload
+					name="docs[]"
+					[multiple]="false"
+					accept="image/*"
+					[maxFileSize]="5000000"
+					[showUploadButton]="false"
+					[showCancelButton]="false"
+					(customUpload)="onSelectEvent($event)"
+					invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+					invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+					chooseLabel="Cập nhật ảnh"
+					uploadLabel="Tải lên"
+					cancelLabel="Hủy"
+					(onSelect)="onSelectFront($event)"
+					(onRemove)="onRemoveFront($event)"
+				>
+					<ng-template pTemplate="content" let-files>
+						<div class="p-fileupload-files" *ngIf="!currentFileFront">
+							<div class="p-fileupload-row">
+								<div class="-size-img">
+									<img
+										[src]="customer.customerIdentificationFront"
+										alt="Image"
+									/>
+								</div>
+								<div class="p-fileupload-filename"></div>
+								<div class="p-fileupload-filesize"></div>
+								<div>
+									<button
+										pButton
+										type="button"
+										icon="pi pi-times"
+										class="p-button-text"
+										(click)="handleShowFront($event)"
+									></button>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</p-fileUpload>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerIdentificationFront" class="form-control-label"
+					>CMND/CCCD Mặt Sau</label
+				>
+				<p-fileUpload
+					name="docs[]"
+					[multiple]="false"
+					accept="image/*"
+					[maxFileSize]="5000000"
+					[showUploadButton]="false"
+					[showCancelButton]="false"
+					(customUpload)="onSelectEvent($event)"
+					invalidFileSizeMessageSummary="{0}: Kích thước tệp không hợp lệ"
+					invalidFileSizeMessageDetail="Kích thước tệp tải lên tối đa là {0}."
+					chooseLabel="Cập nhật ảnh"
+					uploadLabel="Tải lên"
+					cancelLabel="Hủy"
+					(onSelect)="onSelectBack($event)"
+					(onRemove)="onRemoveBack($event)"
+				>
+					<ng-template pTemplate="content" let-files>
+						<div class="p-fileupload-files" *ngIf="!currentFileBack">
+							<div class="p-fileupload-row">
+								<div class="-size-img">
+									<img
+										[src]="customer.customerIdentificationBack"
+										alt="Image"
+									/>
+								</div>
+								<div class="p-fileupload-filename"></div>
+								<div class="p-fileupload-filesize"></div>
+								<div>
+									<button
+										pButton
+										type="button"
+										icon="pi pi-times"
+										class="p-button-text"
+										(click)="handleShowBack($event)"
+									></button>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</p-fileUpload>
+			</div>
+		</div>
+
+		<div *ngIf="!isEdit" class="p-dialog-footer button-create col-md-12">
+			<p-button
+				[label]="_translateService.instant('common.action.add')"
+				styleClass="p-button-text p-button-primary"
+				icon="pi pi-plus"
+				[disabled]="!isDisable()"
+			>
+			</p-button>
+		</div>
+		<div *ngIf="isEdit" class="p-dialog-footer button-create col-md-12">
+			<p-button
+				[label]="_translateService.instant('common.action.delete')"
+				styleClass="p-button-text p-button-primary"
+				class="float-start ms-2"
+				(click)="doDelete(customer.customerNo)"
+			>
+			</p-button>
+			<p-button
+				[label]="_translateService.instant('common.action.temporary-save')"
+				styleClass="p-button-text p-button-primary"
+				class="float-start ms-2"
+				(click)="updateCustomer()"
+			>
+				<!-- [disabled]="!isDisable()" -->
+			</p-button>
+			<p-button
+				[label]="
+					_translateService.instant('common.action.activation-confirm')
+				"
+				styleClass="p-button-text p-button-primary"
+				(click)="
+					doVerificationCustomer(customer.customerNo, customer.status)
+				"
+			>
+			</p-button>
+		</div>
+	</div>
+</form>

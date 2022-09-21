@@ -1,0 +1,16 @@
+<app-main-layout>
+	<div class="row">
+		<div class="col-lg-12 my-auto text-center">
+			<pre *ngIf="false">{{adminInfo | json}}</pre>
+			<br><br>
+			<h3 class="display-1 text-bolder text-gradient text-primary">
+				{{_translateService.instant('pages.onboarding.page-message-header')}}</h3>
+			<br>
+			<h3 class="display-1 text-bolder">
+				{{_translateService.instant('pages.onboarding.page-message-description')}}</h3>
+			<br>
+			<h3 class="display-3 text-bolder">{{_translateService.instant('pages.onboarding.page-message-footer')}}
+			</h3>
+		</div>
+	</div>
+</app-main-layout>

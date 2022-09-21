@@ -1,0 +1,118 @@
+<app-main-layout>
+	<app-advance-search></app-advance-search>
+
+	<p-confirmDialog
+		header="Xác Nhận"
+		icon="pi pi-exclamation-triangle"
+	></p-confirmDialog>
+	<div class="app-table" *ngIf="packingList">
+		<p-table
+			[value]="packingList"
+			styleClass="p-datatable-sm p-datatable-gridlines"
+			responsiveLayout="scroll"
+			[paginator]="true"
+			[rows]="10"
+			[showCurrentPageReport]="true"
+			responsiveLayout="scroll"
+			currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+			[totalRecords]="totalRecords"
+			[rowsPerPageOptions]="[5, 10, 15]"
+			[scrollable]="true"
+			scrollHeight="400px"
+			[resizableColumns]="true"
+		>
+			<ng-template pTemplate="caption">
+				<div class="flex table-caption">
+					<h5>
+						{{
+							_translateService.instant("pages.qrcode.table.result-list")
+						}}
+					</h5>
+					<span>
+						<p-button
+							label="Thêm mã QR"
+							icon="pi pi-plus"
+							(click)="showModalDialogCreate()"
+						></p-button>
+					</span>
+				</div>
+			</ng-template>
+			<ng-template pTemplate="header">
+				<tr>
+					<th class="max-width-260">
+						{{ _translateService.instant("pages.qrcode.table.activity") }}
+					</th>
+					<th class="max-width-360">
+						{{
+							_translateService.instant(
+								"pages.qrcode.table.packing-number"
+							)
+						}}
+					</th>
+					<th>
+						{{ _translateService.instant("pages.qrcode.table.product") }}
+					</th>
+					<th class="max-width-260">
+						{{
+							_translateService.instant(
+								"pages.qrcode.table.product-date"
+							)
+						}}
+					</th>
+					<th class="max-width-260">
+						{{
+							_translateService.instant("pages.qrcode.table.create-date")
+						}}
+					</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-packing>
+				<tr>
+					<td class="max-width-260">
+						<button
+							pButton
+							pRipple
+							type="button"
+							label="Download"
+							class="p-button-success p-button-text mr-2"
+						></button>
+
+						|
+						<button
+							pButton
+							pRipple
+							type="button"
+							label="Xoá"
+							class="p-button-danger p-button-text mr-2"
+							(click)="
+								doDelete(
+									packing.packingId,
+									'Bạn có muốn xóa packing này không?'
+								)
+							"
+						></button>
+					</td>
+					<td class="max-width-360">
+						<button
+							pButton
+							pRipple
+							type="button"
+							[label]="packing.packingId"
+							(click)="showModalDialogDetail(packing.packingId)"
+							class="p-button-text"
+						></button>
+					</td>
+					<td *ngIf="productList">
+						{{ findProduct(packing.productId, productList)?.productName }}
+					</td>
+					<td class="max-width-260">
+						{{ packing.packingDate | date: "dd/MM/yyyy" }}
+					</td>
+					<td class="max-width-260">
+						{{ packing.createdDate | date: "dd/MM/yyyy" }}
+					</td>
+				</tr>
+			</ng-template>
+		</p-table>
+	</div>
+</app-main-layout>

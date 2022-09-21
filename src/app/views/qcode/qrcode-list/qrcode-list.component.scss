@@ -1,0 +1,27 @@
+.app-table {
+	width: 100%;
+	height: auto;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+	background-color: #fff !important;
+
+	margin-top: 2rem;
+	padding: 5px;
+
+	th, td {
+		justify-content: center;
+	}
+}
+
+.max-width-260 {
+	max-width: 260px;
+}
+
+.max-width-360 {
+	max-width: 360px;
+}
+
+.table-caption {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

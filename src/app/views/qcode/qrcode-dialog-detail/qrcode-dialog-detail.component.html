@@ -1,0 +1,70 @@
+
+    <div class="d-flex flex-column ">
+        <label  class="text-title-element" >
+            {{_translateService.instant('pages.qrcode.labels.reatiler-text')}}
+        </label>
+        <div *ngIf="qrcodeDetail?.qrCodeForReatiler" class="d-flex flex-wrap container-element-need-delete">
+            <div *ngFor="let reatiler of qrcodeDetail.qrCodeForReatiler " class="d-flex flex-row div-element-need-delete">
+                <div class="d-flex flex-row" >
+                    <div class="d-flex flex-column div-qr-code-img">
+                        <img class="img-resize" [src]="reatiler.qrUrl">
+                        <button *ngIf="reatiler.qrStatus===0" (click)="onClickActiveButton(reatiler.qrCode)" pButton pRipple type="button" label="Kích Hoạt" class="p-button-primary p-button-delete" icon="pi pi-check"></button>
+                        <button *ngIf="reatiler.qrStatus===1" (click)="onClickDeactiveButton(reatiler.qrCode)" pButton pRipple type="button" label="Hủy" class="p-button-danger p-button-delete" icon="pi pi-trash"></button>
+                    </div>
+
+                    <div class="div-text">
+                        <div>
+                            <p *ngIf="reatiler.qrStatus===0" class="text-code-element">{{_translateService.instant('pages.qrcode.labels.qr-status-text')}} <span class="span-text-red">{{_translateService.instant('pages.qrcode.labels.qr-status-non-active-text')}}</span></p>
+                            <p *ngIf="reatiler.qrStatus===1" class="text-code-element">{{_translateService.instant('pages.qrcode.labels.qr-status-text')}} <span class="span-text-green">{{_translateService.instant('pages.qrcode.labels.qr-status-active-text')}}</span></p>
+                        </div>
+                        <div>
+                            
+                            <p *ngIf="reatiler.qrUsed===0" class="text-code-element">{{_translateService.instant('pages.qrcode.labels.qr-used-text')}} <span>{{_translateService.instant('pages.qrcode.labels.qr-used-non-active-text')}}</span></p>
+                            <p *ngIf="reatiler.qrUsed===1" class="text-code-element">{{_translateService.instant('pages.qrcode.labels.qr-used-text')}} <span class="span-text-green">{{_translateService.instant('pages.qrcode.labels.qr-used-active-text')}}</span></p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        
+            
+        </div>
+            
+        
+        
+        <label class="text-title-element">
+            {{_translateService.instant('pages.qrcode.labels.installer-text')}}
+        </label>
+        <div *ngIf="qrcodeDetail?.qrCodeForInstaller" class="d-flex flex-wrap container-element-need-delete">
+            <div *ngFor="let installer of qrcodeDetail.qrCodeForInstaller " class="d-flex flex-row div-element-need-delete">
+                <div class="d-flex flex-row" >
+                    <div class="d-flex flex-column div-qr-code-img">
+                        <img class="img-resize" [src]="installer.qrUrl">
+                        
+                        <button *ngIf="installer.qrStatus===0" (click)="onClickActiveButton(installer.qrCode)" pButton pRipple type="button" label="Kích Hoạt" class="p-button-primary p-button-delete" icon="pi pi-check"></button>
+                        <button *ngIf="installer.qrStatus===1" (click)="onClickDeactiveButton(installer.qrCode)" pButton pRipple type="button" label="Hủy" class="p-button-danger p-button-delete" icon="pi pi-trash"></button>
+                    </div>
+
+                    <div class="div-text">
+                        <div>
+                            <p *ngIf="installer.qrStatus===0" class="text-code-element">{{_translateService.instant('pages.qrcode.labels.qr-status-text')}} <span class="span-text-red">{{_translateService.instant('pages.qrcode.labels.qr-status-non-active-text')}}</span></p>
+                            <p *ngIf="installer.qrStatus===1" class="text-code-element">{{_translateService.instant('pages.qrcode.labels.qr-status-text')}} <span class="span-text-green">{{_translateService.instant('pages.qrcode.labels.qr-status-active-text')}}</span></p>
+                        </div>
+                        <div>
+                            
+                            <p *ngIf="installer.qrUsed===0" class="text-code-element">{{_translateService.instant('pages.qrcode.labels.qr-used-text')}} <span>{{_translateService.instant('pages.qrcode.labels.qr-used-non-active-text')}}</span></p>
+                            <p *ngIf="installer.qrUsed===1" class="text-code-element">{{_translateService.instant('pages.qrcode.labels.qr-used-text')}} <span class="span-text-green">{{_translateService.instant('pages.qrcode.labels.qr-used-active-text')}}</span></p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        
+            
+        </div>
+    
+    </div>
+    
+    

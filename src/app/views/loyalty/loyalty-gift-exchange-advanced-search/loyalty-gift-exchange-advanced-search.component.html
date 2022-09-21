@@ -1,0 +1,101 @@
+<form [formGroup]="customerSearch" class="form">
+    <h5>
+        {{ _translateService.instant("common.form.title.advanced-search") }}
+    </h5>
+    <hr />
+
+    <div class="row input-field">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="customerNo" class="form-control-label">{{
+						_translateService.instant(
+							"pages.customer.labels.customer-no"
+						)
+					}}:
+				</label>
+                <input type="text" id="customerNo" class="form-control" formControlName="txtCustomerNo" [placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-number-of-employees'
+						)
+					" />
+                <common-validation-message [mainForm]="customerSearch" controllerName="txtCustomerNo" controllerType="textbox" maxLength="18" [controllerTitle]="
+						_translateService.instant('pages.customer.labels.customer-no')
+					">
+                </common-validation-message>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="customerPhone" class="form-control-label">{{
+						_translateService.instant(
+							"pages.customer.labels.customer-phone-number"
+						)
+					}}:
+				</label>
+                <input type="text" id="customerPhone" class="form-control" formControlName="txtPhoneNumber" [placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-phone-number'
+						)
+					" />
+                <common-validation-message [mainForm]="customerSearch" controllerName="txtPhoneNumber" controllerType="textbox" maxLength="12" minLength="8" [controllerTitle]="
+						_translateService.instant(
+							'pages.customer.labels.customer-phone-number'
+						)
+					">
+                </common-validation-message>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="customerAddress" class="form-control-label">{{
+						_translateService.instant(
+							"pages.customer.labels.customer-address"
+						)
+					}}:</label
+				>
+				<input
+					type="text"
+					id="customerAddress"
+					class="form-control"
+					formControlName="txtAddress"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-address'
+						)
+					"
+				/>
+				<common-validation-message
+					[mainForm]="customerSearch"
+					controllerName="txtAddress"
+					controllerType="textbox"
+					maxLength="1000"
+					[controllerTitle]="
+						_translateService.instant(
+							'pages.customer.labels.customer-address'
+						)
+					"
+				>
+				</common-validation-message>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<app-common-citis
+					[isCustomerUpdation]="isCustomerUpdation"
+					(currentProvince)="getProvince($event)"
+					(currentProvinces)="getProvinces($event)"
+					(currentSelectedProvince)="getProvinced($event)"
+				>
+				</app-common-citis>
+			</div>
+		</div>
+		<div class="col-md-6 flex btn-search">
+			<button
+				pButton
+				type="button"
+				label="Lọc Danh Sách"
+				(click)="searchGiftExchange()"
+			></button>
+		</div>
+	</div>
+</form>

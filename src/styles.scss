@@ -1,0 +1,78 @@
+/** Scroll Bar */
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 6px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(221, 221, 221, 0.5);
+    box-shadow: inset 0 0 6px rgba(221, 221, 221, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent;
+}
+
+html,
+body {
+	height: 98%;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-main-header-layout {
+    nav {
+        z-index: 9;
+    }
+}
+
+common-validation-message {
+    .error-message {
+        color: #ea0606;
+        font-size: 1em;
+        font-weight: 600;
+    }
+}
+
+.p-dialog {
+    .p-dialog-header {
+        background: #2152ff !important;
+        color: #ffffff !important;
+        .p-dialog-header-icon {
+            color: #ffffff !important;
+        }
+    }
+    .p-dialog-content {
+        padding: 2rem 1.5rem 2rem 1.5rem !important;
+    }
+}
+
+main {
+	& > .container-fluid {
+		min-height: 300px;
+	}
+
+	.main-blur {
+		-webkit-filter: blur(5px);
+		-moz-filter: blur(5px);
+		-o-filter: blur(5px);
+		-ms-filter: blur(5px);
+		filter: blur(5px);
+	}
+}

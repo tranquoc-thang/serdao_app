@@ -1,0 +1,134 @@
+<div class="campaigns-edit-wrapper">
+	<div class="gift-monthly-edit">
+		<div class="row input-field">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="pointExchangeMonthly" class="form-control-label"
+							>Điểm quy đổi trong quý:
+						</label>
+						<input
+							type="text"
+							id="pointExchangeMonthly"
+							class="form-control"
+							formControlName="pointExchangeMonthly"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="giftExchangeMonthly" class="form-control-label"
+							>Sản phẩm quy đổi:
+						</label>
+						<input
+							type="text"
+							id="giftExchangeMonthly"
+							class="form-control"
+							formControlName="giftExchangeMonthly"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="quantityExchangeMonthly" class="form-control-label"
+							>Số lượng quy đổi:
+						</label>
+						<input
+							type="text"
+							id="quantityExchangeMonthly"
+							class="form-control"
+							formControlName="quantityExchangeMonthly"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="description" class="form-control-label"
+							>Mô tả:
+						</label>
+						<textarea
+									rows="5"
+									cols="30"
+									pInputTextarea
+									[autoResize]="true"
+									id="description"
+								></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label
+							for="customerIdentificationFront"
+							class="form-control-label"
+							>Thumbnail:</label
+						>
+						<p-fileUpload
+							name="docs[]"
+							[multiple]="true"
+							accept="image/*"
+							[maxFileSize]="2000000"
+							[showUploadButton]="true"
+							class="w-full"
+							(customUpload)="onSelectEvent($event)"
+						>
+						</p-fileUpload>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label
+							for="customerIdentificationFront"
+							class="form-control-label"
+							>Icon:</label
+						>
+						<p-fileUpload
+							name="docs[]"
+							[multiple]="true"
+							accept="image/*"
+							[maxFileSize]="2000000"
+							[showUploadButton]="true"
+							class="w-full"
+							(customUpload)="onSelectEvent($event)"
+						>
+						</p-fileUpload>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label
+							for="customerIdentificationFront"
+							class="form-control-label"
+							>Banner:</label
+						>
+						<p-fileUpload
+							name="docs[]"
+							[multiple]="true"
+							accept="image/*"
+							[maxFileSize]="2000000"
+							[showUploadButton]="true"
+							class="w-full"
+							(customUpload)="onSelectEvent($event)"
+						>
+						</p-fileUpload>
+					</div>
+				</div>
+			</div>
+			<div class="group-button">
+				<p-button class="save-button" label="Cập Nhật Quà Tặng"></p-button>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,32 @@
+.form {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    margin-top: 2rem;
+    h5 {
+        padding: 1rem 0 0 1rem;
+    }
+    .input-field {
+        justify-content: end;
+        padding: 0 2rem 0 2rem;
+    }
+}
+
+:host ::ng-deep {
+    .p-button-text {
+        width: 120px;
+        background-color: #008cff;
+        color: #ffffff;
+        border-color: #0000;
+        text-align: center;
+    }
+}
+
+.btn-search {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 0.75rem 0px;
+}

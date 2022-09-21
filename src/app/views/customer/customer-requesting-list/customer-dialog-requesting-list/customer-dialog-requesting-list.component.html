@@ -1,0 +1,160 @@
+<form [formGroup]="customerEditForm">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerName" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.customer.labels.customer-full-name"
+						)
+					}}
+				</label>
+				<input
+					type="text"
+					id="customerName"
+					class="form-control"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-full-name'
+						)
+					"
+					formControlName="txtName"
+					[ngModel]="customerName"
+				/>
+				<div>
+					<common-validation-message
+						[mainForm]="customerEditForm"
+						controllerName="txtName"
+						controllerType="textbox"
+						controllerTitle="Họ Và Tên"
+						maxLength="150"
+					>
+					</common-validation-message>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerBirthday" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-date-of-birth"
+					)
+				}}</label>
+				<p-calendar
+					(onSelect)="getDate($event)"
+					formControlName="txtBirthday"
+					inputId="customerBirthday"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-date-of-birth'
+						)
+					"
+					[showIcon]="true"
+					[(ngModel)]="customerBirthday"
+					dateFormat="dd/mm/yy"
+				></p-calendar>
+			</div>
+		</div>
+		<div *ngIf="customerDataProp.groupId === 1" class="col-md-12">
+			<div class="form-group">
+				<label for="companyName" class="form-control-label"
+					>{{
+						_translateService.instant(
+							"pages.customer.labels.customer-authorized-dealer"
+						)
+					}}
+				</label>
+				<input
+					type="text"
+					id="companyName"
+					class="form-control"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-authorized-dealer'
+						)
+					"
+					formControlName="txtCompanyName"
+					[ngModel]="companyName"
+				/>
+				<div>
+					<common-validation-message
+						[mainForm]="customerEditForm"
+						controllerName="txtCompanyName"
+						controllerType="textbox"
+						controllerTitle="Tên Đại Lý | Thầu Thợ"
+					>
+					</common-validation-message>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="customerAddress" class="form-control-label">{{
+					_translateService.instant(
+						"pages.customer.labels.customer-address"
+					)
+				}}</label>
+				<input
+					type="text"
+					id="customerAddress"
+					class="form-control"
+					formControlName="txtAddress"
+					[placeholder]="
+						_translateService.instant(
+							'pages.customer.placeholders.customer-address'
+						)
+					"
+					[ngModel]="customerAddress"
+				/>
+				<div>
+					<common-validation-message
+						[mainForm]="customerEditForm"
+						controllerName="txtAddress"
+						controllerType="textbox"
+						controllerTitle="Địa Chỉ"
+					>
+					</common-validation-message>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="form-group">
+				<app-common-citis
+					[isCustomerUpdation]="isCustomerUpdation"
+					(currentProvince)="getProvince($event)"
+					(currentSelectedProvince)="getProvinced($event)"
+					[selectedProvince]="customerDataProp.provinceId"
+				></app-common-citis>
+				<common-validation-message
+					[mainForm]="customerEditForm"
+					controllerName="txtProvince"
+					controllerType="selectbox"
+					controllerTitle="Tỉnh Thành"
+				>
+				</common-validation-message>
+			</div>
+		</div>
+		<div
+			class="p-dialog-footer button-create col-md-12 d-flex-center padding-left-12"
+		>
+			<div class="buttons-group">
+				<p-button
+					[label]="_translateService.instant('common.action.delete')"
+					styleClass="p-button-text p-button-primary"
+					(click)="handleDeletionRequestingProfile()"
+				></p-button>
+				<p-button
+					[label]="_translateService.instant('common.action.save-cache')"
+					styleClass="p-button-text p-button-primary"
+					(click)="handleSaveRequestingProfile()"
+				></p-button>
+			</div>
+			<p-button
+				[label]="_translateService.instant('common.action.accept-update')"
+				styleClass="p-button-text p-button-primary"
+				(click)="handleApproveRequestingProfile()"
+			></p-button>
+		</div>
+	</div>
+</form>

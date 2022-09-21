@@ -1,0 +1,109 @@
+<app-main-layout>
+    <app-common-advanced-search (searchEvent)="receiveSearch($event)"></app-common-advanced-search>
+
+    <p-confirmDialog header="Xác Nhận" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    <div class="app-table mt-5" *ngIf="customerList">
+        <p-table [value]="customerList" styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[5, 10, 15]" [scrollable]="true" scrollHeight="400px" [resizableColumns]="true">
+            <ng-template pTemplate="caption">
+                <div class="flex table-caption">
+                    <h5>
+                        {{ _translateService.instant( "pages.customer.labels.table-title" ) }}
+                    </h5>
+                    <span> </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th class="column-1">Hành Động</th>
+                    <th class="column-2">Trạng Thái</th>
+                    <th class="column-2">Avatar</th>
+                    <th class="column-3">Mã Khách Hàng</th>
+                    <th class="column-4">Loại</th>
+                    <th class="column-5">Họ và Tên</th>
+                    <th class="column-6">CMND/CCCD</th>
+                    <th class="column-7">Điện Thoại</th>
+                    <th class="column-8">Email</th>
+                    <th class="column-9">Hạng Thành Viên</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-customer>
+                <tr>
+                    <td class="app-table-action column-1" *ngIf="customer.status === 1">
+                        <button pButton pRipple type="button" label="Sửa" class="p-button-success p-button-text mr-2" (click)="
+								showModalDialog(customer.customerNo, customer.groupId)
+							"></button> |
+                        <button pButton pRipple type="button" label="Hủy" class="p-button-warning p-button-text mr-2" *ngIf="customer['status'] == 1" (click)="
+								doDeactive(
+									customer.customerNo,
+									-1,
+									'Tắt trạng thái hoạt động'
+								)
+							"></button> |
+                        <button pButton pRipple type="button" label="Xóa" class="p-button-danger p-button-text mr-2" (click)="
+								doDelete(
+									customer.customerNo,
+									'Bạn có muốn xóa tài khoản này không?'
+								)
+							"></button>
+                    </td>
+                    <td class="app-table-action column-1" *ngIf="customer.status === -1 || customer.status === 0">
+                        <button pButton pRipple type="button" label="Sửa" class="p-button-success p-button-text mr-2" (click)="
+								showModalDialog(customer.customerNo, customer.groupId)
+							"></button> |
+
+                        <button pButton pRipple type="button" label="Mở" class="p-button-warning p-button-text mr-2" *ngIf="customer['status'] == -1 || customer['status'] == 0" (click)="
+								doActive(
+									customer.customerNo,
+									1,
+									'Mở trạng thái hoạt động'
+								)
+							"></button> |
+                        <button pButton pRipple type="button" label="Xóa" class="p-button-danger p-button-text mr-2" (click)="
+								doDelete(
+									customer.customerNo,
+									'Bạn có muốn xóa tài khoản này không?'
+								)
+							"></button>
+                    </td>
+                    <td *ngFor="let col of cols" class="column-2">
+                        <div *ngIf="col.type == 'status'">
+                            <p class="active" *ngIf="customer[col.field] == 1">
+                                Đang hoạt động
+                            </p>
+                            <p class="inactive" *ngIf="
+									customer[col.field] == -1 || customer[col.field] == 0
+								">
+                                Ngưng hoạt động
+                            </p>
+                        </div>
+                    </td>
+                    <td class="column-2">
+                        <img src="{{ customer.customerAvatar }}" alt="customer-avatar" width="50px" height="50px" class="avatar" />
+                    </td>
+                    <td class="column-3 customer-no">
+                        {{ customer.customerNo }}
+                    </td>
+                    <td class="column-4">
+                        {{ customer.groupName }}
+                    </td>
+                    <td class="column-5">
+                        {{ customer.customerName }}
+                    </td>
+                    <td class="column-6">
+                        {{ customer.customerIdentification }}
+                    </td>
+                    <td class="column-7">
+                        {{ customer.customerPhone }}
+                    </td>
+                    <td class="column-8">
+                        {{ customer.customerEmail }}
+                    </td>
+                    <td class="column-9">
+                        {{ customer.membershipId | toMemberShip }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</app-main-layout>

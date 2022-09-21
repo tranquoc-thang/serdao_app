@@ -1,0 +1,145 @@
+<app-main-layout>
+	<campaign-advance-search
+		(searchEvent)="receiveSearch($event)"
+	></campaign-advance-search>
+	<p-confirmDialog
+		header="Xác Nhận"
+		icon="pi pi-exclamation-triangle"
+	></p-confirmDialog>
+	<div class="app-table" *ngIf="campaignList">
+		<p-table
+			[value]="campaignList"
+			styleClass="p-datatable-sm p-datatable-gridlines"
+			responsiveLayout="scroll"
+			[paginator]="false"
+			[rows]="10"
+			[showCurrentPageReport]="true"
+			responsiveLayout="scroll"
+			currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+			[scrollable]="true"
+			scrollHeight="400px"
+			[resizableColumns]="true"
+		>
+			<ng-template pTemplate="caption">
+				<div class="flex table-caption">
+					<h5>Danh sách kết quả</h5>
+					<div class="flex btn-search">
+						<button
+							pButton
+							type="button"
+							label="Thêm Chiến Dịch"
+							(click)="showModalDialogCreate()"
+						></button>
+					</div>
+				</div>
+			</ng-template>
+			<ng-template pTemplate="header">
+				<tr>
+					<th class="column-1">Hành Động</th>
+					<th class="column-2">Trạng Thái</th>
+					<th class="column-3">Mã Chiến Dịch</th>
+					<th class="column-4">Loại</th>
+					<th class="column-5">Đối Tượng Áp Dụng</th>
+					<th class="column-6">Tiêu Đề</th>
+					<th class="column-7">Ngày Bắt Đầu</th>
+					<th class="column-8">Ngày Kết Thúc</th>
+					<th class="column-9">Ngày Kết Thúc Đổi Thưởng</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-campaigns>
+				<tr>
+					<td class="column-1">
+						<button
+							pButton
+							pRipple
+							type="button"
+							label="Cập Nhật"
+							class="p-button-success p-button-text mr-2"
+							(click)="
+								showModalDialogEdit(
+									campaigns.campaignId,
+									campaigns.campaignType
+								)
+							"
+						></button>
+						|
+						<button
+							pButton
+							pRipple
+							type="button"
+							label="Hủy"
+							class="p-button-warning p-button-text mr-2"
+						></button>
+						|
+						<button
+							pButton
+							pRipple
+							type="button"
+							label="Xoá"
+							class="p-button-danger p-button-text mr-2"
+							(click)="
+								doDelete(
+									campaigns.campaignId,
+									'Bạn có muốn xóa chiến dịch này không?'
+								)
+							"
+						></button>
+					</td>
+					<td *ngFor="let col of cols" class="column-2">
+						<div *ngIf="col.type == 'campaignStatus'">
+							<p class="active" *ngIf="campaigns[col.field] == 1">
+								Đang hoạt động
+							</p>
+							<p
+								class="inactive"
+								*ngIf="
+									campaigns[col.field] == -1 ||
+									campaigns[col.field] == 0
+								"
+							>
+								Ngưng hoạt động
+							</p>
+						</div>
+					</td>
+					<td class="column-3">
+						{{ campaigns.campaignId }}
+					</td>
+					<td class="column-4">
+						{{ campaigns.campaignType }}
+					</td>
+					<td *ngFor="let col of groupCols" class="column-5">
+						<div *ngIf="col.type == 'campaignGroupId'">
+							<p class="active" *ngIf="campaigns[col.field] == 1">
+								Đại Lý
+							</p>
+							<p class="inactive" *ngIf="campaigns[col.field] == 2">
+								Thầu Thợ
+							</p>
+						</div>
+					</td>
+					<td class="column-6">
+						{{ campaigns.campaignTitle }}
+					</td>
+					<td class="column-7">
+						{{ campaigns.campaignStartDate | date: "dd/MM/yyyy" }}
+					</td>
+					<td class="column-8">
+						{{ campaigns.campaignEndDate | date: "dd/MM/yyyy" }}
+					</td>
+					<td class="column-9">
+						{{ campaigns.campaignRedemptionEndDate | date: "dd/MM/yyyy" }}
+					</td>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="summary">
+				<div class="flex align-items-center justify-content-between">
+					<p-paginator
+						[rows]="10"
+						[totalRecords]="totalRecords"
+						(onPageChange)="paginate($event)"
+					></p-paginator>
+				</div>
+			</ng-template>
+		</p-table>
+	</div>
+</app-main-layout>
